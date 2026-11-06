@@ -1,0 +1,3 @@
+[submodule "semantics/linux-ebpf-semantics"]
+	path = semantics/linux-ebpf-semantics
+	url = https://github.com/OpenSourceVerif/linux-ebpf-semantics.git

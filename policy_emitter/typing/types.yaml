@@ -1,0 +1,258 @@
+# All of the information here is purely for documentation purposes.
+
+kinds:
+  register:   Type judgments on registers, pointer values, and the contents of
+              8-byte stack slots -- a slot holds either a spilled register (any
+              register-value type, all subtypes of REG) or raw BYTES, the two
+              being incomparable so a slot is never silently coerced.
+
+types:
+
+  # ---- register poset ---------------------------------------------------
+
+  # Top of the register-VALUE sub-poset (every spillable register type is <: REG)
+  # but NOT a true top of the kind: BYTES is deliberately left incomparable, so
+  # `t : REG` means "t holds a register value" and is false for a BYTES slot.
+  # Hence no `top: true` here -- the maximal value types carry explicit `<: REG`
+  # edges below instead.
+  REG:
+    kind: register
+
+  POISON:
+    kind: register
+    kernel: NOT_INIT
+
+  # Raw contents of a stack slot: an 8-byte window with a per-byte value and a
+  # per-byte initialization bitmap. Incomparable with REG (see above). A slot is
+  # read as a scalar only when every byte in range has init = true.
+  BYTES:
+    kind: register
+    fields: { bytes: "char[8]", init: "bool[8]" }
+
+  PTR_TO_CTX:
+    kind: register
+    kernel: PTR_TO_CTX
+    fields: { offset: int }
+
+  PTR_TO_STACK:
+    kind: register
+    kernel: PTR_TO_STACK
+    fields: { offset: int }
+
+  PTR_TO_MAP_VALUE:
+    kind: register
+    kernel: PTR_TO_MAP_VALUE
+    fields: { offset: int, map_ptr: symbolic, map_uid: int }
+
+  PTR_TO_MAP_VALUE_OR_NULL:
+    kind: register
+    kernel: PTR_TO_MAP_VALUE | PTR_MAYBE_NULL
+    fields: { offset: int, map_ptr: symbolic, map_uid: int }
+
+  PTR_TO_MAP_KEY:
+    kind: register
+    kernel: PTR_TO_MAP_KEY
+    fields: { offset: int }
+
+  # `range`: safe access extent in bytes, measured from the id-base (offset 0),
+  # established by a `data <op> data_end` bounds check (find_good_pkt_pointers).
+  # An access at fixed offset `off` of `size` bytes is in-packet iff
+  # `offset + off + size <= range` (and any variable index is >= 0).
+  PTR_TO_PACKET:
+    kind: register
+    kernel: PTR_TO_PACKET
+    fields: { offset: int, range: int }
+
+  PTR_TO_PACKET_META:
+    kind: register
+    kernel: PTR_TO_PACKET_META
+    fields: { offset: int, range: int }
+
+  PTR_TO_PACKET_END:
+    kind: register
+    kernel: PTR_TO_PACKET_END
+    fields: { offset: int }
+
+  PTR_TO_MEM:
+    kind: register
+    kernel: PTR_TO_MEM
+    fields: { offset: int }
+
+  PTR_TO_MEM_RINGBUF:
+    kind: register
+    kernel: PTR_TO_MEM | MEM_RINGBUF
+    fields: { offset: int }
+
+  # Read-only memory (e.g. a BPF_PSEUDO_BTF_ID ksym of a func / non-struct var).
+  # Deliberately NOT a subtype of PTR_TO_MEM: a `<:` edge is substitutability, and
+  # PTR_TO_MEM is writable, so the edge would let a write to read-only memory
+  # typecheck. Kept a sibling so the RDONLY restriction lives in the type itself,
+  # not in the absence of a PTR_TO_MEM write rule.
+  PTR_TO_MEM_RDONLY:
+    kind: register
+    kernel: PTR_TO_MEM | MEM_RDONLY
+    fields: { offset: int }
+
+  PTR_TO_BUF:
+    kind: register
+    kernel: PTR_TO_BUF
+    fields: { offset: int }
+
+  PTR_TO_BTF_ID:
+    kind: register
+    kernel: PTR_TO_BTF_ID
+    fields: { offset: int, btf_id: int }
+
+  PTR_TO_BTF_ID_OR_NULL:
+    kind: register
+    kernel: PTR_TO_BTF_ID | PTR_MAYBE_NULL
+    fields: { offset: int, btf_id: int }
+
+  PTR_TO_BTF_ID_TRUSTED:
+    kind: register
+    kernel: PTR_TO_BTF_ID | PTR_TRUSTED
+    fields: { offset: int, btf_id: int }
+
+  # Per-cpu BTF pointer (BPF_PSEUDO_BTF_ID ksym of a percpu var). Holds a per-cpu
+  # base offset, not a usable address: it must be resolved to a real pointer via
+  # bpf_per_cpu_ptr/bpf_this_cpu_ptr before any dereference. NOT a subtype of
+  # PTR_TO_BTF_ID for that reason -- a direct deref through it would be unsound.
+  PTR_TO_BTF_ID_PERCPU:
+    kind: register
+    kernel: PTR_TO_BTF_ID | MEM_PERCPU
+    fields: { offset: int, btf_id: int }
+
+  CONST_PTR_TO_MAP:
+    kind: register
+    kernel: CONST_PTR_TO_MAP
+    fields: { map_ptr: symbolic, map_uid: int }
+
+  # Pointer types reachable only via direct LDX/STX, never as helper mem args.
+  # They are MEM members but NOT HELPER_MEM members.
+  PTR_TO_FLOW_KEYS:
+    kind: register
+    kernel: PTR_TO_FLOW_KEYS
+    fields: { offset: int }
+
+  PTR_TO_SOCKET:
+    kind: register
+    kernel: PTR_TO_SOCKET
+    fields: { offset: int }
+
+  PTR_TO_SOCKET_OR_NULL:
+    kind: register
+    kernel: PTR_TO_SOCKET | PTR_MAYBE_NULL
+    fields: { offset: int }
+
+  PTR_TO_SOCK_COMMON:
+    kind: register
+    kernel: PTR_TO_SOCK_COMMON
+    fields: { offset: int }
+
+  PTR_TO_SOCK_COMMON_OR_NULL:
+    kind: register
+    kernel: PTR_TO_SOCK_COMMON | PTR_MAYBE_NULL
+    fields: { offset: int }
+
+  PTR_TO_TCP_SOCK:
+    kind: register
+    kernel: PTR_TO_TCP_SOCK
+    fields: { offset: int }
+
+  PTR_TO_XDP_SOCK:
+    kind: register
+    kernel: PTR_TO_XDP_SOCK
+    fields: { offset: int }
+
+  PTR_TO_TP_BUFFER:
+    kind: register
+    kernel: PTR_TO_TP_BUFFER
+    fields: { offset: int }
+
+  PTR_TO_ARENA:
+    kind: register
+    kernel: PTR_TO_ARENA
+    fields: { offset: int }
+
+  # Helper/kfunc dynptr argument only: not dereferenceable, not spillable.
+  CONST_PTR_TO_DYNPTR:
+    kind: register
+    kernel: CONST_PTR_TO_DYNPTR
+    fields: { offset: int }
+
+  # Address of a static subprogram (BPF_PSEUDO_FUNC ldimm64). Callback argument
+  # to helpers like bpf_loop; not dereferenceable, arithmetic is rejected.
+  PTR_TO_FUNC:
+    kind: register
+    kernel: PTR_TO_FUNC
+    fields: { offset: int }
+
+  # Synthetic union (formerly BUF): the pointer types accepted as helper memory
+  # arguments (the ARG_PTR_TO_MEM family, validated by check_helper_mem_access).
+  HELPER_MEM:
+    kind: register
+
+  HELPER_MEM_OR_NULL:
+    kind: register
+    kernel: HELPER_MEM | PTR_MAYBE_NULL
+
+  # Synthetic union: every pointer type check_mem_access will dereference (the
+  # non-deny branches of its per-type dispatch). A strict superset of HELPER_MEM,
+  # adding the direct-access-only pointers above. Non-null by construction --
+  # check_mem_access rejects PTR_MAYBE_NULL pointers.
+  MEM:
+    kind: register
+
+  INT:
+    kind: register
+    fields: { value: int }
+
+# Only the genuine covering relations are listed; gen_poset.py draws the
+# transitive reduction. REG is no longer a declared `top`, so the maximal
+# register-VALUE types carry explicit `<: REG` edges (every other value type
+# reaches REG transitively through one of them). BYTES has no edge to REG and is
+# therefore incomparable with it. POISON (kernel NOT_INIT) is the minimal value.
+edges:
+  # Maximal register-value types -> REG (keeps BYTES off this chain).
+  - { sub: MEM,                      sup: REG }
+  - { sub: HELPER_MEM_OR_NULL,       sup: REG }
+  - { sub: PTR_TO_BTF_ID_OR_NULL,    sup: REG }
+  - { sub: INT,                      sup: REG }
+  - { sub: POISON,                   sup: REG }
+  - { sub: CONST_PTR_TO_DYNPTR,      sup: REG }
+  - { sub: PTR_TO_FUNC,              sup: REG }
+  # RDONLY/PERCPU ksym pointers: sibling value types (see notes above), reachable
+  # to REG but intentionally OUT of the MEM/PTR_TO_MEM/PTR_TO_BTF_ID deref sets.
+  - { sub: PTR_TO_MEM_RDONLY,        sup: REG }
+  - { sub: PTR_TO_BTF_ID_PERCPU,     sup: REG }
+  - { sub: PTR_TO_PACKET_END,        sup: REG }
+  - { sub: PTR_TO_SOCKET_OR_NULL,    sup: REG }
+  - { sub: PTR_TO_SOCK_COMMON_OR_NULL, sup: REG }
+  - { sub: PTR_TO_MAP_VALUE,         sup: PTR_TO_MAP_VALUE_OR_NULL }
+  - { sub: PTR_TO_SOCKET,            sup: PTR_TO_SOCKET_OR_NULL }
+  - { sub: PTR_TO_SOCK_COMMON,       sup: PTR_TO_SOCK_COMMON_OR_NULL }
+  # HELPER_MEM members (the ARG_PTR_TO_MEM family).
+  - { sub: PTR_TO_STACK,             sup: HELPER_MEM }
+  - { sub: PTR_TO_PACKET,            sup: HELPER_MEM }
+  - { sub: PTR_TO_PACKET_META,       sup: HELPER_MEM }
+  - { sub: PTR_TO_MAP_KEY,           sup: HELPER_MEM }
+  - { sub: PTR_TO_MAP_VALUE,         sup: HELPER_MEM }
+  - { sub: PTR_TO_MEM_RINGBUF,       sup: HELPER_MEM }
+  - { sub: PTR_TO_MEM,               sup: HELPER_MEM }
+  - { sub: PTR_TO_BUF,               sup: HELPER_MEM }
+  - { sub: PTR_TO_BTF_ID_TRUSTED,    sup: HELPER_MEM }
+  - { sub: PTR_TO_BTF_ID,            sup: PTR_TO_BTF_ID_OR_NULL }
+  - { sub: HELPER_MEM,               sup: HELPER_MEM_OR_NULL }
+  - { sub: PTR_TO_MAP_VALUE_OR_NULL, sup: HELPER_MEM_OR_NULL }
+  # MEM = HELPER_MEM plus the direct-access-only dereferenceable pointers.
+  - { sub: HELPER_MEM,               sup: MEM }
+  - { sub: PTR_TO_CTX,               sup: MEM }
+  - { sub: CONST_PTR_TO_MAP,         sup: MEM }
+  - { sub: PTR_TO_BTF_ID,            sup: MEM }
+  - { sub: PTR_TO_FLOW_KEYS,         sup: MEM }
+  - { sub: PTR_TO_SOCKET,            sup: MEM }
+  - { sub: PTR_TO_SOCK_COMMON,       sup: MEM }
+  - { sub: PTR_TO_TCP_SOCK,          sup: MEM }
+  - { sub: PTR_TO_XDP_SOCK,          sup: MEM }
+  - { sub: PTR_TO_TP_BUFFER,         sup: MEM }
+  - { sub: PTR_TO_ARENA,             sup: MEM }

@@ -1,0 +1,4880 @@
+{
+    "BPF_PROG_TYPE_KPROBE": [
+        {
+            "name": "pt_regs",
+            "type": "INT",
+            "offset": 0,
+            "size": 168,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_XDP": [
+        {
+            "name": "data",
+            "type": "PTR_TO_PACKET",
+            "offset": 0,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 4,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_meta",
+            "type": "PTR_TO_PACKET_META",
+            "offset": 8,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ingress_ifindex",
+            "type": "INT",
+            "offset": 12,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "rx_queue_index",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ],
+                "offloaded": true
+            }
+        },
+        {
+            "name": "egress_ifindex",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ],
+                "attach_type": [
+                    "BPF_XDP_DEVMAP"
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_TRACEPOINT": [
+        {
+            "name": "tp_data",
+            "type": "INT",
+            "offset": 8,
+            "size": 8184,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_TRACING": null,
+    "BPF_PROG_TYPE_PERF_EVENT": [
+        {
+            "name": "regs",
+            "type": "INT",
+            "offset": 0,
+            "size": 168,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sample_period",
+            "type": "INT",
+            "offset": 168,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "addr",
+            "type": "INT",
+            "offset": 176,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_SOCKET_FILTER": [
+        {
+            "name": "len",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "pkt_type",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "mark",
+            "type": "INT",
+            "offset": 8,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "queue_mapping",
+            "type": "INT",
+            "offset": 12,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "protocol",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_present",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_tci",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_proto",
+            "type": "INT",
+            "offset": 28,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "priority",
+            "type": "INT",
+            "offset": 32,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ingress_ifindex",
+            "type": "INT",
+            "offset": 36,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ifindex",
+            "type": "INT",
+            "offset": 40,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tc_index",
+            "type": "INT",
+            "offset": 44,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "cb",
+            "type": "INT",
+            "offset": 48,
+            "size": 20,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            }
+        },
+        {
+            "name": "hash",
+            "type": "INT",
+            "offset": 68,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "napi_id",
+            "type": "INT",
+            "offset": 84,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_segs",
+            "type": "INT",
+            "offset": 164,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCK_COMMON_OR_NULL",
+            "offset": 168,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_size",
+            "type": "INT",
+            "offset": 176,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_SCHED_CLS": [
+        {
+            "name": "len",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "pkt_type",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "mark",
+            "type": "INT",
+            "offset": 8,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "queue_mapping",
+            "type": "INT",
+            "offset": 12,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "protocol",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_present",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_tci",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_proto",
+            "type": "INT",
+            "offset": 28,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "priority",
+            "type": "INT",
+            "offset": 32,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "ingress_ifindex",
+            "type": "INT",
+            "offset": 36,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ifindex",
+            "type": "INT",
+            "offset": 40,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tc_index",
+            "type": "INT",
+            "offset": 44,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "cb",
+            "type": "INT",
+            "offset": 48,
+            "size": 20,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            }
+        },
+        {
+            "name": "hash",
+            "type": "INT",
+            "offset": 68,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tc_classid",
+            "type": "INT",
+            "offset": 72,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "data",
+            "type": "PTR_TO_PACKET",
+            "offset": 76,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 80,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "napi_id",
+            "type": "INT",
+            "offset": 84,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_meta",
+            "type": "PTR_TO_PACKET_META",
+            "offset": 140,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tstamp",
+            "type": "INT",
+            "offset": 152,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    8
+                ]
+            }
+        },
+        {
+            "name": "wire_len",
+            "type": "INT",
+            "offset": 160,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_segs",
+            "type": "INT",
+            "offset": 164,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCK_COMMON_OR_NULL",
+            "offset": 168,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_size",
+            "type": "INT",
+            "offset": 176,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tstamp_type",
+            "type": "INT",
+            "offset": 180,
+            "size": 1,
+            "read": {
+                "access_sizes": [
+                    1
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "hwtstamp",
+            "type": "INT",
+            "offset": 184,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_SCHED_ACT": [
+        {
+            "name": "len",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "pkt_type",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "mark",
+            "type": "INT",
+            "offset": 8,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "queue_mapping",
+            "type": "INT",
+            "offset": 12,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "protocol",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_present",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_tci",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_proto",
+            "type": "INT",
+            "offset": 28,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "priority",
+            "type": "INT",
+            "offset": 32,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "ingress_ifindex",
+            "type": "INT",
+            "offset": 36,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ifindex",
+            "type": "INT",
+            "offset": 40,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tc_index",
+            "type": "INT",
+            "offset": 44,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "cb",
+            "type": "INT",
+            "offset": 48,
+            "size": 20,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            }
+        },
+        {
+            "name": "hash",
+            "type": "INT",
+            "offset": 68,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tc_classid",
+            "type": "INT",
+            "offset": 72,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "data",
+            "type": "PTR_TO_PACKET",
+            "offset": 76,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 80,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "napi_id",
+            "type": "INT",
+            "offset": 84,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_meta",
+            "type": "PTR_TO_PACKET_META",
+            "offset": 140,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tstamp",
+            "type": "INT",
+            "offset": 152,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    8
+                ]
+            }
+        },
+        {
+            "name": "wire_len",
+            "type": "INT",
+            "offset": 160,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_segs",
+            "type": "INT",
+            "offset": 164,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCK_COMMON_OR_NULL",
+            "offset": 168,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_size",
+            "type": "INT",
+            "offset": 176,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tstamp_type",
+            "type": "INT",
+            "offset": 180,
+            "size": 1,
+            "read": {
+                "access_sizes": [
+                    1
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "hwtstamp",
+            "type": "INT",
+            "offset": 184,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_CGROUP_SKB": [
+        {
+            "name": "len",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "pkt_type",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "mark",
+            "type": "INT",
+            "offset": 8,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "queue_mapping",
+            "type": "INT",
+            "offset": 12,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "protocol",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_present",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_tci",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_proto",
+            "type": "INT",
+            "offset": 28,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "priority",
+            "type": "INT",
+            "offset": 32,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "ingress_ifindex",
+            "type": "INT",
+            "offset": 36,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ifindex",
+            "type": "INT",
+            "offset": 40,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tc_index",
+            "type": "INT",
+            "offset": 44,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "cb",
+            "type": "INT",
+            "offset": 48,
+            "size": 20,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            }
+        },
+        {
+            "name": "hash",
+            "type": "INT",
+            "offset": 68,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data",
+            "type": "PTR_TO_PACKET",
+            "offset": 76,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ],
+                "capability": [
+                    "CAP_BPF"
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 80,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ],
+                "capability": [
+                    "CAP_BPF"
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "napi_id",
+            "type": "INT",
+            "offset": 84,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "family",
+            "type": "INT",
+            "offset": 88,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_ip4",
+            "type": "INT",
+            "offset": 92,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_ip4",
+            "type": "INT",
+            "offset": 96,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_ip6",
+            "type": "INT",
+            "offset": 100,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_ip6",
+            "type": "INT",
+            "offset": 116,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_port",
+            "type": "INT",
+            "offset": 132,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_port",
+            "type": "INT",
+            "offset": 136,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tstamp",
+            "type": "INT",
+            "offset": 152,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    8
+                ],
+                "capability": [
+                    "CAP_BPF"
+                ]
+            }
+        },
+        {
+            "name": "gso_segs",
+            "type": "INT",
+            "offset": 164,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCK_COMMON_OR_NULL",
+            "offset": 168,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_size",
+            "type": "INT",
+            "offset": 176,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "hwtstamp",
+            "type": "INT",
+            "offset": 184,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_LWT_IN": [
+        {
+            "name": "len",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "pkt_type",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "mark",
+            "type": "INT",
+            "offset": 8,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "queue_mapping",
+            "type": "INT",
+            "offset": 12,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "protocol",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_present",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_tci",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_proto",
+            "type": "INT",
+            "offset": 28,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "priority",
+            "type": "INT",
+            "offset": 32,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "ingress_ifindex",
+            "type": "INT",
+            "offset": 36,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ifindex",
+            "type": "INT",
+            "offset": 40,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tc_index",
+            "type": "INT",
+            "offset": 44,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "cb",
+            "type": "INT",
+            "offset": 48,
+            "size": 20,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            }
+        },
+        {
+            "name": "hash",
+            "type": "INT",
+            "offset": 68,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data",
+            "type": "PTR_TO_PACKET",
+            "offset": 76,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 80,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "napi_id",
+            "type": "INT",
+            "offset": 84,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_segs",
+            "type": "INT",
+            "offset": 164,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCK_COMMON_OR_NULL",
+            "offset": 168,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_size",
+            "type": "INT",
+            "offset": 176,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_LWT_OUT": [
+        {
+            "name": "len",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "pkt_type",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "mark",
+            "type": "INT",
+            "offset": 8,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "queue_mapping",
+            "type": "INT",
+            "offset": 12,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "protocol",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_present",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_tci",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_proto",
+            "type": "INT",
+            "offset": 28,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "priority",
+            "type": "INT",
+            "offset": 32,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "ingress_ifindex",
+            "type": "INT",
+            "offset": 36,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ifindex",
+            "type": "INT",
+            "offset": 40,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tc_index",
+            "type": "INT",
+            "offset": 44,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "cb",
+            "type": "INT",
+            "offset": 48,
+            "size": 20,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            }
+        },
+        {
+            "name": "hash",
+            "type": "INT",
+            "offset": 68,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data",
+            "type": "PTR_TO_PACKET",
+            "offset": 76,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 80,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "napi_id",
+            "type": "INT",
+            "offset": 84,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_segs",
+            "type": "INT",
+            "offset": 164,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCK_COMMON_OR_NULL",
+            "offset": 168,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_size",
+            "type": "INT",
+            "offset": 176,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_LWT_XMIT": [
+        {
+            "name": "len",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "pkt_type",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "mark",
+            "type": "INT",
+            "offset": 8,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "queue_mapping",
+            "type": "INT",
+            "offset": 12,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "protocol",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_present",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_tci",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_proto",
+            "type": "INT",
+            "offset": 28,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "priority",
+            "type": "INT",
+            "offset": 32,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "ingress_ifindex",
+            "type": "INT",
+            "offset": 36,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ifindex",
+            "type": "INT",
+            "offset": 40,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tc_index",
+            "type": "INT",
+            "offset": 44,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "cb",
+            "type": "INT",
+            "offset": 48,
+            "size": 20,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            }
+        },
+        {
+            "name": "hash",
+            "type": "INT",
+            "offset": 68,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data",
+            "type": "PTR_TO_PACKET",
+            "offset": 76,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 80,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "napi_id",
+            "type": "INT",
+            "offset": 84,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_segs",
+            "type": "INT",
+            "offset": 164,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCK_COMMON_OR_NULL",
+            "offset": 168,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_size",
+            "type": "INT",
+            "offset": 176,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_LWT_SEG6LOCAL": [
+        {
+            "name": "len",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "pkt_type",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "mark",
+            "type": "INT",
+            "offset": 8,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "queue_mapping",
+            "type": "INT",
+            "offset": 12,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "protocol",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_present",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_tci",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_proto",
+            "type": "INT",
+            "offset": 28,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "priority",
+            "type": "INT",
+            "offset": 32,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "ingress_ifindex",
+            "type": "INT",
+            "offset": 36,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ifindex",
+            "type": "INT",
+            "offset": 40,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tc_index",
+            "type": "INT",
+            "offset": 44,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "cb",
+            "type": "INT",
+            "offset": 48,
+            "size": 20,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            }
+        },
+        {
+            "name": "hash",
+            "type": "INT",
+            "offset": 68,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data",
+            "type": "PTR_TO_PACKET",
+            "offset": 76,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 80,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "napi_id",
+            "type": "INT",
+            "offset": 84,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_segs",
+            "type": "INT",
+            "offset": 164,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCK_COMMON_OR_NULL",
+            "offset": 168,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_size",
+            "type": "INT",
+            "offset": 176,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_SOCK_OPS": [
+        {
+            "name": "op",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "reply",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "args",
+            "type": "INT",
+            "offset": 4,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "family",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_ip4",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_ip4",
+            "type": "INT",
+            "offset": 28,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_ip6",
+            "type": "INT",
+            "offset": 32,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_ip6",
+            "type": "INT",
+            "offset": 48,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_port",
+            "type": "INT",
+            "offset": 64,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_port",
+            "type": "INT",
+            "offset": 68,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "is_fullsock",
+            "type": "INT",
+            "offset": 72,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "snd_cwnd",
+            "type": "INT",
+            "offset": 76,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "srtt_us",
+            "type": "INT",
+            "offset": 80,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "bpf_sock_ops_cb_flags",
+            "type": "INT",
+            "offset": 84,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "state",
+            "type": "INT",
+            "offset": 88,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "rtt_min",
+            "type": "INT",
+            "offset": 92,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "snd_ssthresh",
+            "type": "INT",
+            "offset": 96,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "rcv_nxt",
+            "type": "INT",
+            "offset": 100,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "snd_nxt",
+            "type": "INT",
+            "offset": 104,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "snd_una",
+            "type": "INT",
+            "offset": 108,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "mss_cache",
+            "type": "INT",
+            "offset": 112,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ecn_flags",
+            "type": "INT",
+            "offset": 116,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "rate_delivered",
+            "type": "INT",
+            "offset": 120,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "rate_interval_us",
+            "type": "INT",
+            "offset": 124,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "packets_out",
+            "type": "INT",
+            "offset": 128,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "retrans_out",
+            "type": "INT",
+            "offset": 132,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "total_retrans",
+            "type": "INT",
+            "offset": 136,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "segs_in",
+            "type": "INT",
+            "offset": 140,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_segs_in",
+            "type": "INT",
+            "offset": 144,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "segs_out",
+            "type": "INT",
+            "offset": 148,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_segs_out",
+            "type": "INT",
+            "offset": 152,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "lost_out",
+            "type": "INT",
+            "offset": 156,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sacked_out",
+            "type": "INT",
+            "offset": 160,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sk_txhash",
+            "type": "INT",
+            "offset": 164,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "bytes_received",
+            "type": "INT",
+            "offset": 168,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "bytes_acked",
+            "type": "INT",
+            "offset": 176,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCKET_OR_NULL",
+            "offset": 184,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "skb_data",
+            "type": "PTR_TO_PACKET",
+            "offset": 192,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "skb_data_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 200,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "skb_len",
+            "type": "INT",
+            "offset": 208,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "skb_tcp_flags",
+            "type": "INT",
+            "offset": 212,
+            "size": 4,
+            "interior": false,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "skb_hwtstamp",
+            "type": "INT",
+            "offset": 216,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_SK_SKB": [
+        {
+            "name": "len",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "pkt_type",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "queue_mapping",
+            "type": "INT",
+            "offset": 12,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "protocol",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_present",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_tci",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "vlan_proto",
+            "type": "INT",
+            "offset": 28,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "priority",
+            "type": "INT",
+            "offset": 32,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "ingress_ifindex",
+            "type": "INT",
+            "offset": 36,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ifindex",
+            "type": "INT",
+            "offset": 40,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "tc_index",
+            "type": "INT",
+            "offset": 44,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "cb",
+            "type": "INT",
+            "offset": 48,
+            "size": 20,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "hash",
+            "type": "INT",
+            "offset": 68,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data",
+            "type": "PTR_TO_PACKET",
+            "offset": 76,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 80,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "napi_id",
+            "type": "INT",
+            "offset": 84,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "family",
+            "type": "INT",
+            "offset": 88,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_ip4",
+            "type": "INT",
+            "offset": 92,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_ip4",
+            "type": "INT",
+            "offset": 96,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_ip6",
+            "type": "INT",
+            "offset": 100,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_ip6",
+            "type": "INT",
+            "offset": 116,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_port",
+            "type": "INT",
+            "offset": 132,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_port",
+            "type": "INT",
+            "offset": 136,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_segs",
+            "type": "INT",
+            "offset": 164,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCK_COMMON_OR_NULL",
+            "offset": 168,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "gso_size",
+            "type": "INT",
+            "offset": 176,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_SK_MSG": [
+        {
+            "name": "data",
+            "type": "PTR_TO_PACKET",
+            "offset": 0,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 8,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "family",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_ip4",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_ip4",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_ip6",
+            "type": "INT",
+            "offset": 28,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_ip6",
+            "type": "INT",
+            "offset": 44,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_port",
+            "type": "INT",
+            "offset": 60,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_port",
+            "type": "INT",
+            "offset": 64,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "size",
+            "type": "INT",
+            "offset": 68,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCKET",
+            "offset": 72,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_FLOW_DISSECTOR": [
+        {
+            "name": "data",
+            "type": "PTR_TO_PACKET",
+            "offset": 76,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 80,
+            "size": 4,
+            "sign_extend": false,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "flow_keys",
+            "type": "PTR_TO_FLOW_KEYS",
+            "offset": 144,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_CGROUP_SOCK": [
+        {
+            "name": "bound_dev_if",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_INET_SOCK_CREATE",
+                    "BPF_CGROUP_INET_SOCK_RELEASE"
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_INET_SOCK_CREATE",
+                    "BPF_CGROUP_INET_SOCK_RELEASE"
+                ]
+            }
+        },
+        {
+            "name": "family",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "interior": false,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "type",
+            "type": "INT",
+            "offset": 8,
+            "size": 4,
+            "interior": false,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "protocol",
+            "type": "INT",
+            "offset": 12,
+            "size": 4,
+            "interior": false,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "mark",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_INET_SOCK_CREATE",
+                    "BPF_CGROUP_INET_SOCK_RELEASE"
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_INET_SOCK_CREATE",
+                    "BPF_CGROUP_INET_SOCK_RELEASE"
+                ]
+            }
+        },
+        {
+            "name": "priority",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_INET_SOCK_CREATE",
+                    "BPF_CGROUP_INET_SOCK_RELEASE"
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_INET_SOCK_CREATE",
+                    "BPF_CGROUP_INET_SOCK_RELEASE"
+                ]
+            }
+        },
+        {
+            "name": "src_ip4",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_INET4_POST_BIND"
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "src_ip6",
+            "type": "INT",
+            "offset": 28,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_INET6_POST_BIND"
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "src_port",
+            "type": "INT",
+            "offset": 44,
+            "size": 4,
+            "interior": false,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_INET4_POST_BIND",
+                    "BPF_CGROUP_INET6_POST_BIND"
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "dst_port",
+            "type": "INT",
+            "offset": 48,
+            "size": 2,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "dst_port_wide",
+            "type": "INT",
+            "offset": 48,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "dst_ip4",
+            "type": "INT",
+            "offset": 52,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "dst_ip6",
+            "type": "INT",
+            "offset": 56,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "state",
+            "type": "INT",
+            "offset": 72,
+            "size": 4,
+            "interior": false,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "rx_queue_mapping",
+            "type": "INT",
+            "offset": 76,
+            "size": 4,
+            "interior": false,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_CGROUP_SOCK_ADDR": [
+        {
+            "name": "user_family",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "user_ip4",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_INET4_BIND",
+                    "BPF_CGROUP_INET4_CONNECT",
+                    "BPF_CGROUP_INET4_GETPEERNAME",
+                    "BPF_CGROUP_INET4_GETSOCKNAME",
+                    "BPF_CGROUP_UDP4_SENDMSG",
+                    "BPF_CGROUP_UDP4_RECVMSG"
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_INET4_BIND",
+                    "BPF_CGROUP_INET4_CONNECT",
+                    "BPF_CGROUP_INET4_GETPEERNAME",
+                    "BPF_CGROUP_INET4_GETSOCKNAME",
+                    "BPF_CGROUP_UDP4_SENDMSG",
+                    "BPF_CGROUP_UDP4_RECVMSG"
+                ]
+            }
+        },
+        {
+            "name": "user_ip6",
+            "type": "INT",
+            "offset": 8,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_INET6_BIND",
+                    "BPF_CGROUP_INET6_CONNECT",
+                    "BPF_CGROUP_INET6_GETPEERNAME",
+                    "BPF_CGROUP_INET6_GETSOCKNAME",
+                    "BPF_CGROUP_UDP6_SENDMSG",
+                    "BPF_CGROUP_UDP6_RECVMSG"
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4,
+                    8
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_INET6_BIND",
+                    "BPF_CGROUP_INET6_CONNECT",
+                    "BPF_CGROUP_INET6_GETPEERNAME",
+                    "BPF_CGROUP_INET6_GETSOCKNAME",
+                    "BPF_CGROUP_UDP6_SENDMSG",
+                    "BPF_CGROUP_UDP6_RECVMSG"
+                ]
+            }
+        },
+        {
+            "name": "user_port",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "family",
+            "type": "INT",
+            "offset": 28,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "type",
+            "type": "INT",
+            "offset": 32,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "protocol",
+            "type": "INT",
+            "offset": 36,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "msg_src_ip4",
+            "type": "INT",
+            "offset": 40,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_UDP4_SENDMSG"
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_UDP4_SENDMSG"
+                ]
+            }
+        },
+        {
+            "name": "msg_src_ip6",
+            "type": "INT",
+            "offset": 44,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_UDP6_SENDMSG"
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4,
+                    8
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_UDP6_SENDMSG"
+                ]
+            }
+        },
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCKET",
+            "offset": 64,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_SK_REUSEPORT": [
+        {
+            "name": "data",
+            "type": "PTR_TO_PACKET",
+            "offset": 0,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "data_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 8,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "len",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "eth_protocol",
+            "type": "INT",
+            "offset": 20,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ip_protocol",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "bind_inany",
+            "type": "INT",
+            "offset": 28,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "hash",
+            "type": "INT",
+            "offset": 32,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCKET",
+            "offset": 40,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "migrating_sk",
+            "type": "PTR_TO_SOCK_COMMON_OR_NULL",
+            "offset": 48,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_SK_LOOKUP": [
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCKET_OR_NULL",
+            "offset": 0,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "family",
+            "type": "INT",
+            "offset": 8,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "protocol",
+            "type": "INT",
+            "offset": 12,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_ip4",
+            "type": "INT",
+            "offset": 16,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_ip6",
+            "type": "INT",
+            "offset": 20,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "remote_port",
+            "type": "INT",
+            "offset": 36,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_ip4",
+            "type": "INT",
+            "offset": 40,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_ip6",
+            "type": "INT",
+            "offset": 44,
+            "size": 16,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "local_port",
+            "type": "INT",
+            "offset": 60,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "ingress_ifindex",
+            "type": "INT",
+            "offset": 64,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_CGROUP_SOCKOPT": [
+        {
+            "name": "sk",
+            "type": "PTR_TO_SOCKET",
+            "offset": 0,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "optval",
+            "type": "PTR_TO_PACKET",
+            "offset": 8,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "optval_end",
+            "type": "PTR_TO_PACKET_END",
+            "offset": 16,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "level",
+            "type": "INT",
+            "offset": 24,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_SETSOCKOPT"
+                ]
+            }
+        },
+        {
+            "name": "optname",
+            "type": "INT",
+            "offset": 28,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_SETSOCKOPT"
+                ]
+            }
+        },
+        {
+            "name": "optlen",
+            "type": "INT",
+            "offset": 32,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        },
+        {
+            "name": "retval",
+            "type": "INT",
+            "offset": 36,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_GETSOCKOPT"
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ],
+                "attach_type": [
+                    "BPF_CGROUP_GETSOCKOPT"
+                ]
+            }
+        }
+    ],
+    "BPF_PROG_TYPE_CGROUP_SYSCTL": [
+        {
+            "name": "write",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "file_pos",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    4
+                ]
+            }
+        }
+    ],
+    "BPF_PROG_TYPE_CGROUP_DEVICE": [
+        {
+            "name": "access_type",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "major",
+            "type": "INT",
+            "offset": 4,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "minor",
+            "type": "INT",
+            "offset": 8,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_LIRC_MODE2": [
+        {
+            "name": "sample",
+            "type": "INT",
+            "offset": 0,
+            "size": 4,
+            "read": {
+                "access_sizes": [
+                    4
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_RAW_TRACEPOINT": [
+        {
+            "name": "args",
+            "type": "INT",
+            "offset": 0,
+            "size": 96,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE": [
+        {
+            "name": "buf",
+            "type": "PTR_TO_TP_BUFFER",
+            "offset": 0,
+            "size": 8,
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "args0_partial",
+            "type": "INT",
+            "offset": 1,
+            "size": 7,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "args",
+            "type": "INT",
+            "offset": 8,
+            "size": 88,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_SYSCALL": [
+        {
+            "name": "ctx",
+            "type": "INT",
+            "offset": 0,
+            "size": 65535,
+            "read": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            },
+            "write": {
+                "access_sizes": [
+                    1,
+                    2,
+                    4,
+                    8
+                ]
+            }
+        }
+    ],
+    "BPF_PROG_TYPE_NETFILTER": [
+        {
+            "name": "state",
+            "type": "PTR_TO_BTF_ID_TRUSTED",
+            "offset": 0,
+            "size": 8,
+            "btf_struct": "nf_hook_state",
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        },
+        {
+            "name": "skb",
+            "type": "PTR_TO_BTF_ID_TRUSTED",
+            "offset": 8,
+            "size": 8,
+            "btf_struct": "sk_buff",
+            "read": {
+                "access_sizes": [
+                    8
+                ]
+            },
+            "write": null
+        }
+    ],
+    "BPF_PROG_TYPE_LSM": null,
+    "BPF_PROG_TYPE_STRUCT_OPS": null,
+    "BPF_PROG_TYPE_EXT": null
+}

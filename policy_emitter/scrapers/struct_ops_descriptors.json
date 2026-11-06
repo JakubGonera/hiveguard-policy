@@ -1,0 +1,292 @@
+{
+  "provenance": {
+    "kernel_release": "7.0.0-rc5-tnbpf-ga80a7db5750c",
+    "build_id": "5c4f9286adedbc7f1aa2636cda490f575a0791c1"
+  },
+  "structs": [
+    {
+      "name": "bpf_dummy_ops",
+      "size": 24,
+      "members": [
+        {
+          "name": "test_1",
+          "offset": 0,
+          "signature": {
+            "ret": "int",
+            "params": [
+              {
+                "name": "",
+                "type": "struct bpf_dummy_ops_state *"
+              }
+            ]
+          }
+        },
+        {
+          "name": "test_2",
+          "offset": 8,
+          "signature": {
+            "ret": "int",
+            "params": [
+              {
+                "name": "",
+                "type": "struct bpf_dummy_ops_state *"
+              },
+              {
+                "name": "",
+                "type": "int"
+              },
+              {
+                "name": "",
+                "type": "unsigned short"
+              },
+              {
+                "name": "",
+                "type": "char"
+              },
+              {
+                "name": "",
+                "type": "unsigned long"
+              }
+            ]
+          }
+        },
+        {
+          "name": "test_sleepable",
+          "offset": 16,
+          "signature": {
+            "ret": "int",
+            "params": [
+              {
+                "name": "",
+                "type": "struct bpf_dummy_ops_state *"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "tcp_congestion_ops",
+      "size": 192,
+      "members": [
+        {
+          "name": "cong_avoid",
+          "offset": 0,
+          "signature": {
+            "ret": "void",
+            "params": [
+              {
+                "name": "",
+                "type": "struct sock *"
+              },
+              {
+                "name": "",
+                "type": "u32"
+              },
+              {
+                "name": "",
+                "type": "u32"
+              }
+            ]
+          }
+        },
+        {
+          "name": "cong_control",
+          "offset": 8,
+          "signature": {
+            "ret": "void",
+            "params": [
+              {
+                "name": "",
+                "type": "struct sock *"
+              },
+              {
+                "name": "",
+                "type": "u32"
+              },
+              {
+                "name": "",
+                "type": "int"
+              },
+              {
+                "name": "",
+                "type": "const struct rate_sample *"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ssthresh",
+          "offset": 16,
+          "signature": {
+            "ret": "u32",
+            "params": [
+              {
+                "name": "",
+                "type": "struct sock *"
+              }
+            ]
+          }
+        },
+        {
+          "name": "set_state",
+          "offset": 24,
+          "signature": {
+            "ret": "void",
+            "params": [
+              {
+                "name": "",
+                "type": "struct sock *"
+              },
+              {
+                "name": "",
+                "type": "u8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "cwnd_event",
+          "offset": 32,
+          "signature": {
+            "ret": "void",
+            "params": [
+              {
+                "name": "",
+                "type": "struct sock *"
+              },
+              {
+                "name": "",
+                "type": "tcp_ca_event"
+              }
+            ]
+          }
+        },
+        {
+          "name": "in_ack_event",
+          "offset": 40,
+          "signature": {
+            "ret": "void",
+            "params": [
+              {
+                "name": "",
+                "type": "struct sock *"
+              },
+              {
+                "name": "",
+                "type": "u32"
+              }
+            ]
+          }
+        },
+        {
+          "name": "pkts_acked",
+          "offset": 48,
+          "signature": {
+            "ret": "void",
+            "params": [
+              {
+                "name": "",
+                "type": "struct sock *"
+              },
+              {
+                "name": "",
+                "type": "const struct ack_sample *"
+              }
+            ]
+          }
+        },
+        {
+          "name": "min_tso_segs",
+          "offset": 56,
+          "signature": {
+            "ret": "u32",
+            "params": [
+              {
+                "name": "",
+                "type": "struct sock *"
+              }
+            ]
+          }
+        },
+        {
+          "name": "undo_cwnd",
+          "offset": 64,
+          "signature": {
+            "ret": "u32",
+            "params": [
+              {
+                "name": "",
+                "type": "struct sock *"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sndbuf_expand",
+          "offset": 72,
+          "signature": {
+            "ret": "u32",
+            "params": [
+              {
+                "name": "",
+                "type": "struct sock *"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_info",
+          "offset": 80,
+          "signature": {
+            "ret": "size_t",
+            "params": [
+              {
+                "name": "",
+                "type": "struct sock *"
+              },
+              {
+                "name": "",
+                "type": "u32"
+              },
+              {
+                "name": "",
+                "type": "int *"
+              },
+              {
+                "name": "",
+                "type": "union tcp_cc_info *"
+              }
+            ]
+          }
+        },
+        {
+          "name": "init",
+          "offset": 136,
+          "signature": {
+            "ret": "void",
+            "params": [
+              {
+                "name": "",
+                "type": "struct sock *"
+              }
+            ]
+          }
+        },
+        {
+          "name": "release",
+          "offset": 144,
+          "signature": {
+            "ret": "void",
+            "params": [
+              {
+                "name": "",
+                "type": "struct sock *"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

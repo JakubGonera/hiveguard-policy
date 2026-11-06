@@ -1,0 +1,12 @@
+[project]
+name = "policy-emitter"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "drgn>=0.2.0",
+    "pyyaml>=6.0.3",
+    "lark>=1.1",
+    "pygls>=1.3",
+]

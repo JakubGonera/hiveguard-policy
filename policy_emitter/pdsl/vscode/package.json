@@ -1,0 +1,51 @@
+{
+  "name": "pdsl",
+  "displayName": "Policy DSL",
+  "description": "Syntax highlighting, diagnostics, and formatting for the eBPF policy DSL (.pol)",
+  "version": "0.1.0",
+  "engines": { "vscode": "^1.84.0" },
+  "categories": ["Programming Languages"],
+  "activationEvents": ["onLanguage:policy"],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "policy",
+        "aliases": ["Policy DSL", "pdsl"],
+        "extensions": [".pol"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "policy",
+        "scopeName": "source.policy",
+        "path": "./syntaxes/policy.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "Policy DSL",
+      "properties": {
+        "pdsl.pythonPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional override: Python interpreter that can import the `pdsl` package. Empty = auto-detect the repo's .venv (or fall back to `uv run`)."
+        },
+        "pdsl.cwd": {
+          "type": "string",
+          "default": "",
+          "description": "Optional override: the policy_emitter directory. Empty = auto-detect from the extension location or open workspace folders."
+        },
+        "pdsl.formatWidth": {
+          "type": "integer",
+          "default": 120,
+          "minimum": 20,
+          "description": "Column at which 'Format Document' wraps long expressions. Breaks at the loosest connective first (-> , then ||, then &&)."
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.0"
+  }
+}

@@ -1,0 +1,1461 @@
+# Built-in predicates and op policies, merged into every emitted policy file.
+# This is hand-written DSL source - edit it here, not in Python.
+
+# --- Standard predicates ---
+
+scratch() := R1 : POISON && R2 : POISON && R3 : POISON && R4 : POISON && R5 : POISON;
+
+# The call may move or resize packet data, so every packet pointer the program
+# holds is invalid afterwards (kernel clear_all_pkt_pointers).
+changes_pkt_data() := true;
+
+reg_writable(r) := !(r = R10);
+
+# allow_ptr_leaks: kernel env->allow_ptr_leaks (~ perfmon_capable / bpf token).
+allow_ptr_leaks() := $allow_ptr_leaks$;
+
+# --- Stack: array of 8-byte slots, each holding raw BYTES or a spilled REG ---
+# Byte offset i lives at absolute position STACK_SIZE + i, in slot
+# (STACK_SIZE + i) / 8 at byte (STACK_SIZE + i) % 8.
+
+byte_in_range(slot, i, offset, size) := slot * 8 + i >= offset && slot * 8 + i < offset + size;
+# the slot is fully covered by [offset, offset+size)
+slot_in_range(slot, offset, size) := slot * 8 >= offset && slot * 8 + 7 < offset + size;
+
+byte_initialized(p) :=
+    STACK[p / 8] : INT || (STACK[p / 8] : BYTES && STACK[p / 8].init[p % 8]);
+
+# Record a write to the stack which is not spilling a register, but the actual value is recorded.
+# If we just know that the bytes have been written but not what they are, we use stack_bytes_written.
+stack_bytes_set(offset, size, val, prev_stack) :=
+    # For loop quantification is closed-open intervals
+    for(slot in (STACK_SIZE + offset) / 8 : ((STACK_SIZE + offset + size - 1) / 8) + 1) { 
+      STACK[slot] : BYTES &&
+      for(i in 0:8) {
+          # The byte is in a slot we write into but not covered by the value we're writing
+          (!byte_in_range(slot, i, STACK_SIZE + offset, size) -> 
+            # Downgrade a register spill into unknown bytes
+            ((prev_stack[slot] : REG -> STACK[slot].init[i]) 
+              # or keep the old value
+              && (prev_stack[slot] : BYTES -> STACK[slot].init[i] = prev_stack[slot].init[i] && STACK[slot].bytes[i] = prev_stack[slot].bytes[i])))
+          # The byte is written by us
+          && (byte_in_range(slot, i, STACK_SIZE + offset, size) ->
+            (STACK[slot].init[i] && STACK[slot].bytes[i] = (val.value >> 8 * (slot*8 + i - (STACK_SIZE + offset))) & 0xff))
+      }
+    };
+
+stack_bytes_written(offset, size, prev_stack) :=
+    for(slot in (STACK_SIZE + offset) / 8 : ((STACK_SIZE + offset + size - 1) / 8) + 1) { 
+      STACK[slot] : BYTES &&
+      for(i in 0:8) {
+          (!byte_in_range(slot, i, STACK_SIZE + offset, size) -> 
+            ((prev_stack[slot] : REG -> STACK[slot].init[i])
+              && (prev_stack[slot] : BYTES -> STACK[slot].init[i] = prev_stack[slot].init[i])))
+          && (byte_in_range(slot, i, STACK_SIZE + offset, size) ->
+            STACK[slot].init[i])
+      }
+    };
+
+# A write cannot write over a part of a pointer (i.e. invalidate it) unless allow_ptr_leaks is set
+stack_write_ok(offset, size, mem_uninit) :=
+    for(slot in (STACK_SIZE + offset) / 8 : ((STACK_SIZE + offset + size - 1) / 8) + 1){
+      # if mem_uninit = false, then we need to check that the memory
+      # is already ininitalized
+      ((!mem_uninit) ->
+        (STACK[slot] : REG || STACK[slot] : BYTES && for(i in 0:8) { (byte_in_range(slot, i, STACK_SIZE + offset, size)) -> STACK[slot].init[i] })) &&
+      # if the slot is not fully covered by the write, then it cannot be a pointer (except allow_ptr_leaks)
+      ((!slot_in_range(slot, STACK_SIZE + offset, size)) ->
+        !(STACK[slot] : MEM && !allow_ptr_leaks()))
+    };
+
+stack_in_bounds(offset, size, zero_size_allowed) :=
+    offset + STACK_SIZE >= 0 && offset <= -1 && size >= 0 && (size = 0 -> zero_size_allowed)
+    && offset + size <= 0;
+
+stack_read_ok(offset, size) :=
+    (size = 8 && (STACK_SIZE + offset) % 8 = 0 && STACK[(STACK_SIZE + offset) / 8] : REG) ||
+      for(slot in (STACK_SIZE + offset) / 8 : ((STACK_SIZE + offset + size - 1) / 8) + 1) { 
+        for(i in 0:8) {
+          byte_in_range(slot, i, STACK_SIZE + offset, size) ->
+            byte_initialized(slot * 8 + i)
+        }
+      };
+
+check_stack_access(offset, size, write, zero_size_allowed, mem_uninit) :=
+    stack_in_bounds(offset, size, zero_size_allowed)
+    && (!write -> stack_read_ok(offset, size))
+    && (write -> stack_write_ok(offset, size, mem_uninit));
+
+# Maybe we can also do some reconstruction logic (esp. in the case of 32 bit scalar spills)
+fill_reg_from_stack(dst, offset, size) :=
+    (size = 8 && (STACK_SIZE + offset) % 8 = 0 && STACK[(STACK_SIZE + offset) / 8] : REG -> register_copied(dst, STACK[(STACK_SIZE + offset) / 8]))
+      && (!(size = 8 && (STACK_SIZE + offset) % 8 = 0) -> dst : INT);
+
+is_pkt_ptr(p) := p : PTR_TO_PACKET || p : PTR_TO_PACKET_META;
+
+check_packet_access(p, off, size, zero_size_allowed) :=
+    p.offset + off >= 0 && size >= 0 && (size = 0 -> zero_size_allowed)
+    && p.offset + off + size <= p.range;
+
+# NET_IP_ALIGN = 2: metadata sits right in front of the data, so both align the same.
+check_pkt_alignment(p, off, size) := check_generic_ptr_alignment(2 + p.offset + off, size, true);
+
+# may_access_direct_pkt_data: prog types permitted to touch packet data (write implies read).
+may_access_pkt_data_write() :=
+    PROG_TYPE = BPF_PROG_TYPE_SCHED_CLS || PROG_TYPE = BPF_PROG_TYPE_SCHED_ACT
+    || PROG_TYPE = BPF_PROG_TYPE_XDP || PROG_TYPE = BPF_PROG_TYPE_LWT_XMIT
+    || PROG_TYPE = BPF_PROG_TYPE_SK_SKB || PROG_TYPE = BPF_PROG_TYPE_SK_MSG
+    || PROG_TYPE = BPF_PROG_TYPE_CGROUP_SOCKOPT;
+
+may_access_pkt_data_read() :=
+    may_access_pkt_data_write() || PROG_TYPE = BPF_PROG_TYPE_LWT_IN
+    || PROG_TYPE = BPF_PROG_TYPE_LWT_OUT || PROG_TYPE = BPF_PROG_TYPE_LWT_SEG6LOCAL
+    || PROG_TYPE = BPF_PROG_TYPE_SK_REUSEPORT || PROG_TYPE = BPF_PROG_TYPE_FLOW_DISSECTOR
+    || PROG_TYPE = BPF_PROG_TYPE_CGROUP_SKB;
+
+check_map_value_access(buf, size, write, zero_size_allowed) :=
+    (write -> $map_writable(buf.map_ptr)$) && (!write -> $map_readable(buf.map_ptr)$)
+    && buf.offset >= 0 && size >= 0 && (size = 0 -> zero_size_allowed)
+    && buf.offset + size <= $buf.map_ptr->value_size$
+    # The window must not overlap a special btf field (kptr/spin_lock/timer/...), which a helper may not touch indirectly.
+    && $map_no_special_fields(buf.map_ptr, buf.offset, size)$;
+
+# pkt_access is the proto's bpf_func_proto.pkt_access flag (kernel meta->pkt_access), which
+# may_access_direct_pkt_data ignores for CGROUP_SOCKOPT.
+check_helper_mem_access(buf, size, write, zero_size_allowed, mem_uninit, pkt_access) :=
+    buf : HELPER_MEM &&
+      ((is_pkt_ptr(buf) -> (pkt_access || PROG_TYPE = BPF_PROG_TYPE_CGROUP_SOCKOPT) && may_access_pkt_data_read()
+          && check_packet_access(buf, 0, size, zero_size_allowed)) &&
+      (buf : PTR_TO_MAP_VALUE -> check_map_value_access(buf, size, write, zero_size_allowed)) &&
+      !(buf : PTR_TO_MAP_KEY) &&
+      !(buf : PTR_TO_MEM_RINGBUF) &&
+      !(buf : PTR_TO_MEM) &&
+      !(buf : PTR_TO_BUF) &&
+      (buf : PTR_TO_STACK -> check_stack_access(buf.offset, size, write, zero_size_allowed, mem_uninit)) &&
+      !(buf : PTR_TO_BTF_ID_TRUSTED));
+
+check_mem_size(size, zero_size_allowed) :=
+    size : INT && size.value >= 0
+    && (zero_size_allowed || !(size.value = 0))
+    && size.value < 0x20000000;
+
+check_generic_ptr_alignment(reg_off, size, strict) :=
+    !strict || size = 1 || reg_off % size = 0;
+
+check_ptr_alignment(ptr, offset, size) :=
+    ptr : PTR_TO_STACK && check_generic_ptr_alignment(ptr.offset + offset, size, true);
+
+# Usually used in STORE instructions.
+check_mem_access(ptr, offset, size, write) :=
+    (ptr : PTR_TO_STACK && check_ptr_alignment(ptr, offset, size)
+        && check_stack_access(ptr.offset + offset, size, write, false, write))
+    || (ptr : PTR_TO_CTX && (write -> ctx_write_access(ptr.offset + offset, size))
+        && (!write -> ctx_read_access(ptr.offset + offset, size)))
+    || (is_pkt_ptr(ptr) && (write -> may_access_pkt_data_write())
+        && check_pkt_alignment(ptr, offset, size)
+        && check_packet_access(ptr, offset, size, false))
+    || (ptr : PTR_TO_MAP_VALUE
+        && check_generic_ptr_alignment(ptr.offset + offset, size, true)
+        && (write -> $map_writable(ptr.map_ptr)$)
+        && (!write -> $map_readable(ptr.map_ptr)$)
+        && ptr.offset + offset >= 0
+        && size > 0
+        && ptr.offset + offset + size <= $ptr.map_ptr->value_size$
+        # the kernel also allows a read of a kptr if it's exactly aligned and right size
+        # but we reject it right now
+        && $map_no_special_fields(ptr.map_ptr, ptr.offset + offset, size)$);
+
+check_mem_access_reg(ptr, offset, size, write, src) := 
+    (ptr : PTR_TO_CTX -> (src : INT || allow_ptr_leaks())) && 
+    # A packet write may not leak a pointer (kernel rejects is_pointer_value with no
+    # allow_ptr_leaks bypass), unlike the stack-spill path.
+    (is_pkt_ptr(ptr) && write -> src : INT) && 
+    (ptr : PTR_TO_MAP_VALUE && write -> (src : INT || allow_ptr_leaks())) &&
+    check_mem_access(ptr, offset, size, write);
+
+no_pointer_leak(r) := (allow_ptr_leaks() -> ...) && (!allow_ptr_leaks() -> r : INT);
+
+ptr_spillable(p) := p : REG && !(p : CONST_PTR_TO_DYNPTR) && !(p : PTR_TO_TP_BUFFER);
+
+stack_store(offset, val, size, prev_stack) :=
+    val : REG && check_generic_ptr_alignment(offset, size, true)
+    && (size = 8 ->
+        (ptr_spillable(val) -> register_copied(STACK[(STACK_SIZE + offset) / 8], val))
+        && (!ptr_spillable(val) -> stack_bytes_written(offset, 8, prev_stack)))
+    && (size < 8 ->
+        (val : INT -> stack_sub8_write(offset, size, val, prev_stack))
+        && (!(val : INT) -> false));
+
+# For now we just store the value byte-wise. We should support in the future 
+# 32/16/8 bit spills if the store is aligned.
+stack_sub8_write(offset, size, val, prev_stack) := stack_bytes_set(offset, size, val, prev_stack);
+
+# When copying from a register to a register, blindly copy (or introduce equalities) all the fields
+register_copied(dst, src) :=
+    dst.value = src.value && dst.offset = src.offset && dst.map_ptr = src.map_ptr
+ && dst.map_uid = src.map_uid && dst.btf_id = src.btf_id && dst.range = src.range
+ && (src : POISON                  -> dst : POISON)
+ && (src : INT                     -> dst : INT)
+ && (src : PTR_TO_CTX              -> dst : PTR_TO_CTX)
+ && (src : PTR_TO_STACK            -> dst : PTR_TO_STACK)
+ && (src : PTR_TO_MAP_VALUE        -> dst : PTR_TO_MAP_VALUE)
+ && (src : PTR_TO_MAP_VALUE_OR_NULL -> dst : PTR_TO_MAP_VALUE_OR_NULL)
+ && (src : PTR_TO_MAP_KEY          -> dst : PTR_TO_MAP_KEY)
+ && (src : PTR_TO_PACKET           -> dst : PTR_TO_PACKET)
+ && (src : PTR_TO_PACKET_META      -> dst : PTR_TO_PACKET_META)
+ && (src : PTR_TO_PACKET_END       -> dst : PTR_TO_PACKET_END)
+ && (src : PTR_TO_MEM              -> dst : PTR_TO_MEM)
+ && (src : PTR_TO_MEM_RINGBUF      -> dst : PTR_TO_MEM_RINGBUF)
+ && (src : PTR_TO_MEM_RDONLY       -> dst : PTR_TO_MEM_RDONLY)
+ && (src : PTR_TO_BUF              -> dst : PTR_TO_BUF)
+ && (src : PTR_TO_BTF_ID           -> dst : PTR_TO_BTF_ID)
+ && (src : PTR_TO_BTF_ID_OR_NULL   -> dst : PTR_TO_BTF_ID_OR_NULL)
+ && (src : PTR_TO_BTF_ID_TRUSTED   -> dst : PTR_TO_BTF_ID_TRUSTED)
+ && (src : PTR_TO_BTF_ID_PERCPU    -> dst : PTR_TO_BTF_ID_PERCPU)
+ && (src : CONST_PTR_TO_MAP        -> dst : CONST_PTR_TO_MAP)
+ && (src : CONST_PTR_TO_DYNPTR     -> dst : CONST_PTR_TO_DYNPTR)
+ && (src : PTR_TO_FLOW_KEYS        -> dst : PTR_TO_FLOW_KEYS)
+ && (src : PTR_TO_SOCKET           -> dst : PTR_TO_SOCKET)
+ && (src : PTR_TO_SOCKET_OR_NULL   -> dst : PTR_TO_SOCKET_OR_NULL)
+ && (src : PTR_TO_SOCK_COMMON      -> dst : PTR_TO_SOCK_COMMON)
+ && (src : PTR_TO_SOCK_COMMON_OR_NULL -> dst : PTR_TO_SOCK_COMMON_OR_NULL)
+ && (src : PTR_TO_TCP_SOCK         -> dst : PTR_TO_TCP_SOCK)
+ && (src : PTR_TO_XDP_SOCK         -> dst : PTR_TO_XDP_SOCK)
+ && (src : PTR_TO_TP_BUFFER        -> dst : PTR_TO_TP_BUFFER)
+ && (src : PTR_TO_ARENA            -> dst : PTR_TO_ARENA)
+ && (src : PTR_TO_FUNC             -> dst : PTR_TO_FUNC);
+
+# Some program types have only a subset of attach types valid.
+valid_attach_type() :=
+    (PROG_TYPE = BPF_PROG_TYPE_CGROUP_SOCK ->
+        ATTACH_TYPE = BPF_CGROUP_INET_SOCK_CREATE || ATTACH_TYPE = BPF_CGROUP_INET_SOCK_RELEASE
+        || ATTACH_TYPE = BPF_CGROUP_INET4_POST_BIND || ATTACH_TYPE = BPF_CGROUP_INET6_POST_BIND)
+    && (PROG_TYPE = BPF_PROG_TYPE_CGROUP_SOCK_ADDR ->
+        ATTACH_TYPE = BPF_CGROUP_INET4_BIND || ATTACH_TYPE = BPF_CGROUP_INET6_BIND
+        || ATTACH_TYPE = BPF_CGROUP_INET4_CONNECT || ATTACH_TYPE = BPF_CGROUP_INET6_CONNECT
+        || ATTACH_TYPE = BPF_CGROUP_UNIX_CONNECT
+        || ATTACH_TYPE = BPF_CGROUP_INET4_GETPEERNAME || ATTACH_TYPE = BPF_CGROUP_INET6_GETPEERNAME
+        || ATTACH_TYPE = BPF_CGROUP_UNIX_GETPEERNAME
+        || ATTACH_TYPE = BPF_CGROUP_INET4_GETSOCKNAME || ATTACH_TYPE = BPF_CGROUP_INET6_GETSOCKNAME
+        || ATTACH_TYPE = BPF_CGROUP_UNIX_GETSOCKNAME
+        || ATTACH_TYPE = BPF_CGROUP_UDP4_SENDMSG || ATTACH_TYPE = BPF_CGROUP_UDP6_SENDMSG
+        || ATTACH_TYPE = BPF_CGROUP_UNIX_SENDMSG
+        || ATTACH_TYPE = BPF_CGROUP_UDP4_RECVMSG || ATTACH_TYPE = BPF_CGROUP_UDP6_RECVMSG
+        || ATTACH_TYPE = BPF_CGROUP_UNIX_RECVMSG)
+    && (PROG_TYPE = BPF_PROG_TYPE_CGROUP_SKB ->
+        ATTACH_TYPE = BPF_CGROUP_INET_INGRESS || ATTACH_TYPE = BPF_CGROUP_INET_EGRESS)
+    && (PROG_TYPE = BPF_PROG_TYPE_CGROUP_SOCKOPT ->
+        ATTACH_TYPE = BPF_CGROUP_SETSOCKOPT || ATTACH_TYPE = BPF_CGROUP_GETSOCKOPT)
+    && (PROG_TYPE = BPF_PROG_TYPE_SK_LOOKUP -> ATTACH_TYPE = BPF_SK_LOOKUP)
+    && (PROG_TYPE = BPF_PROG_TYPE_SK_REUSEPORT ->
+        ATTACH_TYPE = BPF_SK_REUSEPORT_SELECT || ATTACH_TYPE = BPF_SK_REUSEPORT_SELECT_OR_MIGRATE)
+    && (PROG_TYPE = BPF_PROG_TYPE_NETFILTER -> ATTACH_TYPE = BPF_NETFILTER)
+    && (PROG_TYPE = BPF_PROG_TYPE_TRACING ->
+        ATTACH_TYPE = BPF_TRACE_FENTRY || ATTACH_TYPE = BPF_TRACE_FEXIT
+        || ATTACH_TYPE = BPF_MODIFY_RETURN || ATTACH_TYPE = BPF_TRACE_RAW_TP
+        || ATTACH_TYPE = BPF_TRACE_ITER)
+    && (PROG_TYPE = BPF_PROG_TYPE_LSM ->
+        ATTACH_TYPE = BPF_LSM_MAC || ATTACH_TYPE = BPF_LSM_CGROUP);
+
+prologue {
+  valid_attach_type();
+  R0 : POISON;
+  R1 : PTR_TO_CTX;
+  R2 : POISON;
+  R3 : POISON;
+  R4 : POISON;
+  R5 : POISON;
+  R6 : POISON;
+  R7 : POISON;
+  R8 : POISON;
+  R9 : POISON;
+  R10 : PTR_TO_STACK;
+  R10.offset = 0;
+  for(s in 0:STACK_SIZE / 8) { STACK[s] : BYTES && for(b in 0:8) { STACK[s].init[b] = false } };
+}
+
+# --- Built-in op policies ---
+
+
+# === 64-bit immediate / "wide" load (BPF_LD | BPF_IMM | BPF_DW, 16-byte insn) ===
+
+# dst = imm64 (src=0)
+op(opcode = 0x18, src = 0, dst: REG, imm: U64) {
+  preconditions {
+    reg_writable(dst);
+  }
+  postconditions {
+    dst : INT;
+    dst.value = imm;
+  }
+}
+
+# dst = map_by_fd(imm)
+op(opcode = 0x18, src = 0x1, dst: REG, imm: U64) {
+  preconditions {
+    reg_writable(dst);
+    $valid_and_accessible_map(imm)$;
+  }
+  postconditions {
+    dst : CONST_PTR_TO_MAP;
+    dst.map_ptr = $get_map_ptr_by_fd(imm)$;
+    dst.map_uid = $get_map_uid_by_fd(imm)$;
+  }
+}
+
+# dst = map_by_idx(imm)
+# Get a map pointer by indexing into the env->fd_array
+op(opcode = 0x18, src = 0x5, dst: REG, imm: U64) {
+  preconditions {
+    reg_writable(dst);
+    $valid_and_accessible_map_idx(imm)$;
+  }
+  postconditions {
+    dst : CONST_PTR_TO_MAP;
+    dst.map_ptr = $get_map_ptr_by_idx(imm)$;
+    dst.map_uid = $get_map_uid_by_idx(imm)$;
+  }
+}
+
+# dst = map_val(map_by_fd(imm)) + next_imm
+# This map should contain only a single value, and this load gets
+# the pointer to this value plus an additional offset.
+op(opcode = 0x18, src = 0x2, dst: REG, imm: U64) {
+  vars := {fd, off}
+  preconditions {
+    reg_writable(dst);
+    fd = (u32)imm;
+    off = (u32)(imm >> 32);
+    $valid_and_accessible_map(fd)$;
+    $map_supports_direct_value(fd)$;   # map_direct_value_addr exists and succeeds
+    off < 0x20000000;                  # BPF_MAX_VAR_OFF
+  }
+  postconditions {
+    $map_is_arena(fd)$ -> dst : INT;
+    !$map_is_arena(fd)$ -> dst : PTR_TO_MAP_VALUE && dst.offset = off
+      && dst.map_ptr = $get_map_ptr_by_fd(fd)$ && dst.map_uid = $get_map_uid_by_fd(fd)$;
+  }
+}
+
+# dst = map_val(map_by_idx(imm)) + next_imm
+# Similar to (opcode = 0x18, src = 0x2), but the map is referenced
+# by index (cf. opcode = 0x18, src = 0x5)
+op(opcode = 0x18, src = 0x6, dst: REG, imm: U64) {
+  vars := {idx, off}
+  preconditions {
+    reg_writable(dst);
+    idx = (u32)imm;
+    off = (u32)(imm >> 32);
+    $valid_and_accessible_map_idx(idx)$;
+    $map_supports_direct_value_idx(idx)$;
+    off < 0x20000000;                  # BPF_MAX_VAR_OFF
+  }
+  postconditions {
+    $map_is_arena_idx(idx)$ -> dst : INT;
+    !$map_is_arena_idx(idx)$ -> dst : PTR_TO_MAP_VALUE && dst.offset = off
+      && dst.map_ptr = $get_map_ptr_by_idx(idx)$ && dst.map_uid = $get_map_uid_by_idx(idx)$;
+  }
+}
+
+# dst = var_addr(imm)
+# btf_ids can also address declarations, like a variable or a function.
+# In this case we load the address of such a declaration, and store the
+# btf_id that corresponds to it's type.
+op(opcode = 0x18, src = 0x3, dst: REG, imm: U64) {
+  preconditions {
+    reg_writable(dst);
+    $btf_id_is_var_or_func(imm)$;      # check_pseudo_btf_id succeeds (valid ksym)
+  }
+  postconditions {
+    dst.offset = 0;
+    # Result type is BTF-determined; each arm carries the kernel's flag in the type
+    # itself (PERCPU/RDONLY).
+    $btf_var_is_percpu(imm)$ -> dst : PTR_TO_BTF_ID_PERCPU && dst.btf_id = $btf_var_btf_id(imm)$;
+    !$btf_var_is_percpu(imm)$ && $btf_var_is_struct(imm)$ -> dst : PTR_TO_BTF_ID && dst.btf_id = $btf_var_btf_id(imm)$;
+    !$btf_var_is_percpu(imm)$ && !$btf_var_is_struct(imm)$ -> dst : PTR_TO_MEM_RDONLY;
+  }
+}
+
+# dst = code_addr(imm)
+op(opcode = 0x18, src = 0x4, dst: REG, imm: U64) {
+  preconditions {
+    reg_writable(dst);
+    $subprog_is_static(imm)$;          # find_subprog + BTF_FUNC_STATIC linkage
+  }
+  postconditions {
+    dst : PTR_TO_FUNC;
+    dst.offset = 0;
+  }
+}
+
+# Load a 32-bit immediate into a register
+op(opcode = 0xb7, dst: REG, imm: U32) {
+  preconditions {
+    reg_writable(dst);
+  }
+  postconditions {
+    dst : INT;
+    dst.value = (s64)imm;
+  }
+}
+# === Arithmetic instructions (BPF_ALU 32-bit / BPF_ALU64 64-bit) ===
+
+# ALU ops of the form: +=, *=, ...
+alu_ops_reg(dst, src) := !(dst : POISON) && !(src : POISON) && reg_writable(dst);
+alu_ops_imm(dst) := !(dst : POISON) && reg_writable(dst);
+
+# Strict (non-ADD/SUB) ops: the kernel rejects pointer operands (only ADD/SUB do
+# pointer arithmetic), so require initialized scalars.
+alus_ops_reg(dst, src) := alu_ops_reg(dst, src) && dst : INT && src : INT;
+alus_ops_imm(dst) := alu_ops_imm(dst) && dst : INT;
+
+# Pointer types on which `ptr +/- scalar` is permitted.
+ptr_arith_ok(p) := p : PTR_TO_CTX || p : PTR_TO_MAP_VALUE || p : PTR_TO_MAP_KEY
+    || p : PTR_TO_STACK || p : PTR_TO_PACKET || p : PTR_TO_PACKET_META || p : PTR_TO_TP_BUFFER
+    || p : PTR_TO_BTF_ID || p : PTR_TO_MEM || p : PTR_TO_BUF || p : PTR_TO_FLOW_KEYS;
+# SUB additionally forbids subtraction from a stack pointer.
+ptr_arith_ok_sub(p) := ptr_arith_ok(p) && !(p : PTR_TO_STACK);
+
+# Result of `ptr +/- scalar`: p keeps its pointer type, offset becomes `newoff`.
+ptr_keep_type(p, newoff) := p.offset = newoff;
+
+# `scalar + ptr` (kernel reverses operands): dst inherits src's pointer type.
+ptr_become_type(dst, src, newoff) :=
+    (src : PTR_TO_CTX         -> dst : PTR_TO_CTX         && dst.offset = newoff)
+ && (src : PTR_TO_MAP_VALUE   -> dst : PTR_TO_MAP_VALUE   && dst.offset = newoff && dst.map_ptr = src.map_ptr && dst.map_uid = src.map_uid)
+ && (src : PTR_TO_MAP_KEY     -> dst : PTR_TO_MAP_KEY     && dst.offset = newoff)
+ && (src : PTR_TO_STACK       -> dst : PTR_TO_STACK       && dst.offset = newoff)
+ && (src : PTR_TO_PACKET      -> dst : PTR_TO_PACKET      && dst.offset = newoff && dst.range = src.range)
+ && (src : PTR_TO_PACKET_META -> dst : PTR_TO_PACKET_META && dst.offset = newoff && dst.range = src.range)
+ && (src : PTR_TO_TP_BUFFER   -> dst : PTR_TO_TP_BUFFER   && dst.offset = newoff)
+ && (src : PTR_TO_BTF_ID      -> dst : PTR_TO_BTF_ID      && dst.offset = newoff && dst.btf_id = src.btf_id)
+ && (src : PTR_TO_MEM         -> dst : PTR_TO_MEM         && dst.offset = newoff)
+ && (src : PTR_TO_BUF         -> dst : PTR_TO_BUF         && dst.offset = newoff)
+ && (src : PTR_TO_FLOW_KEYS   -> dst : PTR_TO_FLOW_KEYS   && dst.offset = newoff);
+
+# --- ADD (ALU64: ptr+scalar keeps type; scalar+ptr inherits type; ptr+ptr prohibited) ---
+# dst += imm (ALU64)
+op(opcode = 0x07, dst: REG, imm: U32) {
+  vars := {xv, xo, dst_int}
+  preconditions {
+    alu_ops_imm(dst);
+    dst : INT -> dst_int = true;
+    !(dst : INT) -> dst_int = false;
+    dst_int -> xv = dst.value;
+    !dst_int -> (xo = dst.offset && ptr_arith_ok(dst));
+  }
+  postconditions {
+    dst_int -> (dst : INT && dst.value = xv + (s64)imm);
+    !dst_int -> ptr_keep_type(dst, xo + (s64)imm);
+  }
+}
+
+# dst += src (ALU64)
+op(opcode = 0x0f, src: REG, dst: REG) {
+  vars := {xv, xo, dst_int}
+  preconditions {
+    alu_ops_reg(dst, src);
+    dst : INT -> dst_int = true;
+    !(dst : INT) -> dst_int = false;
+    dst_int -> xv = dst.value;
+    !dst_int -> xo = dst.offset;
+    (dst_int && src : INT)
+      || (!dst_int && src : INT && ptr_arith_ok(dst))
+      || (dst_int && !(src : INT) && ptr_arith_ok(src));
+  }
+  postconditions {
+    dst_int && src : INT -> dst : INT && dst.value = xv + src.value;
+    !dst_int && src : INT -> ptr_keep_type(dst, xo + src.value);                    # ptr + scalar
+    dst_int && !(src : INT) -> ptr_become_type(dst, src, src.offset + xv);          # scalar + ptr
+  }
+}
+
+op(opcode = 0x04, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x + imm); } }                       # dst += imm (ALU32; ptr arith prohibited)
+op(opcode = 0x0c, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x + (u32)src.value); } }        # dst += src (ALU32; ptr arith prohibited)
+
+# --- SUB (ALU64: ptr-scalar keeps type (not stack); scalar-ptr prohibited; ptr-ptr -> scalar) ---
+# dst -= imm (ALU64)
+op(opcode = 0x17, dst: REG, imm: U32) {
+  vars := {xv, xo, dst_int}
+  preconditions {
+    alu_ops_imm(dst);
+    dst : INT -> dst_int = true;
+    !(dst : INT) -> dst_int = false;
+    dst_int -> xv = dst.value;
+    !dst_int -> (xo = dst.offset && ptr_arith_ok_sub(dst));
+  }
+  postconditions {
+    dst_int -> (dst : INT && dst.value = xv - (s64)imm);
+    !dst_int -> ptr_keep_type(dst, xo - (s64)imm);
+  }
+}
+
+# dst -= src (ALU64)
+op(opcode = 0x1f, src: REG, dst: REG) {
+  vars := {xv, xo, dst_int}
+  preconditions {
+    alu_ops_reg(dst, src);
+    dst : INT -> dst_int = true;
+    !(dst : INT) -> dst_int = false;
+    dst_int && src : INT -> xv = dst.value;
+    !dst_int && src : INT -> xo = dst.offset;
+    (dst_int && src : INT)
+      || (!dst_int && src : INT && ptr_arith_ok_sub(dst))
+      || (!dst_int && !(src : INT) && allow_ptr_leaks());                           # ptr - ptr needs allow_ptr_leaks
+  }
+  postconditions {
+    dst_int && src : INT -> dst : INT && dst.value = xv - src.value;
+    !dst_int && src : INT -> ptr_keep_type(dst, xo - src.value);                    # ptr - scalar
+    !dst_int && !(src : INT) -> dst : INT;                                          # ptr - ptr -> arbitrary scalar
+  }
+}
+# ALU32 SUB: any pointer operand is allowed only under allow_ptr_leaks and yields an
+# arbitrary scalar; otherwise prohibited.
+
+# dst -= imm (ALU32)
+op(opcode = 0x14, dst: REG, imm: U32) {
+  vars := {x, dst_int}
+  preconditions {
+    alu_ops_imm(dst);
+    dst : INT -> dst_int = true;
+    !(dst : INT) -> dst_int = false;
+    dst_int -> x = dst.value;
+    !dst_int -> allow_ptr_leaks();
+  }
+  postconditions {
+    dst : INT;
+    dst_int -> dst.value = (u64)((u32)x - imm);
+  }
+}
+
+# dst -= src (ALU32)
+op(opcode = 0x1c, src: REG, dst: REG) {
+  vars := {x, dst_int}
+  preconditions {
+    alu_ops_reg(dst, src);
+    dst : INT -> dst_int = true;
+    !(dst : INT) -> dst_int = false;
+    dst_int && src : INT -> x = dst.value;
+    !(dst_int && src : INT) -> allow_ptr_leaks();
+  }
+  postconditions {
+    dst : INT;
+    dst_int && src : INT -> dst.value = (u64)((u32)x - (u32)src.value);
+  }
+}
+
+# --- MUL (scalar only) ---
+op(opcode = 0x27, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); x = dst.value; } postconditions { dst : INT; dst.value = x * (s64)imm; } }                         # dst *= imm (ALU64)
+op(opcode = 0x2f, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = x * src.value; } }                   # dst *= src (ALU64)
+op(opcode = 0x24, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x * imm); } }                  # dst *= imm (ALU32)
+op(opcode = 0x2c, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x * (u32)src.value); } }  # dst *= src (ALU32)
+
+# --- DIV (off=0 unsigned, off=1 signed) ---
+
+# dst = off ? (u64)((s64)dst / (s64)imm) : dst / (u64)(s64)imm
+op(opcode = 0x37, dst: REG, off: S16, imm: U32) {
+  vars := {x}
+  preconditions {
+    alus_ops_imm(dst);
+    !(imm = 0);
+    x = dst.value;
+  }
+  postconditions {
+    dst : INT;
+    off = 0 -> dst.value = x / (u64)(s64)imm;
+    off = 1 -> dst.value = (u64)((s64)x / (s64)imm);
+  }
+}
+
+# dst = (src == 0) ? 0 : off ? (u64)((s64)dst / (s64)src) : dst / src
+op(opcode = 0x3f, src: REG, dst: REG, off: S16) {
+  vars := {x}
+  preconditions {
+    alus_ops_reg(dst, src);
+    x = dst.value;
+  }
+  postconditions {
+    dst : INT;
+    off = 0 -> ((src.value = 0 -> dst.value = 0)
+             && (!(src.value = 0) -> dst.value = x / src.value));
+    off = 1 -> ((src.value = 0 -> dst.value = 0)
+             && (!(src.value = 0) -> dst.value = (u64)((s64)x / (s64)src.value)));
+  }
+}
+
+# dst = off ? (u64)(u32)((s32)dst / (s32)imm) : (u64)((u32)dst / (u32)imm)
+op(opcode = 0x34, dst: REG, off: S16, imm: U32) {
+  vars := {x}
+  preconditions {
+    alus_ops_imm(dst);
+    !(imm = 0);
+    x = dst.value;
+  }
+  postconditions {
+    dst : INT;
+    off = 0 -> dst.value = (u64)((u32)x / (u32)imm);
+    off = 1 -> dst.value = (u64)(u32)((s32)x / (s32)imm);
+  }
+}
+
+# dst = ((u32)src == 0) ? 0 : off ? (u64)(u32)((s32)dst / (s32)src) : (u64)((u32)dst / (u32)src)
+op(opcode = 0x3c, src: REG, dst: REG, off: S16) {
+  vars := {x}
+  preconditions {
+    alus_ops_reg(dst, src);
+    x = dst.value;
+  }
+  postconditions {
+    dst : INT;
+    off = 0 -> (((u32)src.value = 0 -> dst.value = 0)
+             && (!((u32)src.value = 0) -> dst.value = (u64)((u32)x / (u32)src.value)));
+    off = 1 -> (((u32)src.value = 0 -> dst.value = 0)
+             && (!((u32)src.value = 0) -> dst.value = (u64)(u32)((s32)x / (s32)src.value)));
+  }
+}
+
+# --- MOD (off=0 unsigned, off=1 signed) ---
+
+# dst = off ? (u64)((s64)dst % (s64)imm) : dst % (u64)(s64)imm
+op(opcode = 0x97, dst: REG, off: S16, imm: U32) {
+  vars := {x}
+  preconditions {
+    alus_ops_imm(dst);
+    !(imm = 0);
+    x = dst.value;
+  }
+  postconditions {
+    dst : INT;
+    off = 0 -> dst.value = x % (u64)(s64)imm;
+    off = 1 -> dst.value = (u64)((s64)x % (s64)imm);
+  }
+}
+
+# dst = (src == 0) ? dst : off ? (u64)((s64)dst % (s64)src) : dst % src
+op(opcode = 0x9f, src: REG, dst: REG, off: S16) {
+  vars := {x}
+  preconditions {
+    alus_ops_reg(dst, src);
+    x = dst.value;
+  }
+  postconditions {
+    dst : INT;
+    off = 0 -> ((src.value = 0 -> dst.value = x)
+             && (!(src.value = 0) -> dst.value = x % src.value));
+    off = 1 -> ((src.value = 0 -> dst.value = x)
+             && (!(src.value = 0) -> dst.value = (u64)((s64)x % (s64)src.value)));
+  }
+}
+
+# dst = off ? (u64)(u32)((s32)dst % (s32)imm) : (u64)((u32)dst % (u32)imm)
+op(opcode = 0x94, dst: REG, off: S16, imm: U32) {
+  vars := {x}
+  preconditions {
+    alus_ops_imm(dst);
+    !(imm = 0);
+    x = dst.value;
+  }
+  postconditions {
+    dst : INT;
+    off = 0 -> dst.value = (u64)((u32)x % (u32)imm);
+    off = 1 -> dst.value = (u64)(u32)((s32)x % (s32)imm);
+  }
+}
+
+# dst = ((u32)src == 0) ? (u64)(u32)dst : off ? (u64)(u32)((s32)dst % (s32)src) : (u64)((u32)dst % (u32)src)
+op(opcode = 0x9c, src: REG, dst: REG, off: S16) {
+  vars := {x}
+  preconditions {
+    alus_ops_reg(dst, src);
+    x = dst.value;
+  }
+  postconditions {
+    dst : INT;
+    off = 0 -> (((u32)src.value = 0 -> dst.value = (u64)(u32)x)
+             && (!((u32)src.value = 0) -> dst.value = (u64)((u32)x % (u32)src.value)));
+    off = 1 -> (((u32)src.value = 0 -> dst.value = (u64)(u32)x)
+             && (!((u32)src.value = 0) -> dst.value = (u64)(u32)((s32)x % (s32)src.value)));
+  }
+}
+
+# --- OR (scalar only) ---
+op(opcode = 0x47, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); x = dst.value; } postconditions { dst : INT; dst.value = x | (s64)imm; } }                         # dst |= imm (ALU64)
+op(opcode = 0x4f, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = x | src.value; } }                   # dst |= src (ALU64)
+op(opcode = 0x44, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x | imm); } }                  # dst |= imm (ALU32)
+op(opcode = 0x4c, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x | (u32)src.value); } }  # dst |= src (ALU32)
+
+# --- AND (scalar only) ---
+op(opcode = 0x57, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); x = dst.value; } postconditions { dst : INT; dst.value = x & (s64)imm; } }                         # dst &= imm (ALU64)
+op(opcode = 0x5f, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = x & src.value; } }                   # dst &= src (ALU64)
+op(opcode = 0x54, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x & imm); } }                  # dst &= imm (ALU32)
+op(opcode = 0x5c, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x & (u32)src.value); } }  # dst &= src (ALU32)
+
+# --- XOR (scalar only) ---
+op(opcode = 0xa7, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); x = dst.value; } postconditions { dst : INT; dst.value = x ^ (s64)imm; } }                         # dst ^= imm (ALU64)
+op(opcode = 0xaf, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = x ^ src.value; } }                   # dst ^= src (ALU64)
+op(opcode = 0xa4, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x ^ imm); } }                  # dst ^= imm (ALU32)
+op(opcode = 0xac, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x ^ (u32)src.value); } }  # dst ^= src (ALU32)
+
+# --- LSH (scalar only; K-form shift bound @15774; X-form count masked &63/&31) ---
+op(opcode = 0x67, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); imm < 64; x = dst.value; } postconditions { dst : INT; dst.value = x << imm; } }                                          # dst <<= imm (ALU64)
+op(opcode = 0x6f, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = x << (src.value & 63); } }                                  # dst <<= src (ALU64)
+op(opcode = 0x64, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); imm < 32; x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x << imm); } }                              # dst <<= imm (ALU32)
+op(opcode = 0x6c, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x << ((u32)src.value & 31)); } }                 # dst <<= src (ALU32)
+
+# --- RSH (logical, scalar only; K-form shift bound; X-form count masked) ---
+op(opcode = 0x77, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); imm < 64; x = dst.value; } postconditions { dst : INT; dst.value = x >> imm; } }                                          # dst >>= imm (ALU64)
+op(opcode = 0x7f, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = x >> (src.value & 63); } }                                  # dst >>= src (ALU64)
+op(opcode = 0x74, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); imm < 32; x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x >> imm); } }                              # dst >>= imm (ALU32)
+op(opcode = 0x7c, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = (u64)((u32)x >> ((u32)src.value & 31)); } }                 # dst >>= src (ALU32)
+
+# --- ARSH (arithmetic, scalar only; signed-cast lhs makes >> arithmetic) ---
+op(opcode = 0xc7, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); imm < 64; x = dst.value; } postconditions { dst : INT; dst.value = (u64)((s64)x >> imm); } }                              # dst s>>= imm (ALU64)
+op(opcode = 0xcf, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = (u64)((s64)x >> (src.value & 63)); } }                      # dst s>>= src (ALU64)
+op(opcode = 0xc4, dst: REG, imm: U32) { vars := {x} preconditions { alus_ops_imm(dst); imm < 32; x = dst.value; } postconditions { dst : INT; dst.value = (u64)(u32)((s32)x >> imm); } }                         # dst s>>= imm (ALU32)
+op(opcode = 0xcc, src: REG, dst: REG) { vars := {x} preconditions { alus_ops_reg(dst, src); x = dst.value; } postconditions { dst : INT; dst.value = (u64)(u32)((s32)x >> (src.value & 31)); } }                 # dst s>>= src (ALU32)
+
+# --- NEG (unary, scalar only; src/imm/off reserved =0 @15552) ---
+op(opcode = 0x87, dst: REG) { vars := {x} preconditions { alus_ops_imm(dst); x = dst.value; } postconditions { dst : INT; dst.value = -x; } }              # dst = -dst (ALU64)
+op(opcode = 0x84, dst: REG) { vars := {x} preconditions { alus_ops_imm(dst); x = dst.value; } postconditions { dst : INT; dst.value = (u64)(u32)(-x); } }  # dst = -dst (ALU32)
+
+# --- MOV (dst overwritten, not read-modify-write; 0xb7 mov64-imm defined above) ---
+op(opcode = 0xb4, dst: REG, imm: U32) { preconditions { reg_writable(dst); } postconditions { dst : INT; dst.value = (u64)imm; } }  # dst = imm (ALU32, zero-extended)
+op(opcode = 0xbf, src: REG, dst: REG) { preconditions { !(src : POISON); reg_writable(dst); } postconditions { (src : INT -> dst : INT && dst.value = src.value) && (!(src : INT) -> register_copied(dst, src)); } }  # dst = src (ALU64)
+# 32-bit reg move truncates; pointer src rejected ("partial copy of pointer").
+op(opcode = 0xbc, src: REG, dst: REG) { preconditions { !(src : POISON); src : INT; reg_writable(dst); } postconditions { dst : INT; dst.value = (u64)(u32)src.value; } }  # dst = (u32)src (ALU32)
+
+# --- END / byte swap (scalar; imm = width 16/32/64; no native bswap op -> $...$) ---
+op(opcode = 0xd4, dst: REG, imm: U32) { vars := {x} preconditions { !(dst : POISON); dst : INT; reg_writable(dst); imm = 16 || imm = 32 || imm = 64; x = dst.value; } postconditions { dst : INT; dst.value = $htole(x, imm)$; } }  # dst = htole{16,32,64}(dst)
+op(opcode = 0xdc, dst: REG, imm: U32) { vars := {x} preconditions { !(dst : POISON); dst : INT; reg_writable(dst); imm = 16 || imm = 32 || imm = 64; x = dst.value; } postconditions { dst : INT; dst.value = $htobe(x, imm)$; } }  # dst = htobe{16,32,64}(dst)
+op(opcode = 0xd7, dst: REG, imm: U32) { vars := {x} preconditions { !(dst : POISON); dst : INT; reg_writable(dst); imm = 16 || imm = 32 || imm = 64; x = dst.value; } postconditions { dst : INT; dst.value = $bswap(x, imm)$; } }  # dst = bswap{16,32,64}(dst) (ALU64 END)
+
+# === kfunc hook predicates (program-type bucket = disjunction of prog types) ===
+# A kfunc is callable from a program iff its hook set contains the program's
+# hook; inline `hook_<x>()` per the kfunc's hooks rather than a per-kfunc check.
+# COMMON is callable from any program type.
+
+hook_common() := true;
+hook_xdp() := PROG_TYPE = BPF_PROG_TYPE_XDP;
+hook_tc() := PROG_TYPE = BPF_PROG_TYPE_SCHED_CLS;
+hook_struct_ops() := PROG_TYPE = BPF_PROG_TYPE_STRUCT_OPS;
+hook_tracing() := PROG_TYPE = BPF_PROG_TYPE_TRACING || PROG_TYPE = BPF_PROG_TYPE_TRACEPOINT
+ || PROG_TYPE = BPF_PROG_TYPE_PERF_EVENT || PROG_TYPE = BPF_PROG_TYPE_LSM;
+hook_syscall() := PROG_TYPE = BPF_PROG_TYPE_SYSCALL;
+hook_cgroup() := PROG_TYPE = BPF_PROG_TYPE_CGROUP_SKB || PROG_TYPE = BPF_PROG_TYPE_CGROUP_SOCK
+ || PROG_TYPE = BPF_PROG_TYPE_CGROUP_DEVICE || PROG_TYPE = BPF_PROG_TYPE_CGROUP_SOCK_ADDR
+ || PROG_TYPE = BPF_PROG_TYPE_CGROUP_SOCKOPT || PROG_TYPE = BPF_PROG_TYPE_CGROUP_SYSCTL
+ || PROG_TYPE = BPF_PROG_TYPE_SOCK_OPS;
+hook_sched_act() := PROG_TYPE = BPF_PROG_TYPE_SCHED_ACT;
+hook_sk_skb() := PROG_TYPE = BPF_PROG_TYPE_SK_SKB;
+hook_socket_filter() := PROG_TYPE = BPF_PROG_TYPE_SOCKET_FILTER;
+hook_lwt() := PROG_TYPE = BPF_PROG_TYPE_LWT_OUT || PROG_TYPE = BPF_PROG_TYPE_LWT_IN
+ || PROG_TYPE = BPF_PROG_TYPE_LWT_XMIT || PROG_TYPE = BPF_PROG_TYPE_LWT_SEG6LOCAL;
+hook_netfilter() := PROG_TYPE = BPF_PROG_TYPE_NETFILTER;
+hook_kprobe() := PROG_TYPE = BPF_PROG_TYPE_KPROBE;
+
+# === kfunc hook-filter predicates ===
+# kfuncs are admitted based on the hook of the program (sets of program types), 
+# but for some hooks filter functions are also run to guard access. This section contains 
+# predicates corresponding to the kernel filters.
+
+is_kprobe_session() := ATTACH_TYPE = BPF_TRACE_KPROBE_SESSION;
+is_uprobe_session() := ATTACH_TYPE = BPF_TRACE_UPROBE_SESSION;
+
+tracing_iter_filter() := ATTACH_TYPE = BPF_TRACE_ITER;
+bpf_fs_kfuncs_filter() := PROG_TYPE = BPF_PROG_TYPE_LSM;
+bpf_get_fsverity_digest_filter() := PROG_TYPE = BPF_PROG_TYPE_LSM;
+bpf_kprobe_multi_filter() := is_kprobe_session() || is_uprobe_session();
+
+# Requires a Qdisc_ops struct_ops; the inner check (kfunc permitted in the
+# attached member's enqueue/dequeue/common sub-set) is per-kfunc/per-member data
+# outside the descriptor, so it stays an open obligation.
+bpf_qdisc_kfunc_filter() := ST_OPS = bpf_Qdisc_ops && ...;
+
+# === Store instructions (BPF_ST / BPF_STX | BPF_MEM; 0x63/0x7b above; atomics not modeled) ===
+
+# *(u16 *)(dst + off) = src
+op(opcode = 0x6b, src: REG, dst: REG, off: S16) {
+  vars := {prev_stack}
+  preconditions {
+    !(src : POISON);
+    no_pointer_leak(src);
+    dst : MEM && check_mem_access_reg(dst, off, 2, true, src);
+    prev_stack = STACK;
+  }
+  postconditions {
+    dst : PTR_TO_STACK -> stack_store(dst.offset + off, src, 2, prev_stack);
+  }
+}
+
+# *(u8 *)(dst + off) = src
+op(opcode = 0x73, src: REG, dst: REG, off: S16) {
+  vars := {prev_stack}
+  preconditions {
+    !(src : POISON);
+    no_pointer_leak(src);
+    dst : MEM && check_mem_access_reg(dst, off, 1, true, src);
+    prev_stack = STACK;
+  }
+  postconditions {
+    dst : PTR_TO_STACK -> stack_store(dst.offset + off, src, 1, prev_stack);
+  }
+}
+
+# *(u32 *)(dst + off) = src
+op(opcode = 0x63, src: REG, dst: REG, off: S16) {
+  vars := {prev_stack}
+  preconditions {
+    !(src : POISON);
+    no_pointer_leak(src);
+    dst : MEM && check_mem_access_reg(dst, off, 4, true, src);
+    prev_stack = STACK;
+  }
+  postconditions {
+    dst : PTR_TO_STACK -> stack_store(dst.offset + off, src, 4, prev_stack);
+  }
+}
+
+# *(u64 *)(dst + off) = src
+op(opcode = 0x7b, src: REG, dst: REG, off: S16) {
+  vars := {prev_stack}
+  preconditions {
+    !(src : POISON);
+    dst : MEM && check_mem_access_reg(dst, off, 8, true, src);
+    prev_stack = STACK;
+  }
+  postconditions {
+    dst : PTR_TO_STACK -> stack_store(dst.offset + off, src, 8, prev_stack);
+  }
+}
+
+# BPF_ST: like the kernel (is_bpf_st_mem branch), model the immediate as a fake
+# known scalar v and reuse the register-store path.
+
+# *(u32 *)(dst + off) = imm
+op(opcode = 0x62, dst: REG, off: S16, imm: U32) {
+  vars := {prev_stack, v}
+  preconditions {
+    v : INT;
+    v.value = imm;
+    dst : MEM && check_mem_access(dst, off, 4, true);
+    prev_stack = STACK;
+  }
+  postconditions {
+    dst : PTR_TO_STACK -> stack_store(dst.offset + off, v, 4, prev_stack);
+  }
+}
+
+# *(u16 *)(dst + off) = imm
+op(opcode = 0x6a, dst: REG, off: S16, imm: U32) {
+  vars := {prev_stack, v}
+  preconditions {
+    v : INT;
+    v.value = imm;
+    dst : MEM && check_mem_access(dst, off, 2, true);
+    prev_stack = STACK;
+  }
+  postconditions {
+    dst : PTR_TO_STACK -> stack_store(dst.offset + off, v, 2, prev_stack);
+  }
+}
+
+# *(u8 *)(dst + off) = imm
+op(opcode = 0x72, dst: REG, off: S16, imm: U32) {
+  vars := {prev_stack, v}
+  preconditions {
+    v : INT;
+    v.value = imm;
+    dst : MEM && check_mem_access(dst, off, 1, true);
+    prev_stack = STACK;
+  }
+  postconditions {
+    dst : PTR_TO_STACK -> stack_store(dst.offset + off, v, 1, prev_stack);
+  }
+}
+
+# *(u64 *)(dst + off) = (s64)imm
+op(opcode = 0x7a, dst: REG, off: S16, imm: U32) {
+  vars := {prev_stack, v}
+  preconditions {
+    v : INT;
+    v.value = (s64)imm;
+    dst : MEM && check_mem_access(dst, off, 8, true);
+    prev_stack = STACK;
+  }
+  postconditions {
+    dst : PTR_TO_STACK -> stack_store(dst.offset + off, v, 8, prev_stack);
+  }
+}
+
+# === Load instructions (BPF_LDX | BPF_MEM / BPF_MEMSX; dst = *(size *)(src + off)) ===
+
+# Stack read recovers the spilled reg or a scalar; CTX result type is the field's type per prog type.
+load_result(dst, src, off, size) :=
+    (src : PTR_TO_STACK -> fill_reg_from_stack(dst, src.offset + off, size))
+    && (src : PTR_TO_CTX -> ctx_read_type(dst, src.offset + off, size))
+    && (is_pkt_ptr(src) -> dst : INT)
+    && (src : PTR_TO_MAP_VALUE -> dst : INT);
+
+check_load_mem(src, dst, off, size) :=
+    !(src : POISON) && reg_writable(dst) && src : MEM && check_mem_access(src, off, size, false);
+
+# dst = *(u32 *)(src + off)
+op(opcode = 0x61, src: REG, dst: REG, off: S16) {
+  preconditions { check_load_mem(src, dst, off, 4); }
+  postconditions { load_result(dst, src, off, 4); }
+}
+# dst = *(u16 *)(src + off)
+op(opcode = 0x69, src: REG, dst: REG, off: S16) {
+  preconditions { check_load_mem(src, dst, off, 2); }
+  postconditions { load_result(dst, src, off, 2); }
+}
+# dst = *(u8 *)(src + off)
+op(opcode = 0x71, src: REG, dst: REG, off: S16) {
+  preconditions { check_load_mem(src, dst, off, 1); }
+  postconditions { load_result(dst, src, off, 1); }
+}
+# dst = *(u64 *)(src + off)
+op(opcode = 0x79, src: REG, dst: REG, off: S16) {
+  preconditions { check_load_mem(src, dst, off, 8); }
+  postconditions { load_result(dst, src, off, 8); }
+}
+
+# Sign-extending loads (BPF_MEMSX); sign extension only refines the scalar value
+# (not modeled). No BPF_MEMSX | BPF_DW form.
+# dst = *(s32 *)(src + off)
+op(opcode = 0x81, src: REG, dst: REG, off: S16) {
+  preconditions { check_load_mem(src, dst, off, 4); }
+  postconditions { load_result(dst, src, off, 4); }
+}
+# dst = *(s16 *)(src + off)
+op(opcode = 0x89, src: REG, dst: REG, off: S16) {
+  preconditions { check_load_mem(src, dst, off, 2); }
+  postconditions { load_result(dst, src, off, 2); }
+}
+# dst = *(s8 *)(src + off)
+op(opcode = 0x91, src: REG, dst: REG, off: S16) {
+  preconditions { check_load_mem(src, dst, off, 1); }
+  postconditions { load_result(dst, src, off, 1); }
+}
+
+# === Jump / branch instructions (BPF_JMP / BPF_JMP32) ===
+
+pkt_ptr(p) := p : PTR_TO_PACKET || p : PTR_TO_PACKET_META || p : PTR_TO_PACKET_END;
+may_be_null(p) := p : PTR_TO_MAP_VALUE_OR_NULL || p : PTR_TO_BTF_ID_OR_NULL
+    || p : PTR_TO_SOCKET_OR_NULL || p : PTR_TO_SOCK_COMMON_OR_NULL
+    || p : HELPER_MEM_OR_NULL;
+
+ptr_checked(old, new) := (old : PTR_TO_MAP_VALUE_OR_NULL -> new : PTR_TO_MAP_VALUE)
+    && (old : PTR_TO_BTF_ID_OR_NULL -> new : PTR_TO_BTF_ID)
+    && (old : PTR_TO_SOCKET_OR_NULL -> new : PTR_TO_SOCKET)
+    && (old : PTR_TO_SOCK_COMMON_OR_NULL -> new : PTR_TO_SOCK_COMMON)
+    && (old : HELPER_MEM_OR_NULL -> new : HELPER_MEM);
+
+jmp_cmp_x_ok(a, b) := !(a : POISON) && !(b : POISON)
+    && ((a : INT && b : INT) || (pkt_ptr(a) && pkt_ptr(b)) || allow_ptr_leaks());
+jmp_cmp_x_strict(a, b) := !(a : POISON) && !(b : POISON)
+    && ((a : INT && b : INT) || allow_ptr_leaks());
+jmp_cmp_k_ok(a) := !(a : POISON) && (a : INT || allow_ptr_leaks());
+jmp_eq_k_ok(a, imm) := !(a : POISON)
+    && (a : INT || allow_ptr_leaks() || (imm = 0 && may_be_null(a)));
+
+pkt_good(p, r) := (p.offset >= 0 && p.offset <= 0xffff) -> p.range >= r;
+
+op(opcode = 0x05) { preconditions { } postconditions { } }  # goto +off
+op(opcode = 0x06) { preconditions { } postconditions { } }  # gotol +imm
+
+retval_in(r, lo, hi) := (s64)r.value >= lo && (s64)r.value <= hi;
+
+cgroup_sa_ret1_attach() :=
+    ATTACH_TYPE = BPF_CGROUP_UDP4_RECVMSG || ATTACH_TYPE = BPF_CGROUP_UDP6_RECVMSG
+    || ATTACH_TYPE = BPF_CGROUP_UNIX_RECVMSG
+    || ATTACH_TYPE = BPF_CGROUP_INET4_GETPEERNAME || ATTACH_TYPE = BPF_CGROUP_INET6_GETPEERNAME
+    || ATTACH_TYPE = BPF_CGROUP_UNIX_GETPEERNAME
+    || ATTACH_TYPE = BPF_CGROUP_INET4_GETSOCKNAME || ATTACH_TYPE = BPF_CGROUP_INET6_GETSOCKNAME
+    || ATTACH_TYPE = BPF_CGROUP_UNIX_GETSOCKNAME;
+
+cgroup_sa_bind_attach() :=
+    ATTACH_TYPE = BPF_CGROUP_INET4_BIND || ATTACH_TYPE = BPF_CGROUP_INET6_BIND;
+
+return_code_ok(r) :=
+    (PROG_TYPE = BPF_PROG_TYPE_SK_LOOKUP -> retval_in(r, 0, 1))
+    && (PROG_TYPE = BPF_PROG_TYPE_NETFILTER -> retval_in(r, 0, 1))
+    && (PROG_TYPE = BPF_PROG_TYPE_CGROUP_SOCK -> retval_in(r, 0, 1))
+    && (PROG_TYPE = BPF_PROG_TYPE_SOCK_OPS -> retval_in(r, 0, 1))
+    && (PROG_TYPE = BPF_PROG_TYPE_CGROUP_DEVICE -> retval_in(r, 0, 1))
+    && (PROG_TYPE = BPF_PROG_TYPE_CGROUP_SYSCTL -> retval_in(r, 0, 1))
+    && (PROG_TYPE = BPF_PROG_TYPE_CGROUP_SOCKOPT -> retval_in(r, 0, 1))
+    && (PROG_TYPE = BPF_PROG_TYPE_CGROUP_SKB ->
+          (ATTACH_TYPE = BPF_CGROUP_INET_EGRESS -> retval_in(r, 0, 3))
+          && (!(ATTACH_TYPE = BPF_CGROUP_INET_EGRESS) -> retval_in(r, 0, 1)))
+    && (PROG_TYPE = BPF_PROG_TYPE_CGROUP_SOCK_ADDR ->
+          (cgroup_sa_ret1_attach() -> retval_in(r, 1, 1))
+          && (cgroup_sa_bind_attach() -> retval_in(r, 0, 3))
+          && (!cgroup_sa_ret1_attach() && !cgroup_sa_bind_attach() -> retval_in(r, 0, 1)))
+    && (PROG_TYPE = BPF_PROG_TYPE_KPROBE ->
+          (is_kprobe_session() || is_uprobe_session() -> retval_in(r, 0, 1)))
+    && (PROG_TYPE = BPF_PROG_TYPE_TRACING ->
+          (ATTACH_TYPE = BPF_TRACE_FENTRY || ATTACH_TYPE = BPF_TRACE_FEXIT -> retval_in(r, 0, 0))
+          && (ATTACH_TYPE = BPF_TRACE_ITER -> retval_in(r, 0, 1)))
+    # LSM / STRUCT_OPS: the valid range is the attached hook / operator BTF return type, resolved
+    # from attach_btf_id which we don't model right now.
+    && (PROG_TYPE = BPF_PROG_TYPE_LSM -> false)
+    && (PROG_TYPE = BPF_PROG_TYPE_STRUCT_OPS -> false);
+
+# return (BPF_EXIT) - aka the epilogue.
+op(opcode = 0x95) {
+  preconditions {
+    R0 : INT;
+    return_code_ok(R0);
+    # TODO: all acquired references released
+    # TODO: no open spinlock / RCU / IRQ-save / preempt section
+  }
+  postconditions { }
+}
+
+# if dst == imm goto +off
+op(opcode = 0x15, dst: REG, imm: U32) {
+  vars := {old_dst}
+  preconditions { 
+    jmp_eq_k_ok(dst, imm); 
+    old_dst = dst;
+  } 
+  postconditions {
+    taken {
+      old_dst : INT -> dst : INT && dst.value = (s64)imm;
+      # A pointer checked to be equal to 0 degrades to a scalar
+      !(old_dst : INT) && imm = 0 -> dst : INT && dst.value = 0;
+    }
+    !taken {
+      dst : INT -> dst.value != (s64)imm;
+      may_be_null(old_dst) && imm = 0 -> ptr_checked(old_dst, dst);
+    }
+  } 
+}
+# if dst == src goto +off
+op(opcode = 0x1d, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken {
+      dst : INT && src : INT -> dst.value = src.value;
+    }
+    !taken {
+      dst : INT && src : INT -> dst.value != src.value;
+    }
+  }
+}
+
+# if dst != imm goto +off  (mirror of JEQ: the non-null edge is the taken one)
+op(opcode = 0x55, dst: REG, imm: U32) {
+  vars := {old_dst}
+  preconditions {
+    jmp_eq_k_ok(dst, imm);
+    old_dst = dst;
+  }
+  postconditions {
+    taken {
+      dst : INT -> dst.value != (s64)imm;
+      may_be_null(old_dst) && imm = 0 -> ptr_checked(old_dst, dst);
+    }
+    !taken {
+      old_dst : INT -> dst : INT && dst.value = (s64)imm;
+      !(old_dst : INT) && imm = 0 -> dst : INT && dst.value = 0;
+    }
+  }
+}
+
+# if dst != src goto +off
+op(opcode = 0x5d, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken {
+      dst : INT && src : INT -> dst.value != src.value;
+    }
+    !taken {
+      dst : INT && src : INT -> dst.value = src.value;
+    }
+  }
+}
+
+# if dst > imm goto +off (unsigned)
+op(opcode = 0x25, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken {
+      dst : INT -> (u64)dst.value > (u64)(s64)imm;
+    }
+    !taken {
+      dst : INT -> (u64)dst.value <= (u64)(s64)imm;
+    }
+  }
+}
+
+# if dst > src goto +off (unsigned)
+op(opcode = 0x2d, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_ok(dst, src); }
+  postconditions {
+    taken {
+      dst : INT && src : INT -> (u64)dst.value > (u64)src.value;
+      # pkt_end > pkt_data' (strict): data' < end here -> good up to off + 1.
+      dst : PTR_TO_PACKET_END && src : PTR_TO_PACKET -> pkt_good(src, src.offset + 1);
+    }
+    !taken {
+      dst : INT && src : INT -> (u64)dst.value <= (u64)src.value;
+      # pkt_data' > end is false here: data' <= end -> good up to off.
+      dst : PTR_TO_PACKET && src : PTR_TO_PACKET_END -> pkt_good(dst, dst.offset);
+    }
+  }
+}
+
+# if dst >= imm goto +off (unsigned)
+op(opcode = 0x35, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (u64)dst.value >= (u64)(s64)imm; }
+    !taken { dst : INT -> (u64)dst.value < (u64)(s64)imm; }
+  }
+}
+# if dst >= src goto +off (unsigned)
+op(opcode = 0x3d, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_ok(dst, src); }
+  postconditions {
+    taken {
+      dst : INT && src : INT -> (u64)dst.value >= (u64)src.value;
+      dst : PTR_TO_PACKET_END && src : PTR_TO_PACKET -> pkt_good(src, src.offset);
+    }
+    !taken {
+      dst : INT && src : INT -> (u64)dst.value < (u64)src.value;
+      dst : PTR_TO_PACKET && src : PTR_TO_PACKET_END -> pkt_good(dst, dst.offset + 1);
+    }
+  }
+}
+
+# if dst < imm goto +off (unsigned)
+op(opcode = 0xa5, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (u64)dst.value < (u64)(s64)imm; }
+    !taken { dst : INT -> (u64)dst.value >= (u64)(s64)imm; }
+  }
+}
+# if dst < src goto +off (unsigned)
+op(opcode = 0xad, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_ok(dst, src); }
+  postconditions {
+    taken {
+      dst : INT && src : INT -> (u64)dst.value < (u64)src.value;
+      dst : PTR_TO_PACKET && src : PTR_TO_PACKET_END -> pkt_good(dst, dst.offset + 1);
+    }
+    !taken {
+      dst : INT && src : INT -> (u64)dst.value >= (u64)src.value;
+      dst : PTR_TO_PACKET_END && src : PTR_TO_PACKET -> pkt_good(src, src.offset);
+    }
+  }
+}
+
+# if dst <= imm goto +off (unsigned)
+op(opcode = 0xb5, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (u64)dst.value <= (u64)(s64)imm; }
+    !taken { dst : INT -> (u64)dst.value > (u64)(s64)imm; }
+  }
+}
+# if dst <= src goto +off (unsigned)
+op(opcode = 0xbd, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_ok(dst, src); }
+  postconditions {
+    taken {
+      dst : INT && src : INT -> (u64)dst.value <= (u64)src.value;
+      dst : PTR_TO_PACKET && src : PTR_TO_PACKET_END -> pkt_good(dst, dst.offset);
+    }
+    !taken {
+      dst : INT && src : INT -> (u64)dst.value > (u64)src.value;
+      dst : PTR_TO_PACKET_END && src : PTR_TO_PACKET -> pkt_good(src, src.offset + 1);
+    }
+  }
+}
+
+# --- JSGT / JSGE / JSLT / JSLE: signed ordering (scalar only) ---
+
+# if dst > imm goto +off (signed)
+op(opcode = 0x65, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (s64)dst.value > (s64)imm; }
+    !taken { dst : INT -> (s64)dst.value <= (s64)imm; }
+  }
+}
+# if dst > src goto +off (signed)
+op(opcode = 0x6d, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (s64)dst.value > (s64)src.value; }
+    !taken { dst : INT && src : INT -> (s64)dst.value <= (s64)src.value; }
+  }
+}
+
+# if dst >= imm goto +off (signed)
+op(opcode = 0x75, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (s64)dst.value >= (s64)imm; }
+    !taken { dst : INT -> (s64)dst.value < (s64)imm; }
+  }
+}
+# if dst >= src goto +off (signed)
+op(opcode = 0x7d, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (s64)dst.value >= (s64)src.value; }
+    !taken { dst : INT && src : INT -> (s64)dst.value < (s64)src.value; }
+  }
+}
+
+# if dst < imm goto +off (signed)
+op(opcode = 0xc5, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (s64)dst.value < (s64)imm; }
+    !taken { dst : INT -> (s64)dst.value >= (s64)imm; }
+  }
+}
+# if dst < src goto +off (signed)
+op(opcode = 0xcd, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (s64)dst.value < (s64)src.value; }
+    !taken { dst : INT && src : INT -> (s64)dst.value >= (s64)src.value; }
+  }
+}
+
+# if dst <= imm goto +off (signed)
+op(opcode = 0xd5, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (s64)dst.value <= (s64)imm; }
+    !taken { dst : INT -> (s64)dst.value > (s64)imm; }
+  }
+}
+# if dst <= src goto +off (signed)
+op(opcode = 0xdd, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (s64)dst.value <= (s64)src.value; }
+    !taken { dst : INT && src : INT -> (s64)dst.value > (s64)src.value; }
+  }
+}
+
+# --- JSET: bit test `dst & <imm|src>` (scalar only; taken iff nonzero) ---
+
+# if dst & imm goto +off
+op(opcode = 0x45, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> dst.value & (s64)imm != 0; }
+    !taken { dst : INT -> dst.value & (s64)imm = 0; }
+  }
+}
+# if dst & src goto +off
+op(opcode = 0x4d, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> dst.value & src.value != 0; }
+    !taken { dst : INT && src : INT -> dst.value & src.value = 0; }
+  }
+}
+
+# === JMP32 conditional jumps (BPF_JMP32): compare the low 32 bits ===
+# Operands are truncated to (u32)/(s32). Unlike JMP64 there is NO packet
+# carve-out (try_match_pkt_pointers is JMP64-only) and NO null check
+# (mark_ptr_or_null is JMP64-only), so every form rejects a pointer operand
+# unless allow_ptr_leaks and refines only scalars.
+
+# if (u32)dst == imm goto +off
+op(opcode = 0x16, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (u32)dst.value = (u32)imm; }
+    !taken { dst : INT -> (u32)dst.value != (u32)imm; }
+  }
+}
+# if (u32)dst == (u32)src goto +off
+op(opcode = 0x1e, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (u32)dst.value = (u32)src.value; }
+    !taken { dst : INT && src : INT -> (u32)dst.value != (u32)src.value; }
+  }
+}
+
+# if (u32)dst != imm goto +off
+op(opcode = 0x56, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (u32)dst.value != (u32)imm; }
+    !taken { dst : INT -> (u32)dst.value = (u32)imm; }
+  }
+}
+# if (u32)dst != (u32)src goto +off
+op(opcode = 0x5e, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (u32)dst.value != (u32)src.value; }
+    !taken { dst : INT && src : INT -> (u32)dst.value = (u32)src.value; }
+  }
+}
+
+# if (u32)dst > imm goto +off (unsigned)
+op(opcode = 0x26, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (u32)dst.value > (u32)imm; }
+    !taken { dst : INT -> (u32)dst.value <= (u32)imm; }
+  }
+}
+# if (u32)dst > (u32)src goto +off (unsigned)
+op(opcode = 0x2e, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (u32)dst.value > (u32)src.value; }
+    !taken { dst : INT && src : INT -> (u32)dst.value <= (u32)src.value; }
+  }
+}
+
+# if (u32)dst >= imm goto +off (unsigned)
+op(opcode = 0x36, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (u32)dst.value >= (u32)imm; }
+    !taken { dst : INT -> (u32)dst.value < (u32)imm; }
+  }
+}
+# if (u32)dst >= (u32)src goto +off (unsigned)
+op(opcode = 0x3e, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (u32)dst.value >= (u32)src.value; }
+    !taken { dst : INT && src : INT -> (u32)dst.value < (u32)src.value; }
+  }
+}
+
+# if (u32)dst < imm goto +off (unsigned)
+op(opcode = 0xa6, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (u32)dst.value < (u32)imm; }
+    !taken { dst : INT -> (u32)dst.value >= (u32)imm; }
+  }
+}
+# if (u32)dst < (u32)src goto +off (unsigned)
+op(opcode = 0xae, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (u32)dst.value < (u32)src.value; }
+    !taken { dst : INT && src : INT -> (u32)dst.value >= (u32)src.value; }
+  }
+}
+
+# if (u32)dst <= imm goto +off (unsigned)
+op(opcode = 0xb6, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (u32)dst.value <= (u32)imm; }
+    !taken { dst : INT -> (u32)dst.value > (u32)imm; }
+  }
+}
+# if (u32)dst <= (u32)src goto +off (unsigned)
+op(opcode = 0xbe, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (u32)dst.value <= (u32)src.value; }
+    !taken { dst : INT && src : INT -> (u32)dst.value > (u32)src.value; }
+  }
+}
+
+# if (s32)dst > (s32)imm goto +off (signed)
+op(opcode = 0x66, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (s32)dst.value > (s32)imm; }
+    !taken { dst : INT -> (s32)dst.value <= (s32)imm; }
+  }
+}
+# if (s32)dst > (s32)src goto +off (signed)
+op(opcode = 0x6e, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (s32)dst.value > (s32)src.value; }
+    !taken { dst : INT && src : INT -> (s32)dst.value <= (s32)src.value; }
+  }
+}
+
+# if (s32)dst >= (s32)imm goto +off (signed)
+op(opcode = 0x76, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (s32)dst.value >= (s32)imm; }
+    !taken { dst : INT -> (s32)dst.value < (s32)imm; }
+  }
+}
+# if (s32)dst >= (s32)src goto +off (signed)
+op(opcode = 0x7e, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (s32)dst.value >= (s32)src.value; }
+    !taken { dst : INT && src : INT -> (s32)dst.value < (s32)src.value; }
+  }
+}
+
+# if (s32)dst < (s32)imm goto +off (signed)
+op(opcode = 0xc6, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (s32)dst.value < (s32)imm; }
+    !taken { dst : INT -> (s32)dst.value >= (s32)imm; }
+  }
+}
+# if (s32)dst < (s32)src goto +off (signed)
+op(opcode = 0xce, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (s32)dst.value < (s32)src.value; }
+    !taken { dst : INT && src : INT -> (s32)dst.value >= (s32)src.value; }
+  }
+}
+
+# if (s32)dst <= (s32)imm goto +off (signed)
+op(opcode = 0xd6, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (s32)dst.value <= (s32)imm; }
+    !taken { dst : INT -> (s32)dst.value > (s32)imm; }
+  }
+}
+# if (s32)dst <= (s32)src goto +off (signed)
+op(opcode = 0xde, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (s32)dst.value <= (s32)src.value; }
+    !taken { dst : INT && src : INT -> (s32)dst.value > (s32)src.value; }
+  }
+}
+
+# if (u32)dst & imm goto +off (bit test)
+op(opcode = 0x46, dst: REG, imm: U32) {
+  preconditions { jmp_cmp_k_ok(dst); }
+  postconditions {
+    taken { dst : INT -> (u32)dst.value & (u32)imm != 0; }
+    !taken { dst : INT -> (u32)dst.value & (u32)imm = 0; }
+  }
+}
+# if (u32)dst & (u32)src goto +off (bit test)
+op(opcode = 0x4e, src: REG, dst: REG) {
+  preconditions { jmp_cmp_x_strict(dst, src); }
+  postconditions {
+    taken { dst : INT && src : INT -> (u32)dst.value & (u32)src.value != 0; }
+    !taken { dst : INT && src : INT -> (u32)dst.value & (u32)src.value = 0; }
+  }
+}
+
+

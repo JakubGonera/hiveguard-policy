@@ -1,0 +1,49 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Policy DSL",
+  "scopeName": "source.policy",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#static" },
+    { "include": "#keyword" },
+    { "include": "#boolean" },
+    { "include": "#register" },
+    { "include": "#constant" },
+    { "include": "#number" },
+    { "include": "#operator" }
+  ],
+  "repository": {
+    "comment": {
+      "match": "#.*$",
+      "name": "comment.line.number-sign.policy"
+    },
+    "static": {
+      "match": "\\$[^$]+\\$",
+      "name": "string.interpolated.policy"
+    },
+    "keyword": {
+      "match": "\\b(op|opcode|vars|preconditions|postconditions|for|in)\\b",
+      "name": "keyword.control.policy"
+    },
+    "boolean": {
+      "match": "\\b(true|false)\\b",
+      "name": "constant.language.boolean.policy"
+    },
+    "register": {
+      "match": "\\bR(?:10|[0-9])\\b",
+      "name": "variable.language.register.policy"
+    },
+    "constant": {
+      "match": "\\b[A-Z][A-Z0-9_]*\\b",
+      "name": "support.type.policy"
+    },
+    "number": {
+      "match": "\\b0[xX][0-9a-fA-F]+\\b|-?\\b[0-9]+\\b",
+      "name": "constant.numeric.policy"
+    },
+    "operator": {
+      "match": ":=|->|&&|\\|\\||>=|<=|[:=<>+!]",
+      "name": "keyword.operator.policy"
+    }
+  }
+}

@@ -1,0 +1,142 @@
+// Grammar for the policy DSL (.pol files).
+// Single source of truth for the surface syntax. Parsed by pdsl/parser.py
+// into the AST in pdsl/ast.py, and reused by the LSP server.
+
+start: _item+
+
+_item: predicate
+     | op_policy
+     | prologue
+
+predicate: NAME "(" _namelist? ")" ":=" expr ";"
+
+// File-level statement block emitted before the per-op policies.
+prologue: "prologue" "{" _stmts "}"
+
+// Every per-op policy is a Hoare triple over a decoded instruction, written
+// `op(...)`. The signature fixes the instruction fields:
+//   opcode = N        always a concrete immediate (the instruction selector)
+//   src/dst = N       the field must equal immediate N, OR
+//   src/dst : REG     the field is a symbolic register, bound by name
+//   off : S16         the signed 16-bit instruction offset, a symbolic var
+//                     (stack accesses require it negative; see check_stack_access)
+//   imm = N           the immediate must equal N, OR
+//   imm : U64|U32     a symbolic immediate of that width, bound by name
+// A symbolic (`:`) field binds its name (src/dst/off/imm) for the pre/post
+// blocks. This shape also covers helper calls (BPF_CALL, opcode 0x85, imm =
+// func id).
+op_policy: "op" "(" _op_sig ")" "{" vars_block? pre_block post_block "}"
+_op_sig: op_opcode ("," _op_field)*
+_op_field: op_src_imm | op_src_reg
+         | op_dst_imm | op_dst_reg
+         | op_off_typed
+         | op_imm_imm | op_imm_typed
+op_opcode:    "opcode" "=" INT
+op_src_imm:   "src" "=" INT
+op_src_reg:   "src" ":" REG_TYPE
+op_dst_imm:   "dst" "=" INT
+op_dst_reg:   "dst" ":" REG_TYPE
+op_off_typed: "off" ":" OFF_TYPE
+op_imm_imm:   "imm" "=" INT
+op_imm_typed: "imm" ":" IMM_TYPE
+vars_block: "vars" ":=" "{" _namelist "}"
+pre_block:  "preconditions"  "{" _stmts "}"
+post_block: "postconditions" "{" _post_item* "}"
+// A postcondition is a plain statement, or a successor-conditioned block whose
+// facts hold only on the branch-taken (`taken`) or fall-through (`!taken`) edge
+// of a conditional jump. Plain statements hold on both edges.
+_post_item: expr ";"
+          | branch
+branch: BRANCH "{" _stmts "}"
+_stmts: (expr ";")*
+
+_namelist: NAME ("," NAME)*
+
+// Expression layers, lowest precedence first: -> , || , &&
+?expr: disj "->" expr   -> implication
+     | disj
+?disj: disj "||" conj   -> or_
+     | conj
+?conj: conj "&&" atom   -> and_
+     | atom
+
+?atom: term ":" NAME                  -> type_judgment
+     | term "=" term                  -> equality
+     | term CMP term                  -> comparison
+     | NAME "(" _arglist? ")"         -> predicate_call
+     | "for" "(" NAME "in" term ":" term ")" "{" expr "}"  -> forall
+     | "!" atom                       -> not_
+     | "..."                          -> hole
+     | term                           -> prop
+     | "(" expr ")"
+
+_arglist: term ("," term)*
+
+// Term layers (full C arithmetic, lowest precedence first): bitwise-or,
+// bitwise-xor, bitwise-and, shifts, additive, multiplicative, unary, then
+// postfix (field / slice / index) over primaries. These model concrete
+// (single-value) eBPF ALU semantics; operand width and signedness are made
+// explicit with C-style casts, e.g. `(u32)x` (truncate + zero-extend) or
+// `(s64)imm` (sign-extend). `$...$` escapes remain opaque primaries.
+?term: bitor
+?bitor:  bitor "|" bitxor    -> bor
+       | bitxor
+?bitxor: bitxor "^" bitand   -> bxor
+       | bitand
+?bitand: bitand "&" shift    -> band
+       | shift
+?shift:  shift "<<" addsub   -> shl
+       | shift ">>" addsub   -> shr
+       | addsub
+?addsub: addsub "+" muldiv   -> add
+       | addsub "-" muldiv   -> sub
+       | muldiv
+?muldiv: muldiv "*" unary    -> mul
+       | muldiv "/" unary    -> div
+       | muldiv "%" unary    -> mod
+       | unary
+?unary:  "-" unary               -> neg
+       | "~" unary               -> bnot
+       | "(" CAST_TYPE ")" unary -> cast
+       | postfix
+?postfix: postfix "." NAME              -> field
+        | postfix "[" term ":" term "]" -> slice
+        | postfix "[" term "]"          -> index
+        | primary
+?primary: REG                -> reg
+        | NAME               -> var
+        | INT                -> int_lit
+        | BOOL               -> bool_lit
+        | STATIC             -> static_term
+        | "(" term ")"
+
+CMP: ">=" | "<=" | ">" | "<" | "!="
+
+// C-style width cast keyword, e.g. `(u32)x`, `(s64)imm`. Lowercase u/s + bit
+// width; distinct from the uppercase operand-type keywords (U32/U64/S16) and
+// from NAME (higher priority + word boundary, so only these exact tokens are
+// reserved — `u32foo` is still an ordinary NAME).
+CAST_TYPE.5: /[us](?:8|16|32|64)(?![A-Za-z0-9_])/
+
+// Operand-type keywords for the op() signature. Named terminals (not bare
+// string literals) so they don't collide with the REG register terminal and
+// stay disambiguable from NAME when REG/U64/U32 appear as ordinary types.
+REG_TYPE: "REG"
+IMM_TYPE: "U64" | "U32"
+OFF_TYPE: "S16"
+
+REG.3:  /R(?:10|[0-9])(?![A-Za-z0-9_])/
+BOOL.2: /(?:true|false)(?![A-Za-z0-9_])/
+// Conditional-jump successor selector: `taken` / `!taken`. Reserved (higher
+// priority than NAME); the optional `!` is part of the token, not the `!` op.
+BRANCH.3: /!?taken(?![A-Za-z0-9_])/
+NAME:   /[A-Za-z_][A-Za-z0-9_]*/
+STATIC: /\$[^$]+\$/
+// Integer literal: hex (0x..) or signed decimal.
+INT:    /0[xX][0-9a-fA-F]+/ | /[+-]?[0-9]+/
+
+COMMENT: /#[^\n]*/
+
+%import common.WS
+%ignore WS
+%ignore COMMENT

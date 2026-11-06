@@ -1,0 +1,6 @@
+{
+  "TRACING": {
+    "46": "bpf_get_socket_ptr_cookie_proto",
+    "107": "bpf_sk_storage_get_tracing_proto"
+  }
+}

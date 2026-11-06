@@ -1,0 +1,4353 @@
+{
+  "bpf_bprm_opts_set_proto": {
+    "func_id": 159,
+    "func_name": "bpf_bprm_opts_set",
+    "prog_types": [
+      "LSM"
+    ]
+  },
+  "bpf_btf_find_by_name_kind_proto": {
+    "func_id": 167,
+    "func_name": "bpf_btf_find_by_name_kind",
+    "prog_types": [
+      "SYSCALL"
+    ]
+  },
+  "bpf_cgrp_storage_delete_proto": {
+    "func_id": 211,
+    "func_name": "bpf_cgrp_storage_delete",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_cgrp_storage_get_proto": {
+    "func_id": 210,
+    "func_name": "bpf_cgrp_storage_get",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_clone_redirect_proto": {
+    "func_id": 13,
+    "func_name": "bpf_clone_redirect",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_copy_from_user_proto": {
+    "func_id": 148,
+    "func_name": "bpf_copy_from_user",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_copy_from_user_task_proto": {
+    "func_id": 191,
+    "func_name": "bpf_copy_from_user_task",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_csum_diff_proto": {
+    "func_id": 28,
+    "func_name": "bpf_csum_diff",
+    "prog_types": [
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "XDP"
+    ]
+  },
+  "bpf_csum_level_proto": {
+    "func_id": 135,
+    "func_name": "bpf_csum_level",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_csum_update_proto": {
+    "func_id": 40,
+    "func_name": "bpf_csum_update",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_current_task_under_cgroup_proto": {
+    "func_id": 37,
+    "func_name": "bpf_current_task_under_cgroup",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_d_path_proto": {
+    "func_id": 147,
+    "func_name": "bpf_d_path",
+    "prog_types": [
+      "LSM",
+      "SYSCALL",
+      "TRACING"
+    ]
+  },
+  "bpf_dynptr_data_proto": {
+    "func_id": 203,
+    "func_name": "bpf_dynptr_data",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_dynptr_from_mem_proto": {
+    "func_id": 197,
+    "func_name": "bpf_dynptr_from_mem",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_dynptr_read_proto": {
+    "func_id": 201,
+    "func_name": "bpf_dynptr_read",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_dynptr_write_proto": {
+    "func_id": 202,
+    "func_name": "bpf_dynptr_write",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_event_output_data_proto": {
+    "func_id": 25,
+    "func_name": "bpf_perf_event_output",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SOCK_OPS"
+    ]
+  },
+  "bpf_find_vma_proto": {
+    "func_id": 180,
+    "func_name": "bpf_find_vma",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_flow_dissector_load_bytes_proto": {
+    "func_id": 26,
+    "func_name": "bpf_skb_load_bytes",
+    "prog_types": [
+      "FLOW_DISSECTOR"
+    ]
+  },
+  "bpf_for_each_map_elem_proto": {
+    "func_id": 164,
+    "func_name": "bpf_for_each_map_elem",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_attach_cookie_proto": {
+    "func_id": 174,
+    "func_name": "bpf_get_attach_cookie",
+    "prog_types": [
+      "KPROBE",
+      "LSM",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "TRACEPOINT"
+    ]
+  },
+  "bpf_get_branch_snapshot_proto": {
+    "func_id": 176,
+    "func_name": "bpf_get_branch_snapshot",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_cgroup_classid_curr_proto": {
+    "func_id": 17,
+    "func_name": "bpf_get_cgroup_classid",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_cgroup_classid_proto": {
+    "func_id": 17,
+    "func_name": "bpf_get_cgroup_classid",
+    "prog_types": [
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_get_current_ancestor_cgroup_id_proto": {
+    "func_id": 123,
+    "func_name": "bpf_get_current_ancestor_cgroup_id",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_current_cgroup_id_proto": {
+    "func_id": 80,
+    "func_name": "bpf_get_current_cgroup_id",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_current_comm_proto": {
+    "func_id": 16,
+    "func_name": "bpf_get_current_comm",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_current_pid_tgid_proto": {
+    "func_id": 14,
+    "func_name": "bpf_get_current_pid_tgid",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_current_task_btf_proto": {
+    "func_id": 158,
+    "func_name": "bpf_get_current_task_btf",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_current_task_proto": {
+    "func_id": 35,
+    "func_name": "bpf_get_current_task",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_current_uid_gid_proto": {
+    "func_id": 15,
+    "func_name": "bpf_get_current_uid_gid",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_func_arg_cnt_proto": {
+    "func_id": 185,
+    "func_name": "bpf_get_func_arg_cnt",
+    "prog_types": [
+      "LSM"
+    ]
+  },
+  "bpf_get_func_arg_proto": {
+    "func_id": 183,
+    "func_name": "bpf_get_func_arg",
+    "prog_types": [
+      "LSM"
+    ]
+  },
+  "bpf_get_func_ret_proto": {
+    "func_id": 184,
+    "func_name": "bpf_get_func_ret",
+    "prog_types": [
+      "LSM"
+    ]
+  },
+  "bpf_get_hash_recalc_proto": {
+    "func_id": 34,
+    "func_name": "bpf_get_hash_recalc",
+    "prog_types": [
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_get_listener_sock_proto": {
+    "func_id": 98,
+    "func_name": "bpf_get_listener_sock",
+    "prog_types": [
+      "CGROUP_SKB",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_get_local_storage_proto": {
+    "func_id": 81,
+    "func_name": "bpf_get_local_storage",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "SOCK_OPS"
+    ]
+  },
+  "bpf_get_netns_cookie_proto": {
+    "func_id": 122,
+    "func_name": "bpf_get_netns_cookie",
+    "prog_types": [
+      "CGROUP_SKB",
+      "EXT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SOCKET_FILTER"
+    ]
+  },
+  "bpf_get_netns_cookie_sk_msg_proto": {
+    "func_id": 122,
+    "func_name": "bpf_get_netns_cookie",
+    "prog_types": [
+      "SK_MSG"
+    ]
+  },
+  "bpf_get_netns_cookie_sock_addr_proto": {
+    "func_id": 122,
+    "func_name": "bpf_get_netns_cookie",
+    "prog_types": [
+      "CGROUP_SOCK_ADDR"
+    ]
+  },
+  "bpf_get_netns_cookie_sock_ops_proto": {
+    "func_id": 122,
+    "func_name": "bpf_get_netns_cookie",
+    "prog_types": [
+      "SOCK_OPS"
+    ]
+  },
+  "bpf_get_netns_cookie_sock_proto": {
+    "func_id": 122,
+    "func_name": "bpf_get_netns_cookie",
+    "prog_types": [
+      "CGROUP_SOCK"
+    ]
+  },
+  "bpf_get_netns_cookie_sockopt_proto": {
+    "func_id": 122,
+    "func_name": "bpf_get_netns_cookie",
+    "prog_types": [
+      "CGROUP_SOCKOPT"
+    ]
+  },
+  "bpf_get_ns_current_pid_tgid_proto": {
+    "func_id": 120,
+    "func_name": "bpf_get_ns_current_pid_tgid",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_numa_node_id_proto": {
+    "func_id": 42,
+    "func_name": "bpf_get_numa_node_id",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_prandom_u32_proto": {
+    "func_id": 7,
+    "func_name": "bpf_get_prandom_u32",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_raw_smp_processor_id_proto": {
+    "func_id": 8,
+    "func_name": "bpf_get_smp_processor_id",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "TRACEPOINT",
+      "TRACING"
+    ]
+  },
+  "bpf_get_retval_proto": {
+    "func_id": 186,
+    "func_name": "bpf_get_retval",
+    "prog_types": [
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR"
+    ]
+  },
+  "bpf_get_route_realm_proto": {
+    "func_id": 24,
+    "func_name": "bpf_get_route_realm",
+    "prog_types": [
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_get_smp_processor_id_proto": {
+    "func_id": 8,
+    "func_name": "bpf_get_smp_processor_id",
+    "prog_types": [
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_socket_cookie_proto": {
+    "func_id": 46,
+    "func_name": "bpf_get_socket_cookie",
+    "prog_types": [
+      "CGROUP_SKB",
+      "EXT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_SKB",
+      "SOCKET_FILTER"
+    ]
+  },
+  "bpf_get_socket_cookie_sock_addr_proto": {
+    "func_id": 46,
+    "func_name": "bpf_get_socket_cookie",
+    "prog_types": [
+      "CGROUP_SOCK_ADDR"
+    ]
+  },
+  "bpf_get_socket_cookie_sock_ops_proto": {
+    "func_id": 46,
+    "func_name": "bpf_get_socket_cookie",
+    "prog_types": [
+      "SOCK_OPS"
+    ]
+  },
+  "bpf_get_socket_cookie_sock_proto": {
+    "func_id": 46,
+    "func_name": "bpf_get_socket_cookie",
+    "prog_types": [
+      "CGROUP_SOCK"
+    ]
+  },
+  "bpf_get_socket_ptr_cookie_proto": {
+    "func_id": 46,
+    "func_name": "bpf_get_socket_cookie",
+    "prog_types": [
+      "LSM",
+      "SK_REUSEPORT",
+      "SYSCALL",
+      "TRACING"
+    ]
+  },
+  "bpf_get_socket_uid_proto": {
+    "func_id": 47,
+    "func_name": "bpf_get_socket_uid",
+    "prog_types": [
+      "CGROUP_SKB",
+      "EXT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_SKB",
+      "SOCKET_FILTER"
+    ]
+  },
+  "bpf_get_stackid_proto": {
+    "func_id": 27,
+    "func_name": "bpf_get_stackid",
+    "prog_types": [
+      "KPROBE",
+      "LSM",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING"
+    ]
+  },
+  "bpf_get_task_stack_proto": {
+    "func_id": 141,
+    "func_name": "bpf_get_task_stack",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_get_task_stack_sleepable_proto": {
+    "func_id": 141,
+    "func_name": "bpf_get_task_stack",
+    "prog_types": [
+      "SYSCALL"
+    ]
+  },
+  "bpf_ima_file_hash_proto": {
+    "func_id": 193,
+    "func_name": "bpf_ima_file_hash",
+    "prog_types": [
+      "LSM"
+    ]
+  },
+  "bpf_ima_inode_hash_proto": {
+    "func_id": 161,
+    "func_name": "bpf_ima_inode_hash",
+    "prog_types": [
+      "LSM"
+    ]
+  },
+  "bpf_inode_storage_delete_proto": {
+    "func_id": 146,
+    "func_name": "bpf_inode_storage_delete",
+    "prog_types": [
+      "LSM"
+    ]
+  },
+  "bpf_inode_storage_get_proto": {
+    "func_id": 145,
+    "func_name": "bpf_inode_storage_get",
+    "prog_types": [
+      "LSM"
+    ]
+  },
+  "bpf_jiffies64_proto": {
+    "func_id": 118,
+    "func_name": "bpf_jiffies64",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_kallsyms_lookup_name_proto": {
+    "func_id": 179,
+    "func_name": "bpf_kallsyms_lookup_name",
+    "prog_types": [
+      "SYSCALL"
+    ]
+  },
+  "bpf_kptr_xchg_proto": {
+    "func_id": 194,
+    "func_name": "bpf_kptr_xchg",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_ktime_get_boot_ns_proto": {
+    "func_id": 125,
+    "func_name": "bpf_ktime_get_boot_ns",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_ktime_get_coarse_ns_proto": {
+    "func_id": 160,
+    "func_name": "bpf_ktime_get_coarse_ns",
+    "prog_types": [
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "XDP"
+    ]
+  },
+  "bpf_ktime_get_ns_proto": {
+    "func_id": 5,
+    "func_name": "bpf_ktime_get_ns",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_ktime_get_tai_ns_proto": {
+    "func_id": 208,
+    "func_name": "bpf_ktime_get_tai_ns",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_l3_csum_replace_proto": {
+    "func_id": 10,
+    "func_name": "bpf_l3_csum_replace",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_l4_csum_replace_proto": {
+    "func_id": 11,
+    "func_name": "bpf_l4_csum_replace",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_loop_proto": {
+    "func_id": 181,
+    "func_name": "bpf_loop",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_lwt_in_push_encap_proto": {
+    "func_id": 73,
+    "func_name": "bpf_lwt_push_encap",
+    "prog_types": [
+      "LWT_IN"
+    ]
+  },
+  "bpf_lwt_seg6_action_proto": {
+    "func_id": 76,
+    "func_name": "bpf_lwt_seg6_action",
+    "prog_types": [
+      "LWT_SEG6LOCAL"
+    ]
+  },
+  "bpf_lwt_seg6_adjust_srh_proto": {
+    "func_id": 75,
+    "func_name": "bpf_lwt_seg6_adjust_srh",
+    "prog_types": [
+      "LWT_SEG6LOCAL"
+    ]
+  },
+  "bpf_lwt_seg6_store_bytes_proto": {
+    "func_id": 74,
+    "func_name": "bpf_lwt_seg6_store_bytes",
+    "prog_types": [
+      "LWT_SEG6LOCAL"
+    ]
+  },
+  "bpf_lwt_xmit_push_encap_proto": {
+    "func_id": 73,
+    "func_name": "bpf_lwt_push_encap",
+    "prog_types": [
+      "LWT_XMIT"
+    ]
+  },
+  "bpf_map_delete_elem_proto": {
+    "func_id": 3,
+    "func_name": "bpf_map_delete_elem",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_map_lookup_elem_proto": {
+    "func_id": 1,
+    "func_name": "bpf_map_lookup_elem",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_map_lookup_percpu_elem_proto": {
+    "func_id": 195,
+    "func_name": "bpf_map_lookup_percpu_elem",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_map_peek_elem_proto": {
+    "func_id": 89,
+    "func_name": "bpf_map_peek_elem",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_map_pop_elem_proto": {
+    "func_id": 88,
+    "func_name": "bpf_map_pop_elem",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_map_push_elem_proto": {
+    "func_id": 87,
+    "func_name": "bpf_map_push_elem",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_map_update_elem_proto": {
+    "func_id": 2,
+    "func_name": "bpf_map_update_elem",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_msg_apply_bytes_proto": {
+    "func_id": 61,
+    "func_name": "bpf_msg_apply_bytes",
+    "prog_types": [
+      "SK_MSG"
+    ]
+  },
+  "bpf_msg_cork_bytes_proto": {
+    "func_id": 62,
+    "func_name": "bpf_msg_cork_bytes",
+    "prog_types": [
+      "SK_MSG"
+    ]
+  },
+  "bpf_msg_pop_data_proto": {
+    "func_id": 91,
+    "func_name": "bpf_msg_pop_data",
+    "prog_types": [
+      "SK_MSG"
+    ]
+  },
+  "bpf_msg_pull_data_proto": {
+    "func_id": 63,
+    "func_name": "bpf_msg_pull_data",
+    "prog_types": [
+      "SK_MSG"
+    ]
+  },
+  "bpf_msg_push_data_proto": {
+    "func_id": 90,
+    "func_name": "bpf_msg_push_data",
+    "prog_types": [
+      "SK_MSG"
+    ]
+  },
+  "bpf_msg_redirect_hash_proto": {
+    "func_id": 71,
+    "func_name": "bpf_msg_redirect_hash",
+    "prog_types": [
+      "SK_MSG"
+    ]
+  },
+  "bpf_msg_redirect_map_proto": {
+    "func_id": 60,
+    "func_name": "bpf_msg_redirect_map",
+    "prog_types": [
+      "SK_MSG"
+    ]
+  },
+  "bpf_override_return_proto": {
+    "func_id": 58,
+    "func_name": "bpf_override_return",
+    "prog_types": [
+      "KPROBE"
+    ]
+  },
+  "bpf_per_cpu_ptr_proto": {
+    "func_id": 153,
+    "func_name": "bpf_per_cpu_ptr",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_perf_event_output_proto": {
+    "func_id": 25,
+    "func_name": "bpf_perf_event_output",
+    "prog_types": [
+      "KPROBE",
+      "LSM",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING"
+    ]
+  },
+  "bpf_perf_event_read_proto": {
+    "func_id": 22,
+    "func_name": "bpf_perf_event_read",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_perf_event_read_value_proto": {
+    "func_id": 55,
+    "func_name": "bpf_perf_event_read_value",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_perf_prog_read_value_proto": {
+    "func_id": 56,
+    "func_name": "bpf_perf_prog_read_value",
+    "prog_types": [
+      "PERF_EVENT"
+    ]
+  },
+  "bpf_probe_read_compat_proto": {
+    "func_id": 4,
+    "func_name": "bpf_probe_read",
+    "prog_types": [
+      "KPROBE",
+      "LSM",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING"
+    ]
+  },
+  "bpf_probe_read_compat_str_proto": {
+    "func_id": 45,
+    "func_name": "bpf_probe_read_str",
+    "prog_types": [
+      "KPROBE",
+      "LSM",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING"
+    ]
+  },
+  "bpf_probe_read_kernel_proto": {
+    "func_id": 113,
+    "func_name": "bpf_probe_read_kernel",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_probe_read_kernel_str_proto": {
+    "func_id": 115,
+    "func_name": "bpf_probe_read_kernel_str",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_probe_read_user_proto": {
+    "func_id": 112,
+    "func_name": "bpf_probe_read_user",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_probe_read_user_str_proto": {
+    "func_id": 114,
+    "func_name": "bpf_probe_read_user_str",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_probe_write_user_proto": {
+    "func_id": 36,
+    "func_name": "bpf_probe_write_user",
+    "prog_types": [
+      "KPROBE",
+      "LSM",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING"
+    ]
+  },
+  "bpf_read_branch_records_proto": {
+    "func_id": 119,
+    "func_name": "bpf_read_branch_records",
+    "prog_types": [
+      "PERF_EVENT"
+    ]
+  },
+  "bpf_redirect_neigh_proto": {
+    "func_id": 152,
+    "func_name": "bpf_redirect_neigh",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_redirect_peer_proto": {
+    "func_id": 155,
+    "func_name": "bpf_redirect_peer",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_redirect_proto": {
+    "func_id": 23,
+    "func_name": "bpf_redirect",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_ringbuf_discard_dynptr_proto": {
+    "func_id": 200,
+    "func_name": "bpf_ringbuf_discard_dynptr",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_ringbuf_discard_proto": {
+    "func_id": 133,
+    "func_name": "bpf_ringbuf_discard",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_ringbuf_output_proto": {
+    "func_id": 130,
+    "func_name": "bpf_ringbuf_output",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_ringbuf_query_proto": {
+    "func_id": 134,
+    "func_name": "bpf_ringbuf_query",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_ringbuf_reserve_dynptr_proto": {
+    "func_id": 198,
+    "func_name": "bpf_ringbuf_reserve_dynptr",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_ringbuf_reserve_proto": {
+    "func_id": 131,
+    "func_name": "bpf_ringbuf_reserve",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_ringbuf_submit_dynptr_proto": {
+    "func_id": 199,
+    "func_name": "bpf_ringbuf_submit_dynptr",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_ringbuf_submit_proto": {
+    "func_id": 132,
+    "func_name": "bpf_ringbuf_submit",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_send_signal_proto": {
+    "func_id": 109,
+    "func_name": "bpf_send_signal",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_send_signal_thread_proto": {
+    "func_id": 117,
+    "func_name": "bpf_send_signal_thread",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_seq_printf_btf_proto": {
+    "func_id": 150,
+    "func_name": "bpf_seq_printf_btf",
+    "prog_types": [
+      "TRACING"
+    ]
+  },
+  "bpf_seq_printf_proto": {
+    "func_id": 126,
+    "func_name": "bpf_seq_printf",
+    "prog_types": [
+      "TRACING"
+    ]
+  },
+  "bpf_seq_write_proto": {
+    "func_id": 127,
+    "func_name": "bpf_seq_write",
+    "prog_types": [
+      "TRACING"
+    ]
+  },
+  "bpf_set_hash_invalid_proto": {
+    "func_id": 41,
+    "func_name": "bpf_set_hash_invalid",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_set_hash_proto": {
+    "func_id": 48,
+    "func_name": "bpf_set_hash",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_set_retval_proto": {
+    "func_id": 187,
+    "func_name": "bpf_set_retval",
+    "prog_types": [
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR"
+    ]
+  },
+  "bpf_sk_ancestor_cgroup_id_proto": {
+    "func_id": 129,
+    "func_name": "bpf_sk_ancestor_cgroup_id",
+    "prog_types": [
+      "CGROUP_SKB"
+    ]
+  },
+  "bpf_sk_assign_proto": {
+    "func_id": 124,
+    "func_name": "bpf_sk_assign",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_sk_cgroup_id_proto": {
+    "func_id": 128,
+    "func_name": "bpf_sk_cgroup_id",
+    "prog_types": [
+      "CGROUP_SKB"
+    ]
+  },
+  "bpf_sk_fullsock_proto": {
+    "func_id": 95,
+    "func_name": "bpf_sk_fullsock",
+    "prog_types": [
+      "CGROUP_SKB",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_sk_getsockopt_proto": {
+    "func_id": 57,
+    "func_name": "bpf_getsockopt",
+    "prog_types": [
+      "STRUCT_OPS"
+    ]
+  },
+  "bpf_sk_lookup_assign_proto": {
+    "func_id": 124,
+    "func_name": "bpf_sk_assign",
+    "prog_types": [
+      "SK_LOOKUP"
+    ]
+  },
+  "bpf_sk_lookup_tcp_proto": {
+    "func_id": 84,
+    "func_name": "bpf_sk_lookup_tcp",
+    "prog_types": [
+      "CGROUP_SKB",
+      "SK_SKB"
+    ]
+  },
+  "bpf_sk_lookup_udp_proto": {
+    "func_id": 85,
+    "func_name": "bpf_sk_lookup_udp",
+    "prog_types": [
+      "CGROUP_SKB",
+      "SK_SKB"
+    ]
+  },
+  "bpf_sk_redirect_hash_proto": {
+    "func_id": 72,
+    "func_name": "bpf_sk_redirect_hash",
+    "prog_types": [
+      "SK_SKB"
+    ]
+  },
+  "bpf_sk_redirect_map_proto": {
+    "func_id": 52,
+    "func_name": "bpf_sk_redirect_map",
+    "prog_types": [
+      "SK_SKB"
+    ]
+  },
+  "bpf_sk_release_proto": {
+    "func_id": 86,
+    "func_name": "bpf_sk_release",
+    "prog_types": [
+      "CGROUP_SKB",
+      "CGROUP_SOCK_ADDR",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_SKB",
+      "XDP"
+    ]
+  },
+  "bpf_sk_setsockopt_proto": {
+    "func_id": 49,
+    "func_name": "bpf_setsockopt",
+    "prog_types": [
+      "STRUCT_OPS"
+    ]
+  },
+  "bpf_sk_storage_delete_proto": {
+    "func_id": 108,
+    "func_name": "bpf_sk_storage_delete",
+    "prog_types": [
+      "CGROUP_SKB",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "LSM",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_MSG",
+      "SOCK_OPS",
+      "STRUCT_OPS"
+    ]
+  },
+  "bpf_sk_storage_delete_tracing_proto": {
+    "func_id": 108,
+    "func_name": "bpf_sk_storage_delete",
+    "prog_types": [
+      "SYSCALL"
+    ]
+  },
+  "bpf_sk_storage_get_cg_sock_proto": {
+    "func_id": 107,
+    "func_name": "bpf_sk_storage_get",
+    "prog_types": [
+      "CGROUP_SOCK"
+    ]
+  },
+  "bpf_sk_storage_get_proto": {
+    "func_id": 107,
+    "func_name": "bpf_sk_storage_get",
+    "prog_types": [
+      "CGROUP_SKB",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "LSM",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_MSG",
+      "SOCK_OPS",
+      "STRUCT_OPS"
+    ]
+  },
+  "bpf_sk_storage_get_tracing_proto": {
+    "func_id": 107,
+    "func_name": "bpf_sk_storage_get",
+    "prog_types": [
+      "SYSCALL",
+      "TRACING"
+    ]
+  },
+  "bpf_skb_adjust_room_proto": {
+    "func_id": 50,
+    "func_name": "bpf_skb_adjust_room",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_ancestor_cgroup_id_proto": {
+    "func_id": 83,
+    "func_name": "bpf_skb_ancestor_cgroup_id",
+    "prog_types": [
+      "CGROUP_SKB",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_cgroup_classid_proto": {
+    "func_id": 151,
+    "func_name": "bpf_skb_cgroup_classid",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_cgroup_id_proto": {
+    "func_id": 79,
+    "func_name": "bpf_skb_cgroup_id",
+    "prog_types": [
+      "CGROUP_SKB",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_change_head_proto": {
+    "func_id": 43,
+    "func_name": "bpf_skb_change_head",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_change_proto_proto": {
+    "func_id": 31,
+    "func_name": "bpf_skb_change_proto",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_change_tail_proto": {
+    "func_id": 38,
+    "func_name": "bpf_skb_change_tail",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_change_type_proto": {
+    "func_id": 32,
+    "func_name": "bpf_skb_change_type",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_check_mtu_proto": {
+    "func_id": 163,
+    "func_name": "bpf_check_mtu",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_ecn_set_ce_proto": {
+    "func_id": 97,
+    "func_name": "bpf_skb_ecn_set_ce",
+    "prog_types": [
+      "CGROUP_SKB",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_event_output_proto": {
+    "func_id": 25,
+    "func_name": "bpf_perf_event_output",
+    "prog_types": [
+      "CGROUP_SKB",
+      "EXT",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_SKB",
+      "SOCKET_FILTER"
+    ]
+  },
+  "bpf_skb_fib_lookup_proto": {
+    "func_id": 69,
+    "func_name": "bpf_fib_lookup",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_get_tunnel_key_proto": {
+    "func_id": 20,
+    "func_name": "bpf_skb_get_tunnel_key",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_get_tunnel_opt_proto": {
+    "func_id": 29,
+    "func_name": "bpf_skb_get_tunnel_opt",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_get_xfrm_state_proto": {
+    "func_id": 66,
+    "func_name": "bpf_skb_get_xfrm_state",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_load_bytes_proto": {
+    "func_id": 26,
+    "func_name": "bpf_skb_load_bytes",
+    "prog_types": [
+      "CGROUP_SKB",
+      "EXT",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_SKB",
+      "SOCKET_FILTER"
+    ]
+  },
+  "bpf_skb_load_bytes_relative_proto": {
+    "func_id": 68,
+    "func_name": "bpf_skb_load_bytes_relative",
+    "prog_types": [
+      "CGROUP_SKB",
+      "EXT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SOCKET_FILTER"
+    ]
+  },
+  "bpf_skb_output_proto": {
+    "func_id": 111,
+    "func_name": "bpf_skb_output",
+    "prog_types": [
+      "LSM",
+      "SYSCALL",
+      "TRACING"
+    ]
+  },
+  "bpf_skb_pull_data_proto": {
+    "func_id": 39,
+    "func_name": "bpf_skb_pull_data",
+    "prog_types": [
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_set_tstamp_proto": {
+    "func_id": 192,
+    "func_name": "bpf_skb_set_tstamp",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_set_tunnel_key_proto": {
+    "func_id": 21,
+    "func_name": "bpf_skb_set_tunnel_key",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_set_tunnel_opt_proto": {
+    "func_id": 30,
+    "func_name": "bpf_skb_set_tunnel_opt",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_store_bytes_proto": {
+    "func_id": 9,
+    "func_name": "bpf_skb_store_bytes",
+    "prog_types": [
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_SKB"
+    ]
+  },
+  "bpf_skb_under_cgroup_proto": {
+    "func_id": 33,
+    "func_name": "bpf_skb_under_cgroup",
+    "prog_types": [
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_vlan_pop_proto": {
+    "func_id": 19,
+    "func_name": "bpf_skb_vlan_pop",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skb_vlan_push_proto": {
+    "func_id": 18,
+    "func_name": "bpf_skb_vlan_push",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_skc_lookup_tcp_proto": {
+    "func_id": 99,
+    "func_name": "bpf_skc_lookup_tcp",
+    "prog_types": [
+      "CGROUP_SKB",
+      "SK_SKB"
+    ]
+  },
+  "bpf_skc_to_mptcp_sock_proto": {
+    "func_id": 196,
+    "func_name": "bpf_skc_to_mptcp_sock",
+    "prog_types": [
+      "CGROUP_SKB",
+      "CGROUP_SOCK_ADDR",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "SYSCALL",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_skc_to_tcp6_sock_proto": {
+    "func_id": 136,
+    "func_name": "bpf_skc_to_tcp6_sock",
+    "prog_types": [
+      "CGROUP_SKB",
+      "CGROUP_SOCK_ADDR",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "SYSCALL",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_skc_to_tcp_request_sock_proto": {
+    "func_id": 139,
+    "func_name": "bpf_skc_to_tcp_request_sock",
+    "prog_types": [
+      "CGROUP_SKB",
+      "CGROUP_SOCK_ADDR",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "SYSCALL",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_skc_to_tcp_sock_proto": {
+    "func_id": 137,
+    "func_name": "bpf_skc_to_tcp_sock",
+    "prog_types": [
+      "CGROUP_SKB",
+      "CGROUP_SOCK_ADDR",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "SYSCALL",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_skc_to_tcp_timewait_sock_proto": {
+    "func_id": 138,
+    "func_name": "bpf_skc_to_tcp_timewait_sock",
+    "prog_types": [
+      "CGROUP_SKB",
+      "CGROUP_SOCK_ADDR",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "SYSCALL",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_skc_to_udp6_sock_proto": {
+    "func_id": 140,
+    "func_name": "bpf_skc_to_udp6_sock",
+    "prog_types": [
+      "CGROUP_SKB",
+      "CGROUP_SOCK_ADDR",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "SYSCALL",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_skc_to_unix_sock_proto": {
+    "func_id": 178,
+    "func_name": "bpf_skc_to_unix_sock",
+    "prog_types": [
+      "CGROUP_SKB",
+      "CGROUP_SOCK_ADDR",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "SYSCALL",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_snprintf_btf_proto": {
+    "func_id": 149,
+    "func_name": "bpf_snprintf_btf",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_snprintf_proto": {
+    "func_id": 165,
+    "func_name": "bpf_snprintf",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_sock_addr_getsockopt_proto": {
+    "func_id": 57,
+    "func_name": "bpf_getsockopt",
+    "prog_types": [
+      "CGROUP_SOCK_ADDR"
+    ]
+  },
+  "bpf_sock_addr_setsockopt_proto": {
+    "func_id": 49,
+    "func_name": "bpf_setsockopt",
+    "prog_types": [
+      "CGROUP_SOCK_ADDR"
+    ]
+  },
+  "bpf_sock_addr_sk_lookup_tcp_proto": {
+    "func_id": 84,
+    "func_name": "bpf_sk_lookup_tcp",
+    "prog_types": [
+      "CGROUP_SOCK_ADDR"
+    ]
+  },
+  "bpf_sock_addr_sk_lookup_udp_proto": {
+    "func_id": 85,
+    "func_name": "bpf_sk_lookup_udp",
+    "prog_types": [
+      "CGROUP_SOCK_ADDR"
+    ]
+  },
+  "bpf_sock_addr_skc_lookup_tcp_proto": {
+    "func_id": 99,
+    "func_name": "bpf_skc_lookup_tcp",
+    "prog_types": [
+      "CGROUP_SOCK_ADDR"
+    ]
+  },
+  "bpf_sock_from_file_proto": {
+    "func_id": 162,
+    "func_name": "bpf_sock_from_file",
+    "prog_types": [
+      "LSM",
+      "SYSCALL",
+      "TRACING"
+    ]
+  },
+  "bpf_sock_hash_update_proto": {
+    "func_id": 70,
+    "func_name": "bpf_sock_hash_update",
+    "prog_types": [
+      "SOCK_OPS"
+    ]
+  },
+  "bpf_sock_map_update_proto": {
+    "func_id": 53,
+    "func_name": "bpf_sock_map_update",
+    "prog_types": [
+      "SOCK_OPS"
+    ]
+  },
+  "bpf_sock_ops_cb_flags_set_proto": {
+    "func_id": 59,
+    "func_name": "bpf_sock_ops_cb_flags_set",
+    "prog_types": [
+      "SOCK_OPS"
+    ]
+  },
+  "bpf_sock_ops_getsockopt_proto": {
+    "func_id": 57,
+    "func_name": "bpf_getsockopt",
+    "prog_types": [
+      "SOCK_OPS"
+    ]
+  },
+  "bpf_sock_ops_load_hdr_opt_proto": {
+    "func_id": 142,
+    "func_name": "bpf_load_hdr_opt",
+    "prog_types": [
+      "SOCK_OPS"
+    ]
+  },
+  "bpf_sock_ops_reserve_hdr_opt_proto": {
+    "func_id": 144,
+    "func_name": "bpf_reserve_hdr_opt",
+    "prog_types": [
+      "SOCK_OPS"
+    ]
+  },
+  "bpf_sock_ops_setsockopt_proto": {
+    "func_id": 49,
+    "func_name": "bpf_setsockopt",
+    "prog_types": [
+      "SOCK_OPS"
+    ]
+  },
+  "bpf_sock_ops_store_hdr_opt_proto": {
+    "func_id": 143,
+    "func_name": "bpf_store_hdr_opt",
+    "prog_types": [
+      "SOCK_OPS"
+    ]
+  },
+  "bpf_spin_lock_proto": {
+    "func_id": 93,
+    "func_name": "bpf_spin_lock",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_spin_unlock_proto": {
+    "func_id": 94,
+    "func_name": "bpf_spin_unlock",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_strncmp_proto": {
+    "func_id": 182,
+    "func_name": "bpf_strncmp",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_strtol_proto": {
+    "func_id": 105,
+    "func_name": "bpf_strtol",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_strtoul_proto": {
+    "func_id": 106,
+    "func_name": "bpf_strtoul",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_sys_bpf_proto": {
+    "func_id": 166,
+    "func_name": "bpf_sys_bpf",
+    "prog_types": [
+      "SYSCALL"
+    ]
+  },
+  "bpf_sys_close_proto": {
+    "func_id": 168,
+    "func_name": "bpf_sys_close",
+    "prog_types": [
+      "SYSCALL"
+    ]
+  },
+  "bpf_sysctl_get_current_value_proto": {
+    "func_id": 102,
+    "func_name": "bpf_sysctl_get_current_value",
+    "prog_types": [
+      "CGROUP_SYSCTL"
+    ]
+  },
+  "bpf_sysctl_get_name_proto": {
+    "func_id": 101,
+    "func_name": "bpf_sysctl_get_name",
+    "prog_types": [
+      "CGROUP_SYSCTL"
+    ]
+  },
+  "bpf_sysctl_get_new_value_proto": {
+    "func_id": 103,
+    "func_name": "bpf_sysctl_get_new_value",
+    "prog_types": [
+      "CGROUP_SYSCTL"
+    ]
+  },
+  "bpf_sysctl_set_new_value_proto": {
+    "func_id": 104,
+    "func_name": "bpf_sysctl_set_new_value",
+    "prog_types": [
+      "CGROUP_SYSCTL"
+    ]
+  },
+  "bpf_tail_call_proto": {
+    "func_id": 12,
+    "func_name": "bpf_tail_call",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_task_pt_regs_proto": {
+    "func_id": 175,
+    "func_name": "bpf_task_pt_regs",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_task_storage_delete_proto": {
+    "func_id": 157,
+    "func_name": "bpf_task_storage_delete",
+    "prog_types": [
+      "LSM",
+      "STRUCT_OPS",
+      "TRACING"
+    ]
+  },
+  "bpf_task_storage_delete_recur_proto": {
+    "func_id": 157,
+    "func_name": "bpf_task_storage_delete",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "XDP"
+    ]
+  },
+  "bpf_task_storage_get_proto": {
+    "func_id": 156,
+    "func_name": "bpf_task_storage_get",
+    "prog_types": [
+      "LSM",
+      "STRUCT_OPS",
+      "TRACING"
+    ]
+  },
+  "bpf_task_storage_get_recur_proto": {
+    "func_id": 156,
+    "func_name": "bpf_task_storage_get",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "XDP"
+    ]
+  },
+  "bpf_tc_sk_lookup_tcp_proto": {
+    "func_id": 84,
+    "func_name": "bpf_sk_lookup_tcp",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_tc_sk_lookup_udp_proto": {
+    "func_id": 85,
+    "func_name": "bpf_sk_lookup_udp",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_tc_skc_lookup_tcp_proto": {
+    "func_id": 99,
+    "func_name": "bpf_skc_lookup_tcp",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS"
+    ]
+  },
+  "bpf_tcp_check_syncookie_proto": {
+    "func_id": 100,
+    "func_name": "bpf_tcp_check_syncookie",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "XDP"
+    ]
+  },
+  "bpf_tcp_gen_syncookie_proto": {
+    "func_id": 110,
+    "func_name": "bpf_tcp_gen_syncookie",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "XDP"
+    ]
+  },
+  "bpf_tcp_raw_check_syncookie_ipv4_proto": {
+    "func_id": 206,
+    "func_name": "bpf_tcp_raw_check_syncookie_ipv4",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "XDP"
+    ]
+  },
+  "bpf_tcp_raw_check_syncookie_ipv6_proto": {
+    "func_id": 207,
+    "func_name": "bpf_tcp_raw_check_syncookie_ipv6",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "XDP"
+    ]
+  },
+  "bpf_tcp_raw_gen_syncookie_ipv4_proto": {
+    "func_id": 204,
+    "func_name": "bpf_tcp_raw_gen_syncookie_ipv4",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "XDP"
+    ]
+  },
+  "bpf_tcp_raw_gen_syncookie_ipv6_proto": {
+    "func_id": 205,
+    "func_name": "bpf_tcp_raw_gen_syncookie_ipv6",
+    "prog_types": [
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "XDP"
+    ]
+  },
+  "bpf_tcp_send_ack_proto": {
+    "func_id": 116,
+    "func_name": "bpf_tcp_send_ack",
+    "prog_types": [
+      "STRUCT_OPS"
+    ]
+  },
+  "bpf_tcp_sock_proto": {
+    "func_id": 96,
+    "func_name": "bpf_tcp_sock",
+    "prog_types": [
+      "CGROUP_SKB",
+      "CGROUP_SOCKOPT",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SOCK_OPS"
+    ]
+  },
+  "bpf_this_cpu_ptr_proto": {
+    "func_id": 154,
+    "func_name": "bpf_this_cpu_ptr",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_timer_cancel_proto": {
+    "func_id": 172,
+    "func_name": "bpf_timer_cancel",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_timer_init_proto": {
+    "func_id": 169,
+    "func_name": "bpf_timer_init",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_timer_set_callback_proto": {
+    "func_id": 170,
+    "func_name": "bpf_timer_set_callback",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_timer_start_proto": {
+    "func_id": 171,
+    "func_name": "bpf_timer_start",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_trace_printk_proto": {
+    "func_id": 6,
+    "func_name": "bpf_trace_printk",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_trace_vprintk_proto": {
+    "func_id": 177,
+    "func_name": "bpf_trace_vprintk",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_user_ringbuf_drain_proto": {
+    "func_id": 209,
+    "func_name": "bpf_user_ringbuf_drain",
+    "prog_types": [
+      "CGROUP_DEVICE",
+      "CGROUP_SKB",
+      "CGROUP_SOCK",
+      "CGROUP_SOCKOPT",
+      "CGROUP_SOCK_ADDR",
+      "CGROUP_SYSCTL",
+      "EXT",
+      "FLOW_DISSECTOR",
+      "KPROBE",
+      "LSM",
+      "LWT_IN",
+      "LWT_OUT",
+      "LWT_SEG6LOCAL",
+      "LWT_XMIT",
+      "NETFILTER",
+      "PERF_EVENT",
+      "RAW_TRACEPOINT",
+      "RAW_TRACEPOINT_WRITABLE",
+      "SCHED_ACT",
+      "SCHED_CLS",
+      "SK_LOOKUP",
+      "SK_MSG",
+      "SK_REUSEPORT",
+      "SK_SKB",
+      "SOCKET_FILTER",
+      "SOCK_OPS",
+      "STRUCT_OPS",
+      "SYSCALL",
+      "TRACEPOINT",
+      "TRACING",
+      "XDP"
+    ]
+  },
+  "bpf_xdp_adjust_head_proto": {
+    "func_id": 44,
+    "func_name": "bpf_xdp_adjust_head",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "bpf_xdp_adjust_meta_proto": {
+    "func_id": 54,
+    "func_name": "bpf_xdp_adjust_meta",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "bpf_xdp_adjust_tail_proto": {
+    "func_id": 65,
+    "func_name": "bpf_xdp_adjust_tail",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "bpf_xdp_check_mtu_proto": {
+    "func_id": 163,
+    "func_name": "bpf_check_mtu",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "bpf_xdp_event_output_proto": {
+    "func_id": 25,
+    "func_name": "bpf_perf_event_output",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "bpf_xdp_fib_lookup_proto": {
+    "func_id": 69,
+    "func_name": "bpf_fib_lookup",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "bpf_xdp_get_buff_len_proto": {
+    "func_id": 188,
+    "func_name": "bpf_xdp_get_buff_len",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "bpf_xdp_get_buff_len_trace_proto": {
+    "func_id": 188,
+    "func_name": "bpf_xdp_get_buff_len",
+    "prog_types": [
+      "LSM",
+      "SYSCALL"
+    ]
+  },
+  "bpf_xdp_load_bytes_proto": {
+    "func_id": 189,
+    "func_name": "bpf_xdp_load_bytes",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "bpf_xdp_output_proto": {
+    "func_id": 121,
+    "func_name": "bpf_xdp_output",
+    "prog_types": [
+      "LSM",
+      "SYSCALL",
+      "TRACING"
+    ]
+  },
+  "bpf_xdp_redirect_map_proto": {
+    "func_id": 51,
+    "func_name": "bpf_redirect_map",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "bpf_xdp_redirect_proto": {
+    "func_id": 23,
+    "func_name": "bpf_redirect",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "bpf_xdp_sk_lookup_tcp_proto": {
+    "func_id": 84,
+    "func_name": "bpf_sk_lookup_tcp",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "bpf_xdp_sk_lookup_udp_proto": {
+    "func_id": 85,
+    "func_name": "bpf_sk_lookup_udp",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "bpf_xdp_skc_lookup_tcp_proto": {
+    "func_id": 99,
+    "func_name": "bpf_skc_lookup_tcp",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "bpf_xdp_store_bytes_proto": {
+    "func_id": 190,
+    "func_name": "bpf_xdp_store_bytes",
+    "prog_types": [
+      "XDP"
+    ]
+  },
+  "sk_reuseport_load_bytes_proto": {
+    "func_id": 26,
+    "func_name": "bpf_skb_load_bytes",
+    "prog_types": [
+      "SK_REUSEPORT"
+    ]
+  },
+  "sk_reuseport_load_bytes_relative_proto": {
+    "func_id": 68,
+    "func_name": "bpf_skb_load_bytes_relative",
+    "prog_types": [
+      "SK_REUSEPORT"
+    ]
+  },
+  "sk_select_reuseport_proto": {
+    "func_id": 82,
+    "func_name": "bpf_sk_select_reuseport",
+    "prog_types": [
+      "SK_REUSEPORT"
+    ]
+  },
+  "sk_skb_adjust_room_proto": {
+    "func_id": 50,
+    "func_name": "bpf_skb_adjust_room",
+    "prog_types": [
+      "SK_SKB"
+    ]
+  },
+  "sk_skb_change_head_proto": {
+    "func_id": 43,
+    "func_name": "bpf_skb_change_head",
+    "prog_types": [
+      "SK_SKB"
+    ]
+  },
+  "sk_skb_change_tail_proto": {
+    "func_id": 38,
+    "func_name": "bpf_skb_change_tail",
+    "prog_types": [
+      "SK_SKB"
+    ]
+  },
+  "sk_skb_pull_data_proto": {
+    "func_id": 39,
+    "func_name": "bpf_skb_pull_data",
+    "prog_types": [
+      "SK_SKB"
+    ]
+  }
+}

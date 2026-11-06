@@ -1,0 +1,10081 @@
+{
+  "bpf_bind": [
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "attach_type": [
+        "BPF_CGROUP_INET4_CONNECT",
+        "BPF_CGROUP_INET6_CONNECT"
+      ]
+    }
+  ],
+  "bpf_bprm_opts_set": [
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    }
+  ],
+  "bpf_btf_find_by_name_kind": [
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_cgrp_storage_delete": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    }
+  ],
+  "bpf_cgrp_storage_get": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    }
+  ],
+  "bpf_check_mtu": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    }
+  ],
+  "bpf_clone_redirect": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    }
+  ],
+  "bpf_copy_from_user": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "sleepable": true
+    }
+  ],
+  "bpf_copy_from_user_task": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "sleepable": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "sleepable": true
+    }
+  ],
+  "bpf_csum_diff": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    }
+  ],
+  "bpf_csum_level": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    }
+  ],
+  "bpf_csum_update": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    }
+  ],
+  "bpf_current_task_under_cgroup": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_d_path": [
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    }
+  ],
+  "bpf_dynptr_data": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_dynptr_from_mem": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_dynptr_read": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_dynptr_write": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_fib_lookup": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    }
+  ],
+  "bpf_find_vma": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_for_each_map_elem": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_get_attach_cookie": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "since": {
+        "version": 5.19,
+        "commit": "2fcc82411e74e5e6aba336561cf56fb899bfae4e"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "since": {
+        "version": 5.19,
+        "commit": "2fcc82411e74e5e6aba336561cf56fb899bfae4e"
+      }
+    }
+  ],
+  "bpf_get_branch_snapshot": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_get_cgroup_classid": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "kconfig": [
+        "CONFIG_CGROUP_NET_CLASSID"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "kconfig": [
+        "CONFIG_CGROUP_NET_CLASSID"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "kconfig": [
+        "CONFIG_CGROUP_NET_CLASSID"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    }
+  ],
+  "bpf_get_current_ancestor_cgroup_id": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    }
+  ],
+  "bpf_get_current_cgroup_id": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "kconfig": [
+        "CONFIG_CGROUPS"
+      ],
+      "since": {
+        "version": 6.4,
+        "commit": "c501bf55c88b834adefda870c7c092ec9052a437"
+      }
+    }
+  ],
+  "bpf_get_current_comm": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_get_current_pid_tgid": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    }
+  ],
+  "bpf_get_current_task": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_get_current_task_btf": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_get_current_uid_gid": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_get_func_arg": [
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "prog_trampoline": true
+    }
+  ],
+  "bpf_get_func_arg_cnt": [
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "prog_trampoline": true
+    }
+  ],
+  "bpf_get_func_ip": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_get_func_ret": [
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "prog_trampoline": true
+    }
+  ],
+  "bpf_get_hash_recalc": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    }
+  ],
+  "bpf_get_listener_sock": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    }
+  ],
+  "bpf_get_local_storage": [
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    }
+  ],
+  "bpf_get_netns_cookie": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "since": {
+        "version": 6.15,
+        "commit": "c221d3744ad38a9655aba8235e1d783c6d4aed5a"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "since": {
+        "version": 6.13,
+        "commit": "eb62f49de7eca5917be8cebb3ad8aa3710af7021"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "since": {
+        "version": 6.13,
+        "commit": "eb62f49de7eca5917be8cebb3ad8aa3710af7021"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "since": {
+        "version": 6.15,
+        "commit": "c221d3744ad38a9655aba8235e1d783c6d4aed5a"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    }
+  ],
+  "bpf_get_ns_current_pid_tgid": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "since": {
+        "version": 6.1,
+        "commit": "eb166e522c77699fc19bfa705652327a1e51a117"
+      }
+    }
+  ],
+  "bpf_get_numa_node_id": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_get_prandom_u32": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_get_retval": [
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    }
+  ],
+  "bpf_get_route_realm": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    }
+  ],
+  "bpf_get_smp_processor_id": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_get_socket_cookie": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    }
+  ],
+  "bpf_get_socket_uid": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    }
+  ],
+  "bpf_get_stack": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    }
+  ],
+  "bpf_get_stackid": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    }
+  ],
+  "bpf_get_task_stack": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_getsockopt": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "since": {
+        "version": 5.8,
+        "commit": "beecf11bc2188067824591612151c4dc6ec383c7"
+      },
+      "attach_type": [
+        "BPF_CGROUP_INET4_BIND",
+        "BPF_CGROUP_INET6_BIND",
+        "BPF_CGROUP_INET4_CONNECT",
+        "BPF_CGROUP_INET6_CONNECT",
+        "BPF_CGROUP_UDP4_RECVMSG",
+        "BPF_CGROUP_UDP6_RECVMSG",
+        "BPF_CGROUP_UDP4_SENDMSG",
+        "BPF_CGROUP_UDP6_SENDMSG",
+        "BPF_CGROUP_INET4_GETPEERNAME",
+        "BPF_CGROUP_INET6_GETPEERNAME",
+        "BPF_CGROUP_INET4_GETSOCKNAME",
+        "BPF_CGROUP_INET6_GETSOCKNAME"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "kconfig": [
+        "CONFIG_NET"
+      ],
+      "attach_type": [
+        "BPF_CGROUP_SETSOCKOPT"
+      ],
+      "since": {
+        "version": 5.15,
+        "commit": "2c531639deb5e3ddfd6e8123b82052b2d9fbc6e5"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "attach_type": [
+        "BPF_LSM_CGROUP"
+      ],
+      "since": {
+        "version": 6.0,
+        "commit": "9113d7e48e9128522b9f5a54dfd30dff10509a92"
+      }
+    }
+  ],
+  "bpf_ima_file_hash": [
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "sleepable": true
+    }
+  ],
+  "bpf_ima_inode_hash": [
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "sleepable": true
+    }
+  ],
+  "bpf_inode_storage_delete": [
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    }
+  ],
+  "bpf_inode_storage_get": [
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    }
+  ],
+  "bpf_jiffies64": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    }
+  ],
+  "bpf_kallsyms_lookup_name": [
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_kptr_xchg": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_ktime_get_boot_ns": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_ktime_get_coarse_ns": [
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    }
+  ],
+  "bpf_ktime_get_ns": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_ktime_get_tai_ns": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_l3_csum_replace": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    }
+  ],
+  "bpf_l4_csum_replace": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    }
+  ],
+  "bpf_load_hdr_opt": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    }
+  ],
+  "bpf_loop": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_lwt_push_encap": [
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    }
+  ],
+  "bpf_lwt_seg6_action": [
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    }
+  ],
+  "bpf_lwt_seg6_adjust_srh": [
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    }
+  ],
+  "bpf_lwt_seg6_store_bytes": [
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    }
+  ],
+  "bpf_map_delete_elem": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_map_lookup_elem": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_map_lookup_percpu_elem": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_map_peek_elem": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_map_pop_elem": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_map_push_elem": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_map_update_elem": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_msg_apply_bytes": [
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    }
+  ],
+  "bpf_msg_cork_bytes": [
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    }
+  ],
+  "bpf_msg_pop_data": [
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    }
+  ],
+  "bpf_msg_pull_data": [
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    }
+  ],
+  "bpf_msg_push_data": [
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    }
+  ],
+  "bpf_msg_redirect_hash": [
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    }
+  ],
+  "bpf_msg_redirect_map": [
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    }
+  ],
+  "bpf_override_return": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE",
+      "kconfig": [
+        "CONFIG_BPF_KPROBE_OVERRIDE"
+      ]
+    }
+  ],
+  "bpf_per_cpu_ptr": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    }
+  ],
+  "bpf_perf_event_output": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    }
+  ],
+  "bpf_perf_event_read": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_perf_event_read_value": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_perf_prog_read_value": [
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    }
+  ],
+  "bpf_probe_read": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    }
+  ],
+  "bpf_probe_read_kernel": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    }
+  ],
+  "bpf_probe_read_kernel_str": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ],
+      "no_security_lockdown": true
+    }
+  ],
+  "bpf_probe_read_str": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "no_security_lockdown": true,
+      "kconfig": [
+        "CONFIG_ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE"
+      ]
+    }
+  ],
+  "bpf_probe_read_user": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_probe_read_user_str": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_probe_write_user": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "no_security_lockdown": true
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "no_security_lockdown": true
+    }
+  ],
+  "bpf_rc_keydown": [
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2"
+    }
+  ],
+  "bpf_rc_pointer_rel": [
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2"
+    }
+  ],
+  "bpf_rc_repeat": [
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2"
+    }
+  ],
+  "bpf_read_branch_records": [
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    }
+  ],
+  "bpf_redirect": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    }
+  ],
+  "bpf_redirect_map": [
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    }
+  ],
+  "bpf_redirect_neigh": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    }
+  ],
+  "bpf_redirect_peer": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    }
+  ],
+  "bpf_reserve_hdr_opt": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    }
+  ],
+  "bpf_ringbuf_discard": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_ringbuf_discard_dynptr": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_ringbuf_output": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_ringbuf_query": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_ringbuf_reserve": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_ringbuf_reserve_dynptr": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_ringbuf_submit": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_ringbuf_submit_dynptr": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_send_signal": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_send_signal_thread": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_seq_printf": [
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "attach_type": [
+        "BPF_TRACE_ITER"
+      ]
+    }
+  ],
+  "bpf_seq_printf_btf": [
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "attach_type": [
+        "BPF_TRACE_ITER"
+      ]
+    }
+  ],
+  "bpf_seq_write": [
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "attach_type": [
+        "BPF_TRACE_ITER"
+      ]
+    }
+  ],
+  "bpf_set_hash": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    }
+  ],
+  "bpf_set_hash_invalid": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    }
+  ],
+  "bpf_set_retval": [
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    }
+  ],
+  "bpf_setsockopt": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "since": {
+        "version": 5.8,
+        "commit": "beecf11bc2188067824591612151c4dc6ec383c7"
+      },
+      "attach_type": [
+        "BPF_CGROUP_INET4_BIND",
+        "BPF_CGROUP_INET6_BIND",
+        "BPF_CGROUP_INET4_CONNECT",
+        "BPF_CGROUP_INET6_CONNECT",
+        "BPF_CGROUP_UDP4_RECVMSG",
+        "BPF_CGROUP_UDP6_RECVMSG",
+        "BPF_CGROUP_UDP4_SENDMSG",
+        "BPF_CGROUP_UDP6_SENDMSG",
+        "BPF_CGROUP_INET4_GETPEERNAME",
+        "BPF_CGROUP_INET6_GETPEERNAME",
+        "BPF_CGROUP_INET4_GETSOCKNAME",
+        "BPF_CGROUP_INET6_GETSOCKNAME"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "kconfig": [
+        "CONFIG_NET"
+      ],
+      "attach_type": [
+        "BPF_CGROUP_SETSOCKOPT"
+      ],
+      "since": {
+        "version": 5.15,
+        "commit": "2c531639deb5e3ddfd6e8123b82052b2d9fbc6e5"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "attach_type": [
+        "BPF_LSM_CGROUP"
+      ],
+      "since": {
+        "version": 6.0,
+        "commit": "9113d7e48e9128522b9f5a54dfd30dff10509a92"
+      }
+    }
+  ],
+  "bpf_sk_ancestor_cgroup_id": [
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_SOCK_CGROUP_DATA"
+      ]
+    }
+  ],
+  "bpf_sk_assign": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    }
+  ],
+  "bpf_sk_cgroup_id": [
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_SOCK_CGROUP_DATA"
+      ]
+    }
+  ],
+  "bpf_sk_fullsock": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    }
+  ],
+  "bpf_sk_lookup_tcp": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    }
+  ],
+  "bpf_sk_lookup_udp": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    }
+  ],
+  "bpf_sk_redirect_hash": [
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    }
+  ],
+  "bpf_sk_redirect_map": [
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    }
+  ],
+  "bpf_sk_release": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    }
+  ],
+  "bpf_sk_select_reuseport": [
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    }
+  ],
+  "bpf_sk_storage_delete": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ],
+      "since": {
+        "version": 5.11,
+        "commit": "8e4597c627fb48f361e2a5b012202cb1b6cbcd5e"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    }
+  ],
+  "bpf_sk_storage_get": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ],
+      "since": {
+        "version": 5.11,
+        "commit": "8e4597c627fb48f361e2a5b012202cb1b6cbcd5e"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    }
+  ],
+  "bpf_skb_adjust_room": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    }
+  ],
+  "bpf_skb_ancestor_cgroup_id": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_SOCK_CGROUP_DATA"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_SOCK_CGROUP_DATA"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_SOCK_CGROUP_DATA"
+      ]
+    }
+  ],
+  "bpf_skb_cgroup_classid": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_CGROUP_NET_CLASSID"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_CGROUP_NET_CLASSID"
+      ]
+    }
+  ],
+  "bpf_skb_cgroup_id": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_SOCK_CGROUP_DATA"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_SOCK_CGROUP_DATA"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_SOCK_CGROUP_DATA"
+      ]
+    }
+  ],
+  "bpf_skb_change_head": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "since": {
+        "version": 5.8,
+        "commit": "6f3f65d80dac8f2bafce2213005821fccdce194c"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "since": {
+        "version": 5.8,
+        "commit": "6f3f65d80dac8f2bafce2213005821fccdce194c"
+      }
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    }
+  ],
+  "bpf_skb_change_proto": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    }
+  ],
+  "bpf_skb_change_tail": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    }
+  ],
+  "bpf_skb_change_type": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    }
+  ],
+  "bpf_skb_ecn_set_ce": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    }
+  ],
+  "bpf_skb_get_tunnel_key": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    }
+  ],
+  "bpf_skb_get_tunnel_opt": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    }
+  ],
+  "bpf_skb_get_xfrm_state": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_XFRM"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_XFRM"
+      ]
+    }
+  ],
+  "bpf_skb_load_bytes": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    }
+  ],
+  "bpf_skb_load_bytes_relative": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    }
+  ],
+  "bpf_skb_output": [
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    }
+  ],
+  "bpf_skb_pull_data": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    }
+  ],
+  "bpf_skb_set_tstamp": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    }
+  ],
+  "bpf_skb_set_tunnel_key": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    }
+  ],
+  "bpf_skb_set_tunnel_opt": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    }
+  ],
+  "bpf_skb_store_bytes": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    }
+  ],
+  "bpf_skb_under_cgroup": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    }
+  ],
+  "bpf_skb_vlan_pop": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    }
+  ],
+  "bpf_skb_vlan_push": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    }
+  ],
+  "bpf_skc_lookup_tcp": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    }
+  ],
+  "bpf_skc_to_mptcp_sock": [
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    }
+  ],
+  "bpf_skc_to_tcp6_sock": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_skc_to_tcp_request_sock": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_skc_to_tcp_sock": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_skc_to_tcp_timewait_sock": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_skc_to_udp6_sock": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_skc_to_unix_sock": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_snprintf": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_snprintf_btf": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_sock_from_file": [
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    }
+  ],
+  "bpf_sock_hash_update": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    }
+  ],
+  "bpf_sock_map_update": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    }
+  ],
+  "bpf_sock_ops_cb_flags_set": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    }
+  ],
+  "bpf_spin_lock": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    }
+  ],
+  "bpf_spin_unlock": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    }
+  ],
+  "bpf_store_hdr_opt": [
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    }
+  ],
+  "bpf_strncmp": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_strtol": [
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    }
+  ],
+  "bpf_strtoul": [
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    }
+  ],
+  "bpf_sys_bpf": [
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_sys_close": [
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_sysctl_get_current_value": [
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    }
+  ],
+  "bpf_sysctl_get_name": [
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    }
+  ],
+  "bpf_sysctl_get_new_value": [
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    }
+  ],
+  "bpf_sysctl_set_new_value": [
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    }
+  ],
+  "bpf_tail_call": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_task_pt_regs": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_task_storage_delete": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_task_storage_get": [
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    }
+  ],
+  "bpf_tcp_check_syncookie": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    }
+  ],
+  "bpf_tcp_gen_syncookie": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    }
+  ],
+  "bpf_tcp_raw_check_syncookie_ipv4": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_SYN_COOKIES"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_SYN_COOKIES"
+      ]
+    }
+  ],
+  "bpf_tcp_raw_check_syncookie_ipv6": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_SYN_COOKIES"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_SYN_COOKIES"
+      ]
+    }
+  ],
+  "bpf_tcp_raw_gen_syncookie_ipv4": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_SYN_COOKIES"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_SYN_COOKIES"
+      ]
+    }
+  ],
+  "bpf_tcp_raw_gen_syncookie_ipv6": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_SYN_COOKIES"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "kconfig": [
+        "CONFIG_SYN_COOKIES"
+      ]
+    }
+  ],
+  "bpf_tcp_send_ack": [
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    }
+  ],
+  "bpf_tcp_sock": [
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "kconfig": [
+        "CONFIG_INET"
+      ]
+    }
+  ],
+  "bpf_this_cpu_ptr": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    }
+  ],
+  "bpf_timer_cancel": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    }
+  ],
+  "bpf_timer_init": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    }
+  ],
+  "bpf_timer_set_callback": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    }
+  ],
+  "bpf_timer_start": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL",
+      "cap": [
+        "CAP_BPF"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF"
+      ]
+    }
+  ],
+  "bpf_trace_printk": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LIRC_MODE2",
+      "cap": [
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_trace_vprintk": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER",
+      "cap": [
+        "CAP_BPF",
+        "CAP_PERFMON"
+      ]
+    }
+  ],
+  "bpf_user_ringbuf_drain": [
+    {
+      "program": "BPF_PROG_TYPE_SOCKET_FILTER"
+    },
+    {
+      "program": "BPF_PROG_TYPE_KPROBE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_CLS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SCHED_ACT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_PERF_EVENT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_IN"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_OUT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_XMIT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SOCK_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_SKB"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_DEVICE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_MSG"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCK_ADDR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LWT_SEG6LOCAL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_REUSEPORT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_FLOW_DISSECTOR"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SYSCTL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE"
+    },
+    {
+      "program": "BPF_PROG_TYPE_CGROUP_SOCKOPT"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING"
+    },
+    {
+      "program": "BPF_PROG_TYPE_STRUCT_OPS"
+    },
+    {
+      "program": "BPF_PROG_TYPE_LSM"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SK_LOOKUP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_SYSCALL"
+    },
+    {
+      "program": "BPF_PROG_TYPE_NETFILTER"
+    }
+  ],
+  "bpf_xdp_adjust_head": [
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    }
+  ],
+  "bpf_xdp_adjust_meta": [
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    }
+  ],
+  "bpf_xdp_adjust_tail": [
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    }
+  ],
+  "bpf_xdp_get_buff_len": [
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    },
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    }
+  ],
+  "bpf_xdp_load_bytes": [
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    }
+  ],
+  "bpf_xdp_output": [
+    {
+      "program": "BPF_PROG_TYPE_TRACING",
+      "kconfig": [
+        "CONFIG_NET"
+      ]
+    }
+  ],
+  "bpf_xdp_store_bytes": [
+    {
+      "program": "BPF_PROG_TYPE_XDP"
+    }
+  ]
+}

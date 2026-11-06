@@ -1,0 +1,6050 @@
+{
+  "provenance": {
+    "kernel_release": "7.0.0-rc5-tnbpf-ga80a7db5750c",
+    "build_id": "5c4f9286adedbc7f1aa2636cda490f575a0791c1"
+  },
+  "prog_type_to_hook": {
+    "BPF_PROG_TYPE_UNSPEC": "BTF_KFUNC_HOOK_COMMON",
+    "BPF_PROG_TYPE_XDP": "BTF_KFUNC_HOOK_XDP",
+    "BPF_PROG_TYPE_SCHED_CLS": "BTF_KFUNC_HOOK_TC",
+    "BPF_PROG_TYPE_STRUCT_OPS": "BTF_KFUNC_HOOK_STRUCT_OPS",
+    "BPF_PROG_TYPE_TRACING": "BTF_KFUNC_HOOK_TRACING",
+    "BPF_PROG_TYPE_TRACEPOINT": "BTF_KFUNC_HOOK_TRACING",
+    "BPF_PROG_TYPE_RAW_TRACEPOINT": "BTF_KFUNC_HOOK_TRACING",
+    "BPF_PROG_TYPE_PERF_EVENT": "BTF_KFUNC_HOOK_TRACING",
+    "BPF_PROG_TYPE_LSM": "BTF_KFUNC_HOOK_TRACING",
+    "BPF_PROG_TYPE_SYSCALL": "BTF_KFUNC_HOOK_SYSCALL",
+    "BPF_PROG_TYPE_CGROUP_SKB": "BTF_KFUNC_HOOK_CGROUP",
+    "BPF_PROG_TYPE_CGROUP_SOCK": "BTF_KFUNC_HOOK_CGROUP",
+    "BPF_PROG_TYPE_CGROUP_DEVICE": "BTF_KFUNC_HOOK_CGROUP",
+    "BPF_PROG_TYPE_CGROUP_SOCK_ADDR": "BTF_KFUNC_HOOK_CGROUP",
+    "BPF_PROG_TYPE_CGROUP_SOCKOPT": "BTF_KFUNC_HOOK_CGROUP",
+    "BPF_PROG_TYPE_CGROUP_SYSCTL": "BTF_KFUNC_HOOK_CGROUP",
+    "BPF_PROG_TYPE_SOCK_OPS": "BTF_KFUNC_HOOK_CGROUP",
+    "BPF_PROG_TYPE_SCHED_ACT": "BTF_KFUNC_HOOK_SCHED_ACT",
+    "BPF_PROG_TYPE_SK_SKB": "BTF_KFUNC_HOOK_SK_SKB",
+    "BPF_PROG_TYPE_SOCKET_FILTER": "BTF_KFUNC_HOOK_SOCKET_FILTER",
+    "BPF_PROG_TYPE_LWT_OUT": "BTF_KFUNC_HOOK_LWT",
+    "BPF_PROG_TYPE_LWT_IN": "BTF_KFUNC_HOOK_LWT",
+    "BPF_PROG_TYPE_LWT_XMIT": "BTF_KFUNC_HOOK_LWT",
+    "BPF_PROG_TYPE_LWT_SEG6LOCAL": "BTF_KFUNC_HOOK_LWT",
+    "BPF_PROG_TYPE_NETFILTER": "BTF_KFUNC_HOOK_NETFILTER",
+    "BPF_PROG_TYPE_KPROBE": "BTF_KFUNC_HOOK_KPROBE"
+  },
+  "hook_filters": {
+    "BTF_KFUNC_HOOK_TRACING": [
+      "bpf_session_filter",
+      "tracing_iter_filter"
+    ],
+    "BTF_KFUNC_HOOK_KPROBE": [
+      "bpf_session_filter"
+    ]
+  },
+  "kfuncs": [
+    {
+      "name": "__bpf_trap",
+      "btf": "vmlinux",
+      "btf_id": 76735,
+      "signature": {
+        "ret": "void",
+        "params": []
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_cast_to_kern_ctx",
+      "btf": "vmlinux",
+      "btf_id": 89711,
+      "signature": {
+        "ret": "void *",
+        "params": [
+          {
+            "name": "obj",
+            "type": "void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_FASTCALL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_cgroup_acquire",
+      "btf": "vmlinux",
+      "btf_id": 89713,
+      "signature": {
+        "ret": "struct cgroup *",
+        "params": [
+          {
+            "name": "cgrp",
+            "type": "struct cgroup *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cgroup_ancestor",
+      "btf": "vmlinux",
+      "btf_id": 89714,
+      "signature": {
+        "ret": "struct cgroup *",
+        "params": [
+          {
+            "name": "cgrp",
+            "type": "struct cgroup *"
+          },
+          {
+            "name": "level",
+            "type": "int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cgroup_from_id",
+      "btf": "vmlinux",
+      "btf_id": 89717,
+      "signature": {
+        "ret": "struct cgroup *",
+        "params": [
+          {
+            "name": "cgid",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cgroup_release",
+      "btf": "vmlinux",
+      "btf_id": 89726,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "cgrp",
+            "type": "struct cgroup *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_copy_from_user_dynptr",
+      "btf": "vmlinux",
+      "btf_id": 89762,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "dptr",
+            "type": "struct bpf_dynptr *"
+          },
+          {
+            "name": "off",
+            "type": "u64"
+          },
+          {
+            "name": "size",
+            "type": "u64"
+          },
+          {
+            "name": "unsafe_ptr__ign",
+            "type": "const void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_copy_from_user_str",
+      "btf": "vmlinux",
+      "btf_id": 89763,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "dst",
+            "type": "void *"
+          },
+          {
+            "name": "dst__sz",
+            "type": "u32"
+          },
+          {
+            "name": "unsafe_ptr__ign",
+            "type": "const void *"
+          },
+          {
+            "name": "flags",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_copy_from_user_str_dynptr",
+      "btf": "vmlinux",
+      "btf_id": 89764,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "dptr",
+            "type": "struct bpf_dynptr *"
+          },
+          {
+            "name": "off",
+            "type": "u64"
+          },
+          {
+            "name": "size",
+            "type": "u64"
+          },
+          {
+            "name": "unsafe_ptr__ign",
+            "type": "const void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_copy_from_user_task_dynptr",
+      "btf": "vmlinux",
+      "btf_id": 89766,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "dptr",
+            "type": "struct bpf_dynptr *"
+          },
+          {
+            "name": "off",
+            "type": "u64"
+          },
+          {
+            "name": "size",
+            "type": "u64"
+          },
+          {
+            "name": "unsafe_ptr__ign",
+            "type": "const void *"
+          },
+          {
+            "name": "tsk",
+            "type": "struct task_struct *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_copy_from_user_task_str",
+      "btf": "vmlinux",
+      "btf_id": 89767,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "dst",
+            "type": "void *"
+          },
+          {
+            "name": "dst__sz",
+            "type": "u32"
+          },
+          {
+            "name": "unsafe_ptr__ign",
+            "type": "const void *"
+          },
+          {
+            "name": "tsk",
+            "type": "struct task_struct *"
+          },
+          {
+            "name": "flags",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_copy_from_user_task_str_dynptr",
+      "btf": "vmlinux",
+      "btf_id": 89768,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "dptr",
+            "type": "struct bpf_dynptr *"
+          },
+          {
+            "name": "off",
+            "type": "u64"
+          },
+          {
+            "name": "size",
+            "type": "u64"
+          },
+          {
+            "name": "unsafe_ptr__ign",
+            "type": "const void *"
+          },
+          {
+            "name": "tsk",
+            "type": "struct task_struct *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_acquire",
+      "btf": "vmlinux",
+      "btf_id": 89795,
+      "signature": {
+        "ret": "struct bpf_cpumask *",
+        "params": [
+          {
+            "name": "cpumask",
+            "type": "struct bpf_cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_and",
+      "btf": "vmlinux",
+      "btf_id": 89796,
+      "signature": {
+        "ret": "bool",
+        "params": [
+          {
+            "name": "dst",
+            "type": "struct bpf_cpumask *"
+          },
+          {
+            "name": "src1",
+            "type": "const struct cpumask *"
+          },
+          {
+            "name": "src2",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_any_and_distribute",
+      "btf": "vmlinux",
+      "btf_id": 89797,
+      "signature": {
+        "ret": "u32",
+        "params": [
+          {
+            "name": "src1",
+            "type": "const struct cpumask *"
+          },
+          {
+            "name": "src2",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_any_distribute",
+      "btf": "vmlinux",
+      "btf_id": 89798,
+      "signature": {
+        "ret": "u32",
+        "params": [
+          {
+            "name": "cpumask",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_clear",
+      "btf": "vmlinux",
+      "btf_id": 89799,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "cpumask",
+            "type": "struct bpf_cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_clear_cpu",
+      "btf": "vmlinux",
+      "btf_id": 89800,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "cpu",
+            "type": "u32"
+          },
+          {
+            "name": "cpumask",
+            "type": "struct bpf_cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_copy",
+      "btf": "vmlinux",
+      "btf_id": 89801,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "dst",
+            "type": "struct bpf_cpumask *"
+          },
+          {
+            "name": "src",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_create",
+      "btf": "vmlinux",
+      "btf_id": 89802,
+      "signature": {
+        "ret": "struct bpf_cpumask *",
+        "params": []
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_empty",
+      "btf": "vmlinux",
+      "btf_id": 89803,
+      "signature": {
+        "ret": "bool",
+        "params": [
+          {
+            "name": "cpumask",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_equal",
+      "btf": "vmlinux",
+      "btf_id": 89804,
+      "signature": {
+        "ret": "bool",
+        "params": [
+          {
+            "name": "src1",
+            "type": "const struct cpumask *"
+          },
+          {
+            "name": "src2",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_first",
+      "btf": "vmlinux",
+      "btf_id": 89805,
+      "signature": {
+        "ret": "u32",
+        "params": [
+          {
+            "name": "cpumask",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_first_and",
+      "btf": "vmlinux",
+      "btf_id": 89806,
+      "signature": {
+        "ret": "u32",
+        "params": [
+          {
+            "name": "src1",
+            "type": "const struct cpumask *"
+          },
+          {
+            "name": "src2",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_first_zero",
+      "btf": "vmlinux",
+      "btf_id": 89807,
+      "signature": {
+        "ret": "u32",
+        "params": [
+          {
+            "name": "cpumask",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_full",
+      "btf": "vmlinux",
+      "btf_id": 89808,
+      "signature": {
+        "ret": "bool",
+        "params": [
+          {
+            "name": "cpumask",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_intersects",
+      "btf": "vmlinux",
+      "btf_id": 89809,
+      "signature": {
+        "ret": "bool",
+        "params": [
+          {
+            "name": "src1",
+            "type": "const struct cpumask *"
+          },
+          {
+            "name": "src2",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_or",
+      "btf": "vmlinux",
+      "btf_id": 89810,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "dst",
+            "type": "struct bpf_cpumask *"
+          },
+          {
+            "name": "src1",
+            "type": "const struct cpumask *"
+          },
+          {
+            "name": "src2",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_populate",
+      "btf": "vmlinux",
+      "btf_id": 89811,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "cpumask",
+            "type": "struct cpumask *"
+          },
+          {
+            "name": "src",
+            "type": "void *"
+          },
+          {
+            "name": "src__sz",
+            "type": "size_t"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_release",
+      "btf": "vmlinux",
+      "btf_id": 89812,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "cpumask",
+            "type": "struct bpf_cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_set_cpu",
+      "btf": "vmlinux",
+      "btf_id": 89814,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "cpu",
+            "type": "u32"
+          },
+          {
+            "name": "cpumask",
+            "type": "struct bpf_cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_setall",
+      "btf": "vmlinux",
+      "btf_id": 89815,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "cpumask",
+            "type": "struct bpf_cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_subset",
+      "btf": "vmlinux",
+      "btf_id": 89816,
+      "signature": {
+        "ret": "bool",
+        "params": [
+          {
+            "name": "src1",
+            "type": "const struct cpumask *"
+          },
+          {
+            "name": "src2",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_test_and_clear_cpu",
+      "btf": "vmlinux",
+      "btf_id": 89817,
+      "signature": {
+        "ret": "bool",
+        "params": [
+          {
+            "name": "cpu",
+            "type": "u32"
+          },
+          {
+            "name": "cpumask",
+            "type": "struct bpf_cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_test_and_set_cpu",
+      "btf": "vmlinux",
+      "btf_id": 89818,
+      "signature": {
+        "ret": "bool",
+        "params": [
+          {
+            "name": "cpu",
+            "type": "u32"
+          },
+          {
+            "name": "cpumask",
+            "type": "struct bpf_cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_test_cpu",
+      "btf": "vmlinux",
+      "btf_id": 89819,
+      "signature": {
+        "ret": "bool",
+        "params": [
+          {
+            "name": "cpu",
+            "type": "u32"
+          },
+          {
+            "name": "cpumask",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_weight",
+      "btf": "vmlinux",
+      "btf_id": 89820,
+      "signature": {
+        "ret": "u32",
+        "params": [
+          {
+            "name": "cpumask",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_cpumask_xor",
+      "btf": "vmlinux",
+      "btf_id": 89821,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "dst",
+            "type": "struct bpf_cpumask *"
+          },
+          {
+            "name": "src1",
+            "type": "const struct cpumask *"
+          },
+          {
+            "name": "src2",
+            "type": "const struct cpumask *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_crypto_decrypt",
+      "btf": "vmlinux",
+      "btf_id": 89828,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "ctx",
+            "type": "struct bpf_crypto_ctx *"
+          },
+          {
+            "name": "src",
+            "type": "const struct bpf_dynptr *"
+          },
+          {
+            "name": "dst",
+            "type": "const struct bpf_dynptr *"
+          },
+          {
+            "name": "siv__nullable",
+            "type": "const struct bpf_dynptr *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SCHED_ACT": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_crypto_encrypt",
+      "btf": "vmlinux",
+      "btf_id": 89829,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "ctx",
+            "type": "struct bpf_crypto_ctx *"
+          },
+          {
+            "name": "src",
+            "type": "const struct bpf_dynptr *"
+          },
+          {
+            "name": "dst",
+            "type": "const struct bpf_dynptr *"
+          },
+          {
+            "name": "siv__nullable",
+            "type": "const struct bpf_dynptr *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SCHED_ACT": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_dynptr_adjust",
+      "btf": "vmlinux",
+      "btf_id": 89887,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "p",
+            "type": "const struct bpf_dynptr *"
+          },
+          {
+            "name": "start",
+            "type": "u64"
+          },
+          {
+            "name": "end",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_dynptr_clone",
+      "btf": "vmlinux",
+      "btf_id": 89889,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "p",
+            "type": "const struct bpf_dynptr *"
+          },
+          {
+            "name": "clone__uninit",
+            "type": "struct bpf_dynptr *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_dynptr_copy",
+      "btf": "vmlinux",
+      "btf_id": 89890,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "dst_ptr",
+            "type": "struct bpf_dynptr *"
+          },
+          {
+            "name": "dst_off",
+            "type": "u64"
+          },
+          {
+            "name": "src_ptr",
+            "type": "struct bpf_dynptr *"
+          },
+          {
+            "name": "src_off",
+            "type": "u64"
+          },
+          {
+            "name": "size",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_dynptr_file_discard",
+      "btf": "vmlinux",
+      "btf_id": 89892,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "dynptr",
+            "type": "struct bpf_dynptr *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_dynptr_from_file",
+      "btf": "vmlinux",
+      "btf_id": 89894,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "file",
+            "type": "struct file *"
+          },
+          {
+            "name": "flags",
+            "type": "u32"
+          },
+          {
+            "name": "ptr__uninit",
+            "type": "struct bpf_dynptr *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_dynptr_from_skb",
+      "btf": "vmlinux",
+      "btf_id": 89897,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s",
+            "type": "struct __sk_buff *"
+          },
+          {
+            "name": "flags",
+            "type": "u64"
+          },
+          {
+            "name": "ptr__uninit",
+            "type": "struct bpf_dynptr *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SCHED_ACT": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SK_SKB": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SOCKET_FILTER": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_LWT": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_NETFILTER": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_dynptr_from_skb_meta",
+      "btf": "vmlinux",
+      "btf_id": 89898,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "skb_",
+            "type": "struct __sk_buff *"
+          },
+          {
+            "name": "flags",
+            "type": "u64"
+          },
+          {
+            "name": "ptr__uninit",
+            "type": "struct bpf_dynptr *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SCHED_ACT": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_dynptr_from_xdp",
+      "btf": "vmlinux",
+      "btf_id": 89900,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "x",
+            "type": "struct xdp_md *"
+          },
+          {
+            "name": "flags",
+            "type": "u64"
+          },
+          {
+            "name": "ptr__uninit",
+            "type": "struct bpf_dynptr *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_dynptr_is_null",
+      "btf": "vmlinux",
+      "btf_id": 89902,
+      "signature": {
+        "ret": "bool",
+        "params": [
+          {
+            "name": "p",
+            "type": "const struct bpf_dynptr *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_dynptr_is_rdonly",
+      "btf": "vmlinux",
+      "btf_id": 89903,
+      "signature": {
+        "ret": "bool",
+        "params": [
+          {
+            "name": "p",
+            "type": "const struct bpf_dynptr *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_dynptr_memset",
+      "btf": "vmlinux",
+      "btf_id": 89905,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "p",
+            "type": "struct bpf_dynptr *"
+          },
+          {
+            "name": "offset",
+            "type": "u64"
+          },
+          {
+            "name": "size",
+            "type": "u64"
+          },
+          {
+            "name": "val",
+            "type": "u8"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_dynptr_size",
+      "btf": "vmlinux",
+      "btf_id": 89909,
+      "signature": {
+        "ret": "u64",
+        "params": [
+          {
+            "name": "p",
+            "type": "const struct bpf_dynptr *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_dynptr_slice",
+      "btf": "vmlinux",
+      "btf_id": 89910,
+      "signature": {
+        "ret": "void *",
+        "params": [
+          {
+            "name": "p",
+            "type": "const struct bpf_dynptr *"
+          },
+          {
+            "name": "offset",
+            "type": "u64"
+          },
+          {
+            "name": "buffer__nullable",
+            "type": "void *"
+          },
+          {
+            "name": "buffer__szk",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_dynptr_slice_rdwr",
+      "btf": "vmlinux",
+      "btf_id": 89911,
+      "signature": {
+        "ret": "void *",
+        "params": [
+          {
+            "name": "p",
+            "type": "const struct bpf_dynptr *"
+          },
+          {
+            "name": "offset",
+            "type": "u64"
+          },
+          {
+            "name": "buffer__nullable",
+            "type": "void *"
+          },
+          {
+            "name": "buffer__szk",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_fentry_test1",
+      "btf": "vmlinux",
+      "btf_id": 89935,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "a",
+            "type": "int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_FMODRET": {
+          "flags": [
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_get_kmem_cache",
+      "btf": "vmlinux",
+      "btf_id": 89994,
+      "signature": {
+        "ret": "struct kmem_cache *",
+        "params": [
+          {
+            "name": "addr",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_iter_bits_destroy",
+      "btf": "vmlinux",
+      "btf_id": 90102,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_bits *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_DESTROY"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_bits_new",
+      "btf": "vmlinux",
+      "btf_id": 90104,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_bits *"
+          },
+          {
+            "name": "unsafe_ptr__ign",
+            "type": "const u64 *"
+          },
+          {
+            "name": "nr_words",
+            "type": "u32"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEW"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_bits_next",
+      "btf": "vmlinux",
+      "btf_id": 90105,
+      "signature": {
+        "ret": "int *",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_bits *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEXT",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_css_destroy",
+      "btf": "vmlinux",
+      "btf_id": 90116,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_css *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_DESTROY"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_css_new",
+      "btf": "vmlinux",
+      "btf_id": 90118,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_css *"
+          },
+          {
+            "name": "start",
+            "type": "struct cgroup_subsys_state *"
+          },
+          {
+            "name": "flags",
+            "type": "unsigned int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEW",
+            "KF_RCU_PROTECTED"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_css_next",
+      "btf": "vmlinux",
+      "btf_id": 90119,
+      "signature": {
+        "ret": "struct cgroup_subsys_state *",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_css *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEXT",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_css_task_destroy",
+      "btf": "vmlinux",
+      "btf_id": 90121,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_css_task *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_DESTROY"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_css_task_new",
+      "btf": "vmlinux",
+      "btf_id": 90123,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_css_task *"
+          },
+          {
+            "name": "css",
+            "type": "struct cgroup_subsys_state *"
+          },
+          {
+            "name": "flags",
+            "type": "unsigned int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEW"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_iter_css_task_next",
+      "btf": "vmlinux",
+      "btf_id": 90124,
+      "signature": {
+        "ret": "struct task_struct *",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_css_task *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEXT",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_dmabuf_destroy",
+      "btf": "vmlinux",
+      "btf_id": 90129,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_dmabuf *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_DESTROY",
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_dmabuf_new",
+      "btf": "vmlinux",
+      "btf_id": 90131,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_dmabuf *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEW",
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_dmabuf_next",
+      "btf": "vmlinux",
+      "btf_id": 90132,
+      "signature": {
+        "ret": "struct dma_buf *",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_dmabuf *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEXT",
+            "KF_RET_NULL",
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_kmem_cache_destroy",
+      "btf": "vmlinux",
+      "btf_id": 90159,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_kmem_cache *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_DESTROY",
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_kmem_cache_new",
+      "btf": "vmlinux",
+      "btf_id": 90161,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_kmem_cache *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEW",
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_kmem_cache_next",
+      "btf": "vmlinux",
+      "btf_id": 90162,
+      "signature": {
+        "ret": "struct kmem_cache *",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_kmem_cache *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEXT",
+            "KF_RET_NULL",
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_num_destroy",
+      "btf": "vmlinux",
+      "btf_id": 90183,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_num *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_DESTROY"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_iter_num_new",
+      "btf": "vmlinux",
+      "btf_id": 90185,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_num *"
+          },
+          {
+            "name": "start",
+            "type": "int"
+          },
+          {
+            "name": "end",
+            "type": "int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEW"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_iter_num_next",
+      "btf": "vmlinux",
+      "btf_id": 90186,
+      "signature": {
+        "ret": "int *",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_num *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEXT",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_iter_task_destroy",
+      "btf": "vmlinux",
+      "btf_id": 90209,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_task *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_DESTROY"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_task_new",
+      "btf": "vmlinux",
+      "btf_id": 90212,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_task *"
+          },
+          {
+            "name": "task__nullable",
+            "type": "struct task_struct *"
+          },
+          {
+            "name": "flags",
+            "type": "unsigned int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEW",
+            "KF_RCU_PROTECTED"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_task_next",
+      "btf": "vmlinux",
+      "btf_id": 90213,
+      "signature": {
+        "ret": "struct task_struct *",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_task *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEXT",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_task_vma_destroy",
+      "btf": "vmlinux",
+      "btf_id": 90218,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_task_vma *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_DESTROY"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_task_vma_new",
+      "btf": "vmlinux",
+      "btf_id": 90221,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_task_vma *"
+          },
+          {
+            "name": "task",
+            "type": "struct task_struct *"
+          },
+          {
+            "name": "addr",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEW",
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_iter_task_vma_next",
+      "btf": "vmlinux",
+      "btf_id": 90222,
+      "signature": {
+        "ret": "struct vm_area_struct *",
+        "params": [
+          {
+            "name": "it",
+            "type": "struct bpf_iter_task_vma *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_ITER_NEXT",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_key_put",
+      "btf": "vmlinux",
+      "btf_id": 90295,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "bkey",
+            "type": "struct bpf_key *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_kfunc_call_memb_release",
+      "btf": "vmlinux",
+      "btf_id": 90490,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "p",
+            "type": "struct prog_test_member *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_kfunc_call_test_release",
+      "btf": "vmlinux",
+      "btf_id": 90492,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "p",
+            "type": "struct prog_test_ref_kfunc *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_list_back",
+      "btf": "vmlinux",
+      "btf_id": 90546,
+      "signature": {
+        "ret": "struct bpf_list_node *",
+        "params": [
+          {
+            "name": "head",
+            "type": "struct bpf_list_head *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_list_front",
+      "btf": "vmlinux",
+      "btf_id": 90547,
+      "signature": {
+        "ret": "struct bpf_list_node *",
+        "params": [
+          {
+            "name": "head",
+            "type": "struct bpf_list_head *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_list_pop_back",
+      "btf": "vmlinux",
+      "btf_id": 90552,
+      "signature": {
+        "ret": "struct bpf_list_node *",
+        "params": [
+          {
+            "name": "head",
+            "type": "struct bpf_list_head *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_list_pop_front",
+      "btf": "vmlinux",
+      "btf_id": 90553,
+      "signature": {
+        "ret": "struct bpf_list_node *",
+        "params": [
+          {
+            "name": "head",
+            "type": "struct bpf_list_head *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_list_push_back_impl",
+      "btf": "vmlinux",
+      "btf_id": 90554,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "head",
+            "type": "struct bpf_list_head *"
+          },
+          {
+            "name": "node",
+            "type": "struct bpf_list_node *"
+          },
+          {
+            "name": "meta__ign",
+            "type": "void *"
+          },
+          {
+            "name": "off",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_list_push_front_impl",
+      "btf": "vmlinux",
+      "btf_id": 90555,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "head",
+            "type": "struct bpf_list_head *"
+          },
+          {
+            "name": "node",
+            "type": "struct bpf_list_node *"
+          },
+          {
+            "name": "meta__ign",
+            "type": "void *"
+          },
+          {
+            "name": "off",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_local_irq_restore",
+      "btf": "vmlinux",
+      "btf_id": 90558,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "flags__irq_flag",
+            "type": "unsigned long *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_local_irq_save",
+      "btf": "vmlinux",
+      "btf_id": 90559,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "flags__irq_flag",
+            "type": "unsigned long *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_lookup_system_key",
+      "btf": "vmlinux",
+      "btf_id": 90578,
+      "signature": {
+        "ret": "struct bpf_key *",
+        "params": [
+          {
+            "name": "id",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_lookup_user_key",
+      "btf": "vmlinux",
+      "btf_id": 90579,
+      "signature": {
+        "ret": "struct bpf_key *",
+        "params": [
+          {
+            "name": "serial",
+            "type": "s32"
+          },
+          {
+            "name": "flags",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL",
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL",
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL",
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL",
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL",
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL",
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_map_sum_elem_count",
+      "btf": "vmlinux",
+      "btf_id": 90670,
+      "signature": {
+        "ret": "s64",
+        "params": [
+          {
+            "name": "map",
+            "type": "const struct bpf_map *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_modify_return_test",
+      "btf": "vmlinux",
+      "btf_id": 90707,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "a",
+            "type": "int"
+          },
+          {
+            "name": "b",
+            "type": "int *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_FMODRET": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_modify_return_test2",
+      "btf": "vmlinux",
+      "btf_id": 90708,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "a",
+            "type": "int"
+          },
+          {
+            "name": "b",
+            "type": "int *"
+          },
+          {
+            "name": "c",
+            "type": "short"
+          },
+          {
+            "name": "d",
+            "type": "int"
+          },
+          {
+            "name": "e",
+            "type": "void *"
+          },
+          {
+            "name": "f",
+            "type": "char"
+          },
+          {
+            "name": "g",
+            "type": "int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_FMODRET": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_modify_return_test_tp",
+      "btf": "vmlinux",
+      "btf_id": 90709,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "nonce",
+            "type": "int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_FMODRET": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_obj_drop_impl",
+      "btf": "vmlinux",
+      "btf_id": 90754,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "p__alloc",
+            "type": "void *"
+          },
+          {
+            "name": "meta__ign",
+            "type": "void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_obj_new_impl",
+      "btf": "vmlinux",
+      "btf_id": 90764,
+      "signature": {
+        "ret": "void *",
+        "params": [
+          {
+            "name": "local_type_id__k",
+            "type": "u64"
+          },
+          {
+            "name": "meta__ign",
+            "type": "void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_percpu_obj_drop_impl",
+      "btf": "vmlinux",
+      "btf_id": 90795,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "p__alloc",
+            "type": "void *"
+          },
+          {
+            "name": "meta__ign",
+            "type": "void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_percpu_obj_new_impl",
+      "btf": "vmlinux",
+      "btf_id": 90796,
+      "signature": {
+        "ret": "void *",
+        "params": [
+          {
+            "name": "local_type_id__k",
+            "type": "u64"
+          },
+          {
+            "name": "meta__ign",
+            "type": "void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_preempt_disable",
+      "btf": "vmlinux",
+      "btf_id": 90819,
+      "signature": {
+        "ret": "void",
+        "params": []
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_preempt_enable",
+      "btf": "vmlinux",
+      "btf_id": 90820,
+      "signature": {
+        "ret": "void",
+        "params": []
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_probe_read_kernel_dynptr",
+      "btf": "vmlinux",
+      "btf_id": 90827,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "dptr",
+            "type": "struct bpf_dynptr *"
+          },
+          {
+            "name": "off",
+            "type": "u64"
+          },
+          {
+            "name": "size",
+            "type": "u64"
+          },
+          {
+            "name": "unsafe_ptr__ign",
+            "type": "const void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_probe_read_kernel_str_dynptr",
+      "btf": "vmlinux",
+      "btf_id": 90829,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "dptr",
+            "type": "struct bpf_dynptr *"
+          },
+          {
+            "name": "off",
+            "type": "u64"
+          },
+          {
+            "name": "size",
+            "type": "u64"
+          },
+          {
+            "name": "unsafe_ptr__ign",
+            "type": "const void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_probe_read_user_dynptr",
+      "btf": "vmlinux",
+      "btf_id": 90831,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "dptr",
+            "type": "struct bpf_dynptr *"
+          },
+          {
+            "name": "off",
+            "type": "u64"
+          },
+          {
+            "name": "size",
+            "type": "u64"
+          },
+          {
+            "name": "unsafe_ptr__ign",
+            "type": "const void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_probe_read_user_str_dynptr",
+      "btf": "vmlinux",
+      "btf_id": 90833,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "dptr",
+            "type": "struct bpf_dynptr *"
+          },
+          {
+            "name": "off",
+            "type": "u64"
+          },
+          {
+            "name": "size",
+            "type": "u64"
+          },
+          {
+            "name": "unsafe_ptr__ign",
+            "type": "const void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_rbtree_add_impl",
+      "btf": "vmlinux",
+      "btf_id": 90983,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "root",
+            "type": "struct bpf_rb_root *"
+          },
+          {
+            "name": "node",
+            "type": "struct bpf_rb_node *"
+          },
+          {
+            "name": "less",
+            "type": "?"
+          },
+          {
+            "name": "meta__ign",
+            "type": "void *"
+          },
+          {
+            "name": "off",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_rbtree_first",
+      "btf": "vmlinux",
+      "btf_id": 90984,
+      "signature": {
+        "ret": "struct bpf_rb_node *",
+        "params": [
+          {
+            "name": "root",
+            "type": "struct bpf_rb_root *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_rbtree_left",
+      "btf": "vmlinux",
+      "btf_id": 90985,
+      "signature": {
+        "ret": "struct bpf_rb_node *",
+        "params": [
+          {
+            "name": "root",
+            "type": "struct bpf_rb_root *"
+          },
+          {
+            "name": "node",
+            "type": "struct bpf_rb_node *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_rbtree_remove",
+      "btf": "vmlinux",
+      "btf_id": 90986,
+      "signature": {
+        "ret": "struct bpf_rb_node *",
+        "params": [
+          {
+            "name": "root",
+            "type": "struct bpf_rb_root *"
+          },
+          {
+            "name": "node",
+            "type": "struct bpf_rb_node *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_rbtree_right",
+      "btf": "vmlinux",
+      "btf_id": 90987,
+      "signature": {
+        "ret": "struct bpf_rb_node *",
+        "params": [
+          {
+            "name": "root",
+            "type": "struct bpf_rb_root *"
+          },
+          {
+            "name": "node",
+            "type": "struct bpf_rb_node *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_rbtree_root",
+      "btf": "vmlinux",
+      "btf_id": 90988,
+      "signature": {
+        "ret": "struct bpf_rb_node *",
+        "params": [
+          {
+            "name": "root",
+            "type": "struct bpf_rb_root *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_rcu_read_lock",
+      "btf": "vmlinux",
+      "btf_id": 90989,
+      "signature": {
+        "ret": "void",
+        "params": []
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_rcu_read_unlock",
+      "btf": "vmlinux",
+      "btf_id": 90990,
+      "signature": {
+        "ret": "void",
+        "params": []
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_rdonly_cast",
+      "btf": "vmlinux",
+      "btf_id": 90991,
+      "signature": {
+        "ret": "void *",
+        "params": [
+          {
+            "name": "obj__ign",
+            "type": "const void *"
+          },
+          {
+            "name": "btf_id__k",
+            "type": "u32"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_FASTCALL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_refcount_acquire_impl",
+      "btf": "vmlinux",
+      "btf_id": 90999,
+      "signature": {
+        "ret": "void *",
+        "params": [
+          {
+            "name": "p__refcounted_kptr",
+            "type": "void *"
+          },
+          {
+            "name": "meta__ign",
+            "type": "void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_res_spin_lock",
+      "btf": "vmlinux",
+      "btf_id": 91006,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "lock",
+            "type": "struct bpf_res_spin_lock *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_res_spin_lock_irqsave",
+      "btf": "vmlinux",
+      "btf_id": 91007,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "lock",
+            "type": "struct bpf_res_spin_lock *"
+          },
+          {
+            "name": "flags__irq_flag",
+            "type": "unsigned long *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_res_spin_unlock",
+      "btf": "vmlinux",
+      "btf_id": 91008,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "lock",
+            "type": "struct bpf_res_spin_lock *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_res_spin_unlock_irqrestore",
+      "btf": "vmlinux",
+      "btf_id": 91009,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "lock",
+            "type": "struct bpf_res_spin_lock *"
+          },
+          {
+            "name": "flags__irq_flag",
+            "type": "unsigned long *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_send_signal_task",
+      "btf": "vmlinux",
+      "btf_id": 91048,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "task",
+            "type": "struct task_struct *"
+          },
+          {
+            "name": "sig",
+            "type": "int"
+          },
+          {
+            "name": "type",
+            "type": "pid_type"
+          },
+          {
+            "name": "value",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_session_cookie",
+      "btf": "vmlinux",
+      "btf_id": 91054,
+      "signature": {
+        "ret": "__u64 *",
+        "params": [
+          {
+            "name": "ctx",
+            "type": "void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [],
+          "filters": [
+            "bpf_session_filter"
+          ]
+        },
+        "BTF_KFUNC_HOOK_KPROBE": {
+          "flags": [],
+          "filters": [
+            "bpf_session_filter"
+          ]
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_session_is_return",
+      "btf": "vmlinux",
+      "btf_id": 91056,
+      "signature": {
+        "ret": "bool",
+        "params": [
+          {
+            "name": "ctx",
+            "type": "void *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [],
+          "filters": [
+            "bpf_session_filter"
+          ]
+        },
+        "BTF_KFUNC_HOOK_KPROBE": {
+          "flags": [],
+          "filters": [
+            "bpf_session_filter"
+          ]
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_sk_assign_tcp_reqsk",
+      "btf": "vmlinux",
+      "btf_id": 91067,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s",
+            "type": "struct __sk_buff *"
+          },
+          {
+            "name": "sk",
+            "type": "struct sock *"
+          },
+          {
+            "name": "attrs",
+            "type": "struct bpf_tcp_req_attrs *"
+          },
+          {
+            "name": "attrs__sz",
+            "type": "int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_sock_destroy",
+      "btf": "vmlinux",
+      "btf_id": 91166,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "sock",
+            "type": "struct sock_common *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [],
+          "filters": [
+            "tracing_iter_filter"
+          ]
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_sock_ops_enable_tx_tstamp",
+      "btf": "vmlinux",
+      "btf_id": 91173,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "skops",
+            "type": "struct bpf_sock_ops_kern *"
+          },
+          {
+            "name": "flags",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strcasecmp",
+      "btf": "vmlinux",
+      "btf_id": 91205,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s1__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "s2__ign",
+            "type": "const char *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strcasestr",
+      "btf": "vmlinux",
+      "btf_id": 91206,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s1__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "s2__ign",
+            "type": "const char *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strchr",
+      "btf": "vmlinux",
+      "btf_id": 91207,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "c",
+            "type": "char"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strchrnul",
+      "btf": "vmlinux",
+      "btf_id": 91208,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "c",
+            "type": "char"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strcmp",
+      "btf": "vmlinux",
+      "btf_id": 91209,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s1__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "s2__ign",
+            "type": "const char *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strcspn",
+      "btf": "vmlinux",
+      "btf_id": 91210,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "reject__ign",
+            "type": "const char *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_stream_print_stack",
+      "btf": "vmlinux",
+      "btf_id": 91214,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "stream_id",
+            "type": "int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_IMPLICIT_ARGS"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_stream_vprintk",
+      "btf": "vmlinux",
+      "btf_id": 91222,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "stream_id",
+            "type": "int"
+          },
+          {
+            "name": "fmt__str",
+            "type": "const char *"
+          },
+          {
+            "name": "args",
+            "type": "const void *"
+          },
+          {
+            "name": "len__sz",
+            "type": "u32"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_IMPLICIT_ARGS"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_strlen",
+      "btf": "vmlinux",
+      "btf_id": 91224,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s__ign",
+            "type": "const char *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strncasecmp",
+      "btf": "vmlinux",
+      "btf_id": 91225,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s1__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "s2__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "len",
+            "type": "size_t"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strncasestr",
+      "btf": "vmlinux",
+      "btf_id": 91226,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s1__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "s2__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "len",
+            "type": "size_t"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strnchr",
+      "btf": "vmlinux",
+      "btf_id": 91227,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "count",
+            "type": "size_t"
+          },
+          {
+            "name": "c",
+            "type": "char"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strnlen",
+      "btf": "vmlinux",
+      "btf_id": 91229,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "count",
+            "type": "size_t"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strnstr",
+      "btf": "vmlinux",
+      "btf_id": 91230,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s1__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "s2__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "len",
+            "type": "size_t"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strrchr",
+      "btf": "vmlinux",
+      "btf_id": 91231,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "c",
+            "type": "int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strspn",
+      "btf": "vmlinux",
+      "btf_id": 91232,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "accept__ign",
+            "type": "const char *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_strstr",
+      "btf": "vmlinux",
+      "btf_id": 91233,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "s1__ign",
+            "type": "const char *"
+          },
+          {
+            "name": "s2__ign",
+            "type": "const char *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_task_acquire",
+      "btf": "vmlinux",
+      "btf_id": 91294,
+      "signature": {
+        "ret": "struct task_struct *",
+        "params": [
+          {
+            "name": "p",
+            "type": "struct task_struct *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_task_from_pid",
+      "btf": "vmlinux",
+      "btf_id": 91298,
+      "signature": {
+        "ret": "struct task_struct *",
+        "params": [
+          {
+            "name": "pid",
+            "type": "s32"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_task_from_vpid",
+      "btf": "vmlinux",
+      "btf_id": 91299,
+      "signature": {
+        "ret": "struct task_struct *",
+        "params": [
+          {
+            "name": "vpid",
+            "type": "s32"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_task_get_cgroup1",
+      "btf": "vmlinux",
+      "btf_id": 91300,
+      "signature": {
+        "ret": "struct cgroup *",
+        "params": [
+          {
+            "name": "task",
+            "type": "struct task_struct *"
+          },
+          {
+            "name": "hierarchy_id",
+            "type": "int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_ACQUIRE",
+            "KF_RCU",
+            "KF_RET_NULL"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_task_release",
+      "btf": "vmlinux",
+      "btf_id": 91302,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "p",
+            "type": "struct task_struct *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RELEASE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_task_under_cgroup",
+      "btf": "vmlinux",
+      "btf_id": 91307,
+      "signature": {
+        "ret": "long",
+        "params": [
+          {
+            "name": "task",
+            "type": "struct task_struct *"
+          },
+          {
+            "name": "ancestor",
+            "type": "struct cgroup *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_RCU"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_task_work_schedule_resume",
+      "btf": "vmlinux",
+      "btf_id": 91319,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "task",
+            "type": "struct task_struct *"
+          },
+          {
+            "name": "tw",
+            "type": "struct bpf_task_work *"
+          },
+          {
+            "name": "map__map",
+            "type": "void *"
+          },
+          {
+            "name": "callback",
+            "type": "?"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_IMPLICIT_ARGS"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_task_work_schedule_signal",
+      "btf": "vmlinux",
+      "btf_id": 91321,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "task",
+            "type": "struct task_struct *"
+          },
+          {
+            "name": "tw",
+            "type": "struct bpf_task_work *"
+          },
+          {
+            "name": "map__map",
+            "type": "void *"
+          },
+          {
+            "name": "callback",
+            "type": "?"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_IMPLICIT_ARGS"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_throw",
+      "btf": "vmlinux",
+      "btf_id": 91367,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "cookie",
+            "type": "u64"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_timer_cancel_async",
+      "btf": "vmlinux",
+      "btf_id": 91373,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "timer",
+            "type": "struct bpf_timer *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_verify_pkcs7_signature",
+      "btf": "vmlinux",
+      "btf_id": 91471,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "data_p",
+            "type": "struct bpf_dynptr *"
+          },
+          {
+            "name": "sig_p",
+            "type": "struct bpf_dynptr *"
+          },
+          {
+            "name": "trusted_keyring",
+            "type": "struct bpf_key *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_SLEEPABLE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_wq_init",
+      "btf": "vmlinux",
+      "btf_id": 91480,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "wq",
+            "type": "struct bpf_wq *"
+          },
+          {
+            "name": "p__map",
+            "type": "void *"
+          },
+          {
+            "name": "flags",
+            "type": "unsigned int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_wq_set_callback",
+      "btf": "vmlinux",
+      "btf_id": 91481,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "wq",
+            "type": "struct bpf_wq *"
+          },
+          {
+            "name": "callback_fn",
+            "type": "?"
+          },
+          {
+            "name": "flags",
+            "type": "unsigned int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [
+            "KF_IMPLICIT_ARGS"
+          ],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "bpf_wq_start",
+      "btf": "vmlinux",
+      "btf_id": 91483,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "wq",
+            "type": "struct bpf_wq *"
+          },
+          {
+            "name": "flags",
+            "type": "unsigned int"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_COMMON": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "bpf_xdp_pull_data",
+      "btf": "vmlinux",
+      "btf_id": 91512,
+      "signature": {
+        "ret": "int",
+        "params": [
+          {
+            "name": "x",
+            "type": "struct xdp_md *"
+          },
+          {
+            "name": "len",
+            "type": "u32"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": true
+    },
+    {
+      "name": "crash_kexec",
+      "btf": "vmlinux",
+      "btf_id": 98272,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "regs",
+            "type": "struct pt_regs *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_XDP": {
+          "flags": [
+            "KF_DESTRUCTIVE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TC": {
+          "flags": [
+            "KF_DESTRUCTIVE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_CGROUP": {
+          "flags": [
+            "KF_DESTRUCTIVE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_TRACING": {
+          "flags": [
+            "KF_DESTRUCTIVE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_SYSCALL": {
+          "flags": [
+            "KF_DESTRUCTIVE"
+          ],
+          "filters": []
+        },
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [
+            "KF_DESTRUCTIVE"
+          ],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "cubictcp_acked",
+      "btf": "vmlinux",
+      "btf_id": 99062,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "sk",
+            "type": "struct sock *"
+          },
+          {
+            "name": "sample",
+            "type": "const struct ack_sample *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "cubictcp_cong_avoid",
+      "btf": "vmlinux",
+      "btf_id": 99063,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "sk",
+            "type": "struct sock *"
+          },
+          {
+            "name": "ack",
+            "type": "u32"
+          },
+          {
+            "name": "acked",
+            "type": "u32"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "cubictcp_cwnd_event",
+      "btf": "vmlinux",
+      "btf_id": 99064,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "sk",
+            "type": "struct sock *"
+          },
+          {
+            "name": "event",
+            "type": "tcp_ca_event"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "cubictcp_init",
+      "btf": "vmlinux",
+      "btf_id": 99065,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "sk",
+            "type": "struct sock *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "cubictcp_recalc_ssthresh",
+      "btf": "vmlinux",
+      "btf_id": 99066,
+      "signature": {
+        "ret": "u32",
+        "params": [
+          {
+            "name": "sk",
+            "type": "struct sock *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "cubictcp_state",
+      "btf": "vmlinux",
+      "btf_id": 99068,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "sk",
+            "type": "struct sock *"
+          },
+          {
+            "name": "new_state",
+            "type": "u8"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "tcp_cong_avoid_ai",
+      "btf": "vmlinux",
+      "btf_id": 156604,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "tp",
+            "type": "struct tcp_sock *"
+          },
+          {
+            "name": "w",
+            "type": "u32"
+          },
+          {
+            "name": "acked",
+            "type": "u32"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "tcp_reno_cong_avoid",
+      "btf": "vmlinux",
+      "btf_id": 156790,
+      "signature": {
+        "ret": "void",
+        "params": [
+          {
+            "name": "sk",
+            "type": "struct sock *"
+          },
+          {
+            "name": "ack",
+            "type": "u32"
+          },
+          {
+            "name": "acked",
+            "type": "u32"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "tcp_reno_ssthresh",
+      "btf": "vmlinux",
+      "btf_id": 156791,
+      "signature": {
+        "ret": "u32",
+        "params": [
+          {
+            "name": "sk",
+            "type": "struct sock *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "tcp_reno_undo_cwnd",
+      "btf": "vmlinux",
+      "btf_id": 156792,
+      "signature": {
+        "ret": "u32",
+        "params": [
+          {
+            "name": "sk",
+            "type": "struct sock *"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    },
+    {
+      "name": "tcp_slow_start",
+      "btf": "vmlinux",
+      "btf_id": 156863,
+      "signature": {
+        "ret": "u32",
+        "params": [
+          {
+            "name": "tp",
+            "type": "struct tcp_sock *"
+          },
+          {
+            "name": "acked",
+            "type": "u32"
+          }
+        ]
+      },
+      "hooks": {
+        "BTF_KFUNC_HOOK_STRUCT_OPS": {
+          "flags": [],
+          "filters": []
+        }
+      },
+      "special": false
+    }
+  ]
+}

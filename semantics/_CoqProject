@@ -1,0 +1,18 @@
+-R linux-ebpf-semantics/theories bpf.semantics
+-Q . TrustNoBPF.Semantics
+
+AbstractDomain.v
+Concretization.v
+Transfer.v
+CompCertAssms.v
+KernelAssms.v
+IRLevelAssms.v
+Common.v
+MemoryLoad.v
+MemoryStoreImm.v
+MemoryStoreReg.v
+ArithmeticHelpers.v
+Arithmetic.v
+ControlFlow.v
+Calls.v
+GlobalSoundness.v

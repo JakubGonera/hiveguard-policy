@@ -1,0 +1,3 @@
+# contexts
+
+eBPF allows the programs to use some additional information via the context pointer. The layout of the structure behind it depends on the program type as well as aspects such as attach type. This information is dipersed between the C structs and individual functions admitting accesses to particular fields. `ctx_layouts.json` is a handwritten file storing this information in a standarized fashion. `validate.py` is a script that experimentally tests whether the description in `ctx_layouts.json` matches the observable behaviour of eBPF programs on the local host.

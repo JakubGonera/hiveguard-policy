@@ -1,0 +1,30 @@
+{
+  "helpers": {
+    "BPF_FUNC_clone_redirect": 13,
+    "BPF_FUNC_l3_csum_replace": 10,
+    "BPF_FUNC_l4_csum_replace": 11,
+    "BPF_FUNC_lwt_push_encap": 73,
+    "BPF_FUNC_lwt_seg6_action": 76,
+    "BPF_FUNC_lwt_seg6_adjust_srh": 75,
+    "BPF_FUNC_lwt_seg6_store_bytes": 74,
+    "BPF_FUNC_msg_pop_data": 91,
+    "BPF_FUNC_msg_pull_data": 63,
+    "BPF_FUNC_msg_push_data": 90,
+    "BPF_FUNC_skb_adjust_room": 50,
+    "BPF_FUNC_skb_change_head": 43,
+    "BPF_FUNC_skb_change_proto": 31,
+    "BPF_FUNC_skb_change_tail": 38,
+    "BPF_FUNC_skb_pull_data": 39,
+    "BPF_FUNC_skb_store_bytes": 9,
+    "BPF_FUNC_skb_vlan_pop": 19,
+    "BPF_FUNC_skb_vlan_push": 18,
+    "BPF_FUNC_store_hdr_opt": 143,
+    "BPF_FUNC_tail_call": 12,
+    "BPF_FUNC_xdp_adjust_head": 44,
+    "BPF_FUNC_xdp_adjust_meta": 54,
+    "BPF_FUNC_xdp_adjust_tail": 65
+  },
+  "kfuncs": [
+    "bpf_xdp_pull_data"
+  ]
+}
